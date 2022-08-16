@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'fa_IR',
 
     /*
     |--------------------------------------------------------------------------
@@ -194,7 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        Ybazli\Faker\FakerServiceProvider::class,
     ],
 
     /*
@@ -210,6 +210,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Faker' => Ybazli\Faker\Facades\Faker::class,
     ])->toArray(),
 
 ];
