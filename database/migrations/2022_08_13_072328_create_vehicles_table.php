@@ -31,9 +31,9 @@ return new class extends Migration
             $table->tinyInteger('type')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->string('inspection_number',50)->nullable();
-            $table->date('inspection_expire')->nullable();
+            $table->timestamp('inspection_expire')->nullable();
             $table->string('insurance_number',50)->nullable();
-            $table->date('insurance_expire')->nullable();
+            $table->timestamp('insurance_expire')->nullable();
             $table->string('color')->nullable();
             $table->bigInteger('brand_code')->nullable();
             $table->string('brand_title',50)->nullable();
@@ -55,7 +55,7 @@ return new class extends Migration
             $table->tinyInteger('violation')->default(0)->unsigned();
             $table->text('description')->nullable();
             $table->string('engine_number',50)->nullable();
-            $table->date('document_date')->nullable();
+            $table->timestamp('document_date')->nullable();
             $table->tinyInteger('owner_status')->default(0)->unsigned();
             $table->timestamps();
         });
