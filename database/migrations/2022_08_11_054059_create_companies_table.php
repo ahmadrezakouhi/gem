@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('panel_code')->unique()->unsigned();
             $table->string('name',100)->nullable();
             $table->string('company_code',20)->nullable();
-            $table->string('tel',50)->nullable();
+            $table->string('phone',50)->nullable();
             $table->string('fax',50)->nullable();
             $table->string('mobile',20)->nullable();
             $table->string('manager_name',100)->nullable();
