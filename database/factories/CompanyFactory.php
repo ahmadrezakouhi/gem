@@ -20,7 +20,7 @@ class CompanyFactory extends Factory
             'panel_code'=>fake()->numerify('#######'),
             'name'=>fake()->company(),
             'company_code'=>fake()->numerify('#######'),
-            'tel'=>fake()->phoneNumber(),
+            'phone'=>fake()->phoneNumber(),
             'fax'=>fake()->phoneNumber(),
             'mobile'=>Faker::mobile(),
             'manager_name'=>Faker::firstName(),
