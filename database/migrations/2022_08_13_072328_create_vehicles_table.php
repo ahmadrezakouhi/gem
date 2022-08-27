@@ -22,6 +22,8 @@ return new class extends Migration
             $table->tinyInteger('number_plate_type')->nullable();
             $table->bigInteger('numbering_location_code')->nullable();
             $table->string('numbering_location')->nullable();
+            $table->string('smart_number',10)->nullable();
+            $table->timestamp('smart_number_expire')->nullable();
             $table->string('VIN',50)->nullable();
             $table->tinyInteger('allowed_driver_licence')->nullable();
             $table->string('vehicle_type',50)->nullable();
