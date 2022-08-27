@@ -36,13 +36,18 @@ class DriverController extends Controller
         return  Driver::paginate();
     }
 
-    /**
+   /**
      * @OA\Post(
      *   path="/api/drivers",
      *   tags={"drivers"},
      *   summary="create driver",
      *       description="create driver",
-     *   @OA\Parameter(
+     *
+     *
+     *
+     *
+     *
+     * @OA\Parameter(
      *      name="name",
      *      in="query",
      *      required=false,
@@ -419,8 +424,8 @@ class DriverController extends Controller
      *
      *
      *   @OA\Response(
-     *      response=201,
-     *       description="success (created)",
+     *      response=202,
+     *       description="Success accept",
      *      @OA\MediaType(
      *           mediaType="application/json",
      *      )
@@ -883,7 +888,10 @@ class DriverController extends Controller
      **/
     public function update(Request $request, Driver $driver)
     {
-        $driver->update($request->all());
+        $driver_panel_code = $driver->panel_code;
+        $inputs = $request->all();
+        $inputs['panel_code']=$driver_panel_code;
+        $driver->update($inputs);
         return response()->json($driver,Response::HTTP_ACCEPTED);
     }
 
