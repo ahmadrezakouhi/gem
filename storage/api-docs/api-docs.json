@@ -1200,6 +1200,393 @@
                     }
                 }
             }
+        },
+        "/api/vehicles": {
+            "get": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "get all vehicles",
+                "description": "get all vehicles",
+                "operationId": "043b3ce51f006f946511103cfe1c2ca1",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "create vehicle",
+                "description": "create vehicle",
+                "operationId": "74e9ae3e5f1ee2f69f3a177820d204b9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "number_plate": {
+                                        "type": "string"
+                                    },
+                                    "number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "number_plate_type": {
+                                        "type": "integer"
+                                    },
+                                    "numbering_location_code": {
+                                        "type": "integer"
+                                    },
+                                    "numbering_location": {
+                                        "type": "string"
+                                    },
+                                    "VIN": {
+                                        "type": "string"
+                                    },
+                                    "allowed_driver_licence": {
+                                        "type": "integer"
+                                    },
+                                    "vehicle_type": {
+                                        "type": "string"
+                                    },
+                                    "owner_mobile": {
+                                        "type": "string"
+                                    },
+                                    "production": {
+                                        "type": "integer"
+                                    },
+                                    "loading_type": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "integer"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "inspection_number": {
+                                        "type": "string"
+                                    },
+                                    "inspection_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "insurance_number": {
+                                        "type": "string"
+                                    },
+                                    "insurance_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "brand_code": {
+                                        "type": "integer"
+                                    },
+                                    "brand_title": {
+                                        "type": "string"
+                                    },
+                                    "number_of_allowed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "day_of_allowed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_allowed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "day_of_allowed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_unconfirmed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_unconfirmed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "capacity": {
+                                        "type": "integer"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "loading_length": {
+                                        "type": "integer"
+                                    },
+                                    "loading_width": {
+                                        "type": "integer"
+                                    },
+                                    "has_roll": {
+                                        "type": "integer"
+                                    },
+                                    "chassis_number": {
+                                        "type": "string"
+                                    },
+                                    "document_number": {
+                                        "type": "string"
+                                    },
+                                    "violation": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "engine_number": {
+                                        "type": "string"
+                                    },
+                                    "document_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "owner_status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/vehicles/{vehicle}": {
+            "get": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "get vehicle by id",
+                "description": "get vehicle by id",
+                "operationId": "2d7291bedeeb73a49905966effb2dee4",
+                "parameters": [
+                    {
+                        "name": "vehicle",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "delete vehicle by id",
+                "description": "delete vehicles by id",
+                "operationId": "495952c6402028fab9f82c080af676ad",
+                "parameters": [
+                    {
+                        "name": "vehicle",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "update vehicle",
+                "description": "update vehicle",
+                "operationId": "9c7aafc4210556edec2446bd5951c1fd",
+                "parameters": [
+                    {
+                        "name": "vehicle",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "number_plate": {
+                                        "type": "string"
+                                    },
+                                    "number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "number_plate_type": {
+                                        "type": "integer"
+                                    },
+                                    "numbering_location_code": {
+                                        "type": "integer"
+                                    },
+                                    "numbering_location": {
+                                        "type": "string"
+                                    },
+                                    "VIN": {
+                                        "type": "string"
+                                    },
+                                    "allowed_driver_licence": {
+                                        "type": "integer"
+                                    },
+                                    "vehicle_type": {
+                                        "type": "string"
+                                    },
+                                    "owner_mobile": {
+                                        "type": "string"
+                                    },
+                                    "production": {
+                                        "type": "integer"
+                                    },
+                                    "loading_type": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "integer"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "inspection_number": {
+                                        "type": "string"
+                                    },
+                                    "inspection_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "insurance_number": {
+                                        "type": "string"
+                                    },
+                                    "insurance_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "brand_code": {
+                                        "type": "integer"
+                                    },
+                                    "brand_title": {
+                                        "type": "string"
+                                    },
+                                    "number_of_allowed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "day_of_allowed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_allowed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "day_of_allowed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_unconfirmed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_unconfirmed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "capacity": {
+                                        "type": "integer"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "loading_length": {
+                                        "type": "integer"
+                                    },
+                                    "loading_width": {
+                                        "type": "integer"
+                                    },
+                                    "has_roll": {
+                                        "type": "integer"
+                                    },
+                                    "chassis_number": {
+                                        "type": "string"
+                                    },
+                                    "document_number": {
+                                        "type": "string"
+                                    },
+                                    "violation": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "engine_number": {
+                                        "type": "string"
+                                    },
+                                    "document_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "owner_status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
         }
     }
 }
