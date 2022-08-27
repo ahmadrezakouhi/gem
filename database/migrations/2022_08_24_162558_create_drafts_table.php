@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('panel_code');
             $table->foreign('panel_code')->references('panel_code')->on('companies');
             $table->string('draft_number',10)->nullable();
-            $table->string('bill_of_draft_number',10)->nullable();
+            $table->string('bill_of_lading_number',10)->nullable();
             $table->string('licence_number',10)->nullable();
             $table->unsignedBigInteger('cargo_code')->nullable();
             $table->string('cargo_title',100)->nullable();
@@ -27,9 +27,9 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->unsignedInteger('weight')->nullable();
             $table->unsignedInteger('quantity')->nullable();
-            $table->unsignedInteger('value')->nullable();
+            $table->unsignedBigInteger('value')->nullable();
             $table->string('owner')->nullable();
-            $table->string('location_loadin')->nullable();
+            $table->string('location_loading')->nullable();
             $table->tinyInteger('traffic')->default(0);
             $table->tinyInteger('incendiary')->default(0);
             $table->tinyInteger('traffic_zone')->default(0);
@@ -38,13 +38,14 @@ return new class extends Migration
             $table->string('sender_national_code',20)->nullable();
             $table->string('sender_postal_code',20)->nullable();
             $table->string('sender_fullname',255)->nullable();
-            $table->string('sender_code',20)->nullable();
+            $table->string('sender_economic_code',20)->nullable();
             $table->string('sender_city',100)->nullable();
             $table->string('sender_phones')->nullable();
             $table->text('sender_address')->nullable();
             $table->string('receiver_national_code',20)->nullable();
             $table->string('receiver_postal_code',20)->nullable();
             $table->string('receiver_fullname',255)->nullable();
+            $table->string('receiver_economic_code',20)->nullable();
             $table->string('receiver_city',100)->nullable();
             $table->string('receiver_phones')->nullable();
             $table->text('receiver_address')->nullable();
