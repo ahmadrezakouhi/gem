@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Address;
 use App\Models\Company;
+use App\Models\Draft;
 use App\Models\Driver;
 use App\Models\SenderReciver;
 use App\Models\Vehicle;
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
         SenderReciver::factory(20)->create();
         Address::factory(20)->create();
         Vehicle::factory(20)->create();
+        Draft::factory(20)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
