@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\SenderReciver;
+use App\Models\SenderReceiver;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SenderReciverController extends Controller
+class SenderReceiverController extends Controller
 {
 
 
     /**
      * @OA\Get(
-     *   path="/api/senders-recivers",
-     *   tags={"senders-recivers"},
-     *   summary="get all senders and recivers",
-     *       description="get all senders and recivers",
+     *   path="/api/senders-receivers",
+     *   tags={"senders-receivers"},
+     *   summary="get all senders and receivers",
+     *       description="get all senders and receivers",
      *   @OA\Response(
      *      response=200,
      *       description="Success",
@@ -34,15 +34,15 @@ class SenderReciverController extends Controller
 
     public function index()
     {
-        return SenderReciver::paginate();
+        return SenderReceiver::with('addresses')->paginate();
     }
 
 /**
      * @OA\Post(
-     *   path="/api/senders-recivers/{sender_reciver}",
-     *   tags={"senders-recivers"},
-     *   summary="update sender reciver",
-     *       description="update sender reciver",
+     *   path="/api/senders-receivers/{sender_receiver}",
+     *   tags={"senders-receivers"},
+     *   summary="update sender receiver",
+     *       description="update sender receiver",
      *
      *   @OA\RequestBody(
      *     required=true,
@@ -138,8 +138,8 @@ class SenderReciverController extends Controller
      **/
     public function store(Request $request)
     {
-        $sender_reciver = SenderReciver::create($request->all());
-        return response($sender_reciver , Response::HTTP_CREATED);
+        $sender_receiver = SenderReceiver::create($request->all());
+        return response($sender_receiver , Response::HTTP_CREATED);
     }
 
     /**
@@ -148,19 +148,19 @@ class SenderReciverController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SenderReciver $sender_reciver)
+    public function show(SenderReceiver $sender_receiver)
     {
-        return response($sender_reciver,Response::HTTP_ACCEPTED);
+        return response($sender_receiver->load('addresses'),Response::HTTP_ACCEPTED);
     }
 
    /**
      * @OA\Patch(
-     *   path="/api/senders-recivers/{sender_reciver}",
-     *   tags={"senders-recivers"},
-     *   summary="update sender reciver",
-     *       description="update sender reciver",
+     *   path="/api/senders-receivers/{sender_receiver}",
+     *   tags={"senders-receivers"},
+     *   summary="update sender receiver",
+     *       description="update sender receiver",
      *      @OA\Parameter(
-     *      name="sender_reciver",
+     *      name="sender_receiver",
      *      in="path",
      *      required=true,
      *      @OA\Schema(
@@ -263,20 +263,20 @@ class SenderReciverController extends Controller
      *   ),
      *)
      **/
-    public function update(Request $request, SenderReciver $sender_reciver)
+    public function update(Request $request, SenderReceiver $sender_receiver)
     {
-        $sender_reciver->update($request->all());
-        return response($sender_reciver,Response::HTTP_ACCEPTED);
+        $sender_receiver->update($request->all());
+        return response($sender_receiver,Response::HTTP_ACCEPTED);
     }
 
     /**
      * @OA\Delete(
-     *   path="/api/senders-recivers/{sender-reciver}",
-     *   tags={"senders-recivers"},
-     *   summary="delete senders or recivers",
-     *       description="delete senders or recivers",
+     *   path="/api/senders-receivers/{sender-receiver}",
+     *   tags={"senders-receivers"},
+     *   summary="delete senders or receivers",
+     *       description="delete senders or receivers",
       *   @OA\Parameter(
-     *      name="sender-reciver",
+     *      name="sender-receiver",
      *      in="path",
      *      required=true,
      *      @OA\Schema(
@@ -298,9 +298,9 @@ class SenderReciverController extends Controller
      *   ),
      *)
      **/
-    public function destroy(SenderReciver $sender_reciver)
+    public function destroy(SenderReceiver $sender_receiver)
     {
-        $sender_reciver->delete();
+        $sender_receiver->delete();
         return response(null,Response::HTTP_NO_CONTENT);
     }
 }
