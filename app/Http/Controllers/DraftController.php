@@ -51,8 +51,17 @@ class DraftController extends Controller
      *           type="integer",
      *         ),
      *          @OA\Property(
+     *           property="bill_of_lading_number",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
      *           property="cargo_declaration_number",
      *           type="integer",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="cargo_declaration_date",
+     *           type="date",
      *         ),
      *
      *           @OA\Property(
@@ -132,7 +141,7 @@ class DraftController extends Controller
      *         ),
      *          @OA\Property(
      *           property="hub_code",
-     *           type="integer",
+     *           type="string",
      *         ),
      *          @OA\Property(
      *           property="status_code",
@@ -145,6 +154,56 @@ class DraftController extends Controller
      *          @OA\Property(
      *           property="is_local_cancel",
      *           type="tiny integer",
+     *         ),
+     *
+     *         @OA\Property(
+     *           property="start_validity",
+     *           type="date",
+     *         ),
+     *         @OA\Property(
+     *           property="end_validity",
+     *           type="date",
+     *         ),
+     *         @OA\Property(
+     *           property="order_number",
+     *           type="integer",
+     *         ),
+     *         @OA\Property(
+     *           property="is_logistics",
+     *           type="tiny integer",
+     *         ),
+     *         @OA\Property(
+     *           property="receipt",
+     *           type="tiny integer",
+     *         ),
+     *         @OA\Property(
+     *           property="warehouse_code",
+     *           type="integer",
+     *         ),
+     *         @OA\Property(
+     *           property="warehouse_type_code",
+     *           type="integer",
+     *         ),
+     *
+     *           @OA\Property(
+     *           property="warehouse_type_title",
+     *           type="string",
+     *         ),
+     *           @OA\Property(
+     *           property="document_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="document_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="loading_number_plate",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="loading_number_plate_zone",
+     *           type="string",
      *         ),
      *          @OA\Property(
      *           property="sender_national_code",
@@ -416,8 +475,17 @@ class DraftController extends Controller
      *           type="integer",
      *         ),
      *          @OA\Property(
+     *           property="bill_of_lading_number",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
      *           property="cargo_declaration_number",
      *           type="integer",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="cargo_declaration_date",
+     *           type="date",
      *         ),
      *
      *           @OA\Property(
@@ -510,6 +578,55 @@ class DraftController extends Controller
      *          @OA\Property(
      *           property="is_local_cancel",
      *           type="tiny integer",
+     *         ),
+     *  *         @OA\Property(
+     *           property="start_validity",
+     *           type="date",
+     *         ),
+     *         @OA\Property(
+     *           property="end_validity",
+     *           type="date",
+     *         ),
+     *         @OA\Property(
+     *           property="order_number",
+     *           type="integer",
+     *         ),
+     *         @OA\Property(
+     *           property="is_logistics",
+     *           type="tiny integer",
+     *         ),
+     *         @OA\Property(
+     *           property="receipt",
+     *           type="tiny integer",
+     *         ),
+     *         @OA\Property(
+     *           property="warehouse_code",
+     *           type="integer",
+     *         ),
+     *         @OA\Property(
+     *           property="warehouse_type_code",
+     *           type="integer",
+     *         ),
+     *
+     *           @OA\Property(
+     *           property="warehouse_type_title",
+     *           type="string",
+     *         ),
+     *           @OA\Property(
+     *           property="document_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="document_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="loading_number_plate",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="loading_number_plate_zone",
+     *           type="string",
      *         ),
      *          @OA\Property(
      *           property="sender_national_code",
