@@ -14,6 +14,13 @@ class FieldController extends Controller
      *   tags={"fields"},
      *   summary="get all fields",
      *       description="get all fields",
+     *  @OA\Parameter(
+     *      name="is_draft",
+     *      in="query",
+     *      @OA\Schema(
+     *          type="integer"
+     *      )
+     * ),
      *   @OA\Response(
      *      response=200,
      *       description="Success",
@@ -27,9 +34,9 @@ class FieldController extends Controller
      *   ),
      *)
      **/
-    public function index()
+    public function index(Request $request)
     {
-        return Field::paginate();
+        return Field::where('is_draft',$request->is_draft)->get();
     }
 
     /**
@@ -77,6 +84,14 @@ class FieldController extends Controller
      *           @OA\Property(
      *           property="evaluated_field",
      *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="is_draft",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="visible",
+     *           type="integer",
      *         ),
      *       ),
      *     ),
@@ -195,6 +210,14 @@ class FieldController extends Controller
      *           @OA\Property(
      *           property="evaluated_field",
      *           type="string",
+     *         ),
+     * *          @OA\Property(
+     *           property="is_draft",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="visible",
+     *           type="integer",
      *         ),
      *       ),
      *     ),
