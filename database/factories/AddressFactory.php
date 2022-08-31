@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\SenderReciver;
+use App\Models\SenderReceiver;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use \Ybazli\Faker\Facades\Faker;
 /**
@@ -18,7 +18,7 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
-            'sender_reciver_id'=>SenderReciver::find(rand(1,19))->id,
+            'sender_receiver_id'=>SenderReceiver::find(rand(1,19))->id,
             'province'=>Faker::state(),
             'city'=>Faker::city(),
             'postal_code'=>fake()->numerify('#####-#####'),
