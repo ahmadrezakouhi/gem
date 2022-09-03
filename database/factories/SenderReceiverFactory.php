@@ -8,7 +8,7 @@ use \Ybazli\Faker\Facades\Faker;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class SenderReciverFactory extends Factory
+class SenderReceiverFactory extends Factory
 {
     /**
      * Define the model's default state.
