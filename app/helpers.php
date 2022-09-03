@@ -1,22 +1,23 @@
 <?php
 use \Morilog\Jalali\CalendarUtils;
 use \Illuminate\Support\Carbon;
-if(!function_exists('convertJalaliToGeorgian')){
 
-    function convertJalaliToGeorgian($date){
-        $dateString = CalendarUtils::convertNumbers($date, true);
-        return CalendarUtils::createCarbonFromFormat('Y/m/d', $dateString)->format('Y-m-d H:i:s');
+
+
+if(!function_exists('convertIsoDate')){
+
+    function convertIsoDate($date){
+        return Carbon::parse($date)->setTimezone(config('app.timezone'));
     }
 
 
 }
 
 
-if(!function_exists('convertGeorgianToJalali')){
+if(!function_exists('getRandomCost')){
 
-    function convertJsonDate($date){
-        return Carbon::parse($date)->setTimezone(config('app.timezone'));
+
+    function getRandomCost($exponent){
+        return fake()->randomDigitNotZero() * pow(10,$exponent);
     }
-
-
 }

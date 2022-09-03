@@ -16,14 +16,14 @@ class Vehicle extends Model
     protected function smartNumberExpire(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
     protected function inspectionExpire(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
@@ -32,7 +32,7 @@ class Vehicle extends Model
     protected function insuranceExpire(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
@@ -42,7 +42,7 @@ class Vehicle extends Model
     protected function documentDate(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 

@@ -16,21 +16,21 @@ class Draft extends Model
     protected function cargoDeclarationDate(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
     protected function startValidity(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
     protected function endValidity(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
@@ -38,7 +38,7 @@ class Draft extends Model
     protected function documentDate(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 

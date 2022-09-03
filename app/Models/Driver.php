@@ -13,14 +13,14 @@ class Driver extends Model
     protected function driverLicenceExpire(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
     protected function healthCardExpire(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
@@ -28,7 +28,7 @@ class Driver extends Model
     protected function smartNumberExpire(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
@@ -36,14 +36,14 @@ class Driver extends Model
     protected function birthDate(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
     protected function startActivity(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => convertJsonDate($value),
+            set: fn ($value) => convertIsoDate($value),
         );
     }
 
