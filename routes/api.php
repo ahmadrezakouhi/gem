@@ -3,9 +3,11 @@
 use App\Http\Controllers\Api\AddressController;
 use App\Http\Controllers\Api\DriverController;
 use App\Http\Controllers\Api\CompanyController;
-use App\Http\Controllers\Api\SenderReciverController;
+use App\Http\Controllers\Api\SenderReceiverController;
 use App\Http\Controllers\Api\VehicleController;
-use App\Models\SenderReciver;
+use App\Http\Controllers\Api\DraftController;
+use App\Http\Controllers\FieldController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,14 +30,16 @@ Route::apiResource('companies',CompanyController::class);
 
 Route::apiResource('drivers',DriverController::class);
 
-Route::apiResource('senders-recivers',SenderReciverController::class,
+Route::apiResource('senders-receivers',SenderReceiverController::class,
 ['parameters' => [
-    'senders-recivers' => 'sender_reciver'
+    'senders-receivers' => 'sender_receiver'
 ]]);
 
 Route::apiResource('addresses',AddressController::class);
 
 Route::apiResource('vehicles',VehicleController::class);
 
+Route::apiResource('drafts',DraftController::class);
 
+Route::apiResource('fields',FieldController::class);
 
