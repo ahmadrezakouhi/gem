@@ -20,10 +20,12 @@ return new class extends Migration
             $table->string('title',50)->nullable();
             $table->text('description')->nullable();
             $table->string('font',100)->nullable();
-            $table->tinyInteger('is_unique')->default(0);
+            $table->tinyInteger('unique')->default(0);
             $table->string('separator',1)->nullable();
             $table->unsignedInteger('length')->nullable();
             $table->string('evaluated_field',50)->nullable();
+            $table->tinyInteger('is_draft')->default(1);
+            $table->tinyInteger('visible')->default(0);
             $table->timestamps();
         });
     }
