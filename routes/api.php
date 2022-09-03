@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\SenderReceiverController;
 use App\Http\Controllers\Api\VehicleController;
 use App\Http\Controllers\Api\DraftController;
-use App\Http\Controllers\FieldController;
+use App\Http\Controllers\Api\FieldController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
