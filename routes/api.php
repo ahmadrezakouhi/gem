@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AddressController;
+use App\Http\Controllers\Api\BillOfLadingController;
 use App\Http\Controllers\Api\DriverController;
 use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\SenderReceiverController;
@@ -42,4 +43,6 @@ Route::apiResource('vehicles',VehicleController::class);
 Route::apiResource('drafts',DraftController::class);
 
 Route::apiResource('fields',FieldController::class);
+
+Route::apiResource('bill-of-ladings',BillOfLadingController::class);
 
