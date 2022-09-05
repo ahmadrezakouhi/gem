@@ -24,7 +24,7 @@ class SenderReceiverFactory extends Factory
             'name'=>Faker::firstName(),
             'last_name'=>Faker::lastName(),
             'economic_code'=>fake()->numerify('##########'),
-            'postal_code'=>fake()->numerify('######-######'),
+            'postal_code'=>fake()->numerify('#########'),
             'description'=>Faker::paragraph(),
             'address'=>Faker::address(),
             'tel'=>fake()->phoneNumber(),
