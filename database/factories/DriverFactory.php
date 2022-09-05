@@ -44,7 +44,7 @@ class DriverFactory extends Factory
             'active'=>fake()->numberBetween(0,1),
             'organization_phone'=>Faker::mobile(),
             'phones'=>Faker::mobile(),
-            'postal_code'=>fake()->numerify('#####-#####'),
+            'postal_code'=>fake()->numerify('########'),
             'start_activity'=>fake()->iso8601(),
             'country'=>'ایران',
             'country_code'=>fake()->numerify('####'),
