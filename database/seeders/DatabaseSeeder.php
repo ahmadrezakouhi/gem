@@ -11,6 +11,7 @@ use App\Models\Draft;
 use App\Models\Driver;
 use App\Models\Field;
 use App\Models\SenderReceiver;
+use App\Models\Tariff;
 use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 
@@ -32,6 +33,11 @@ class DatabaseSeeder extends Seeder
         Draft::factory(20)->create();
         Field::factory(20)->create();
         BillOfLading::factory(20)->create();
+
+        $this->call([
+            InsuranceSeeder::class,
+            TariffSeeder::class
+        ]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
