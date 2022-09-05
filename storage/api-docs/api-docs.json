@@ -498,16 +498,14 @@
                         "description": "not found"
                     }
                 }
-            }
-        },
-        "/api/bill-of-ladings/{bill-of-ladings}": {
+            },
             "delete": {
                 "tags": [
                     "bill-of-ladings"
                 ],
                 "summary": "delete bill of lading by id",
                 "description": "delete bill of lading by id",
-                "operationId": "f44515b9a166d3d010178dfaf5e1fb62",
+                "operationId": "ef375ec20b6f686e5f0a8c95e9ea3482",
                 "parameters": [
                     {
                         "name": "bill_of_ladings",
@@ -536,7 +534,7 @@
                 ],
                 "summary": "update bill of lading",
                 "description": "update bill of lading",
-                "operationId": "25d6c19253c37150cc4ceb24901d2e50",
+                "operationId": "ffe7010f71e0cebf95905291f93cacfc",
                 "parameters": [
                     {
                         "name": "draft",
@@ -1046,6 +1044,12 @@
                                     "bill_of_lading_number": {
                                         "type": "integer"
                                     },
+                                    "freight_type_code": {
+                                        "type": "integer"
+                                    },
+                                    "freight_type_title": {
+                                        "type": "string"
+                                    },
                                     "cargo_declaration_number": {
                                         "type": "integer"
                                     },
@@ -1395,6 +1399,12 @@
                                     },
                                     "bill_of_lading_number": {
                                         "type": "integer"
+                                    },
+                                    "freight_type_code": {
+                                        "type": "integer"
+                                    },
+                                    "freight_type_title": {
+                                        "type": "string"
                                     },
                                     "cargo_declaration_number": {
                                         "type": "integer"
@@ -2459,6 +2469,321 @@
                 }
             }
         },
+        "/api/insurances": {
+            "get": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "get all insurances",
+                "description": "get all insurnces",
+                "operationId": "626fa6b9aa7f9909037c97453fb85cc4",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "update insurance",
+                "description": "update insurance",
+                "operationId": "871d6ce5b21f1dedfba248a3ffc4f105",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_company_code": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_company_title": {
+                                        "type": "string"
+                                    },
+                                    "insurance_policy_number": {
+                                        "type": "string"
+                                    },
+                                    "start_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "integer",
+                                        "default": "0"
+                                    },
+                                    "default": {
+                                        "type": "integer",
+                                        "default": "0"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_national_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_phone": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_province": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_city": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_site": {
+                                        "type": "string"
+                                    },
+                                    "agent_name": {
+                                        "type": "string"
+                                    },
+                                    "agent_mobile": {
+                                        "type": "string"
+                                    },
+                                    "agent_phone": {
+                                        "type": "string"
+                                    },
+                                    "agent_address": {
+                                        "type": "string"
+                                    },
+                                    "agent_fax": {
+                                        "type": "string"
+                                    },
+                                    "agent_email": {
+                                        "type": "string"
+                                    },
+                                    "query_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "issue_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/insurances/{insurance}": {
+            "get": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "get insurance by id",
+                "description": "get insurance by id",
+                "operationId": "cfaa8e78c6dd80c3d30269842c877ac2",
+                "parameters": [
+                    {
+                        "name": "insurance",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "delete insurance by id",
+                "description": "delete insurance by id",
+                "operationId": "6622f4f0a91631ad35b6d9433ba3f469",
+                "parameters": [
+                    {
+                        "name": "insurance",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "update insurance",
+                "description": "update insurance",
+                "operationId": "d01ecb799582caaf2423bf6e4ecd2c04",
+                "parameters": [
+                    {
+                        "name": "insurance",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_company_code": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_company_title": {
+                                        "type": "string"
+                                    },
+                                    "insurance_policy_number": {
+                                        "type": "string"
+                                    },
+                                    "start_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "integer",
+                                        "default": "0"
+                                    },
+                                    "default": {
+                                        "type": "integer",
+                                        "default": "0"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_national_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_phone": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_province": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_city": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_site": {
+                                        "type": "string"
+                                    },
+                                    "agent_name": {
+                                        "type": "string"
+                                    },
+                                    "agent_mobile": {
+                                        "type": "string"
+                                    },
+                                    "agent_phone": {
+                                        "type": "string"
+                                    },
+                                    "agent_address": {
+                                        "type": "string"
+                                    },
+                                    "agent_fax": {
+                                        "type": "string"
+                                    },
+                                    "agent_email": {
+                                        "type": "string"
+                                    },
+                                    "query_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "issue_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
         "/api/senders-receivers": {
             "get": {
                 "tags": [
@@ -2658,6 +2983,213 @@
                 ],
                 "responses": {
                     "204": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/tariffs": {
+            "get": {
+                "tags": [
+                    "tariffs"
+                ],
+                "summary": "get all tariffs",
+                "description": "get all insurnces",
+                "operationId": "afe39dc02822113a9160aef580fb6f08",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/tariffs/{tariff}": {
+            "get": {
+                "tags": [
+                    "tariffs"
+                ],
+                "summary": "get tariff by id",
+                "description": "get tariff by id",
+                "operationId": "f35da6390c6bf17d77bf56c385beff79",
+                "parameters": [
+                    {
+                        "name": "tariff",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "tariffs"
+                ],
+                "summary": "update tariff",
+                "description": "update tariff",
+                "operationId": "30a7be1b2e20116e8fa02fb2a530964e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "insurance_id": {
+                                        "type": "integer"
+                                    },
+                                    "min_value": {
+                                        "type": "integer"
+                                    },
+                                    "max_value": {
+                                        "type": "string"
+                                    },
+                                    "cargo_group_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_group_title": {
+                                        "type": "integer"
+                                    },
+                                    "variable_value": {
+                                        "type": "integer"
+                                    },
+                                    "value_bigger_than": {
+                                        "type": "integer"
+                                    },
+                                    "constant_value": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "tariffs"
+                ],
+                "summary": "delete tariff by id",
+                "description": "delete tariff by id",
+                "operationId": "77395c4622b93184df8d5fffc8f65f5b",
+                "parameters": [
+                    {
+                        "name": "tariff",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "tariffs"
+                ],
+                "summary": "update tariff",
+                "description": "update tariff",
+                "operationId": "fce3ee3ca5ba13d8ce947aa0051608e0",
+                "parameters": [
+                    {
+                        "name": "tariff",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "insurance_id": {
+                                        "type": "integer"
+                                    },
+                                    "min_value": {
+                                        "type": "integer"
+                                    },
+                                    "max_value": {
+                                        "type": "string"
+                                    },
+                                    "cargo_group_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_group_title": {
+                                        "type": "integer"
+                                    },
+                                    "variable_value": {
+                                        "type": "integer"
+                                    },
+                                    "value_bigger_than": {
+                                        "type": "integer"
+                                    },
+                                    "constant_value": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
                         "description": "Success",
                         "content": {
                             "application/json": {}
