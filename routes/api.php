@@ -8,7 +8,8 @@ use App\Http\Controllers\Api\SenderReceiverController;
 use App\Http\Controllers\Api\VehicleController;
 use App\Http\Controllers\Api\DraftController;
 use App\Http\Controllers\Api\FieldController;
-
+use App\Http\Controllers\Api\InsuranceController;
+use App\Http\Controllers\Api\TariffController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +46,8 @@ Route::apiResource('drafts',DraftController::class);
 Route::apiResource('fields',FieldController::class);
 
 Route::apiResource('bill-of-ladings',BillOfLadingController::class);
+
+Route::apiResource('insurances',InsuranceController::class);
+
+Route::apiResource('tariffs',TariffController::class);
 
