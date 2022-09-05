@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('panel_code');
             $table->foreign('panel_code')->references('panel_code')->on('companies');
-            $table->string('insurance_company',100)->nullable();
+            $table->unsignedBigInteger('insurance_company_code')->nullable();
+            $table->string('insurance_company_title',100)->nullable();
+            $table->string('insurance_policy_number',50)->nullable();
             $table->timestamp('start_date')->nullable();
             $table->timestamp('end_date')->nullable();
             $table->boolean('active')->default(0);
@@ -36,6 +38,8 @@ return new class extends Migration
             $table->text('agent_address')->nullable();
             $table->string('agent_fax',20)->nullable();
             $table->string('agent_email',100)->nullable();
+            $table->timestamp('query_date')->nullable();
+            $table->timestamp('issue_date')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
