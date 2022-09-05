@@ -55,6 +55,14 @@ class DraftController extends Controller
      *           type="integer",
      *         ),
      *          @OA\Property(
+     *           property="freight_type_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="freight_type_title",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
      *           property="cargo_declaration_number",
      *           type="integer",
      *         ),
@@ -477,6 +485,14 @@ class DraftController extends Controller
      *          @OA\Property(
      *           property="bill_of_lading_number",
      *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="freight_type_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="freight_type_title",
+     *           type="string",
      *         ),
      *          @OA\Property(
      *           property="cargo_declaration_number",

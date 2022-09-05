@@ -35,6 +35,8 @@ class DraftFactory extends Factory
             'draft_number'=>fake()->numerify('########'),
             'draft_serial'=>fake()->numerify('########'),
             'bill_of_lading_number'=>fake()->numerify('##########'),
+            'freight_type_code'=>fake()->numerify('########'),
+            'freight_type_title'=>null,
             'cargo_declaration_number'=>fake()->numerify('########'),
             'cargo_declaration_date'=>fake()->iso8601(),
             'licence_number'=>fake()->numerify('########'),

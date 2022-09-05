@@ -20,6 +20,8 @@ return new class extends Migration
             $table->unsignedBigInteger('draft_number')->nullable();
             $table->string('draft_serial',20)->nullable();
             $table->unsignedBigInteger('bill_of_lading_number')->nullable();
+            $table->unsignedBigInteger('freight_type_code')->nullable();
+            $table->string('freight_type_title',100)->nullable();
             $table->unsignedBigInteger('cargo_declaration_number')->nullable();
             $table->timestamp('cargo_declaration_date')->nullable();
             $table->unsignedBigInteger('licence_number')->nullable();
