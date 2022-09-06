@@ -30,7 +30,7 @@ class BillOfLadingController extends Controller
      **/
     public function index()
     {
-        return BillOfLading::paginate();
+        return BillOfLading::orderBy('id','desc')->paginate();
     }
 
     /**

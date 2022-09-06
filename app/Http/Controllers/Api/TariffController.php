@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Insurance;
 use App\Models\Tariff;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,9 +29,9 @@ class TariffController extends Controller
      *   ),
      *)
      **/
-    public function index()
+    public function index(Insurance $insurance)
     {
-        return Tariff::paginate();
+        return $insurance->tariffs()->orderBy('id','desc')->get();
     }
 
      /**

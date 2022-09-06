@@ -31,7 +31,7 @@ class AddressController extends Controller
 
     public function index()
     {
-        return Address::paginate();
+        return Address::orderBy('id','desc')->paginate();
     }
 
     /**

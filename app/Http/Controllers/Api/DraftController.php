@@ -29,7 +29,7 @@ class DraftController extends Controller
      **/
     public function index()
     {
-        return Draft::paginate();
+        return Draft::orderBy('id','desc')->paginate();
     }
 
     /**

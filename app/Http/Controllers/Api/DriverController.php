@@ -33,7 +33,7 @@ class DriverController extends Controller
 
     public function index()
     {
-        return  Driver::paginate();
+        return  Driver::orderBy('id','desc')->paginate();
     }
 
    /**

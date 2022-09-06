@@ -34,7 +34,7 @@ class SenderReceiverController extends Controller
 
     public function index()
     {
-        return SenderReceiver::with('addresses')->paginate();
+        return SenderReceiver::with('addresses')->orderBy('id','desc')->paginate();
     }
 
 /**

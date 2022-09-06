@@ -33,7 +33,7 @@ class CompanyController extends Controller
      **/
     public function index()
     {
-        return Company::paginate();
+        return Company::orderBy('id','desc')->paginate();
     }
 /**
      * @OA\Post(

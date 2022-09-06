@@ -30,7 +30,7 @@ class VehicleController extends Controller
      **/
     public function index()
     {
-        return Vehicle::paginate();
+        return Vehicle::orderBy('id','desc')->paginate();
     }
 
    /**

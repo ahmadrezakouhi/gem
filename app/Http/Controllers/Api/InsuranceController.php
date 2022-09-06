@@ -30,7 +30,7 @@ class InsuranceController extends Controller
      **/
     public function index()
     {
-        return Insurance::paginate();
+        return Insurance::orderBy('id','desc')->paginate();
     }
 
     /**
@@ -362,7 +362,7 @@ class InsuranceController extends Controller
      **/
     public function update(Request $request, Insurance $insurance)
     {
-        $insurance->udpate($request->all());
+        $insurance->update($request->all());
         return response()->json($insurance,Response::HTTP_ACCEPTED);
     }
 
