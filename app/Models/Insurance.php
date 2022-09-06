@@ -10,32 +10,19 @@ class Insurance extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $casts =[
+        'active'=>'boolean',
+        'default'=>'boolean',
+        'start_date'=>'datetime',
+        'end_date'=>'datetime',
+        'query_date'=>'datetime',
+        'issue_date'=>'datetime'
+    ];
 
-    protected function startDate(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
 
-    protected function endDate(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
 
-    protected function queryDate(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
 
-    protected function issueDate(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
+
+
+    
 }
