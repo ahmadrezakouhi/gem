@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('bill_of_lading_number')->nullable();
             $table->unsignedBigInteger('draft_number')->nullable();
             $table->unsignedBigInteger('draft_serial')->nullable();
-            $table->tinyInteger('overburden')->default(0);
+            $table->boolean('overburden')->default(false);
             $table->timestamp('estimate_receive_date')->nullable();
             $table->unsignedBigInteger('warehouse_code')->nullable();
             $table->unsignedBigInteger('warehouse_type_code')->nullable();
