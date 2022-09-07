@@ -20,7 +20,7 @@ class DriverFactory extends Factory
     public function definition()
     {
         return [
-            'panel_code'=>Company::find(rand(1,20))->panel_code,
+            'panel_code'=>Company::inRandomOrder()->first()->panel_code,
             'personal_code'=>fake()->numerify('#######'),
             'name'=>Faker::firstName(),
             'last_name'=>Faker::lastName(),
@@ -40,8 +40,8 @@ class DriverFactory extends Factory
             'city_of_birth'=>Faker::city(),
             'city_of_driver_licence'=>Faker::city(),
             'allowed_vehicle_type'=>fake()->numberBetween(1,3),
-            'status'=>fake()->numberBetween(0,1),
-            'active'=>fake()->numberBetween(0,1),
+            'status'=>fake()->boolean(),
+            'active'=>fake()->boolean(),
             'organization_phone'=>Faker::mobile(),
             'phones'=>Faker::mobile(),
             'postal_code'=>fake()->numerify('########'),
