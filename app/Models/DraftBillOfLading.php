@@ -10,4 +10,7 @@ class DraftBillOfLading extends Model
     use HasFactory;
     protected $table = 'drafts_bill_of_ladings';
     protected $guarded = ['id'];
+    protected $casts = [
+        'issue_date'=>'datetime'
+    ];
 }
