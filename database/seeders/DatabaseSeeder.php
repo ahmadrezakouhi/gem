@@ -8,6 +8,7 @@ use App\Models\Address;
 use App\Models\BillOfLading;
 use App\Models\Company;
 use App\Models\Draft;
+use App\Models\DraftBillOfLading;
 use App\Models\Driver;
 use App\Models\Field;
 use App\Models\SenderReceiver;
@@ -38,7 +39,8 @@ class DatabaseSeeder extends Seeder
             InsuranceSeeder::class,
             TariffSeeder::class,
             InsuranceCompanySeeder::class,
-            CargoSeeder::class
+            CargoSeeder::class,
+            DraftBillOfLadingSeeder::class
         ]);
 
         // \App\Models\User::factory()->create([
