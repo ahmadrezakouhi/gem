@@ -9,42 +9,22 @@ class Driver extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
-    protected function driverLicenceExpire(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
-
-    protected function healthCardExpire(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
+    protected $casts = [
+        'driver_licence_expire'=>'datetime',
+        'health_card_expire'=>'datetime',
+        'smart_number_expire'=>'datetime',
+        'birth_date'=>'datetime',
+        'status'=>'boolean',
+        'active'=>'boolean',
+        'start_activity'=>'datetime'
+    ];
 
 
-    protected function smartNumberExpire(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
 
 
-    protected function birthDate(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
 
-    protected function startActivity(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
+
+
+
 
 }
