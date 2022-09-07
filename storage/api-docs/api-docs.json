@@ -790,6 +790,243 @@
                 }
             }
         },
+        "/api/cargoes": {
+            "get": {
+                "tags": [
+                    "cargoes"
+                ],
+                "summary": "get all cargoes",
+                "description": "get all cargoes",
+                "operationId": "8a5c4900e9af84fa5575586eb3a179a3",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "cargoes"
+                ],
+                "summary": "create cargo",
+                "description": "create cargo",
+                "operationId": "5d51a0b5c8d7cf0ec921e9cce1c0e536",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "bill_of_lading_id": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_title": {
+                                        "type": "string"
+                                    },
+                                    "packing_code": {
+                                        "type": "integer"
+                                    },
+                                    "packing_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "value": {
+                                        "type": "integer"
+                                    },
+                                    "owner": {
+                                        "type": "string"
+                                    },
+                                    "location_loading": {
+                                        "type": "string"
+                                    },
+                                    "traffic": {
+                                        "type": "boolean"
+                                    },
+                                    "incendiary": {
+                                        "type": "boolean"
+                                    },
+                                    "traffic_zone": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/cargoes/{cargo}": {
+            "get": {
+                "tags": [
+                    "cargoes"
+                ],
+                "summary": "get cargo by id",
+                "description": "get cargo by id",
+                "operationId": "56de61f1a65a10a28d3b8280d3b27737",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "cargoes"
+                ],
+                "summary": "delete cargo by id",
+                "description": "delete cargo by id",
+                "operationId": "b6be4fc601dc1174b4f5766186e0eb82",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "cargoes"
+                ],
+                "summary": "update cargo",
+                "description": "update cargo",
+                "operationId": "9302e990b1cc6cb7b8de1d7cc96c9526",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "bill_of_lading_id": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_title": {
+                                        "type": "string"
+                                    },
+                                    "packing_code": {
+                                        "type": "integer"
+                                    },
+                                    "packing_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "value": {
+                                        "type": "integer"
+                                    },
+                                    "owner": {
+                                        "type": "string"
+                                    },
+                                    "location_loading": {
+                                        "type": "string"
+                                    },
+                                    "traffic": {
+                                        "type": "boolean"
+                                    },
+                                    "incendiary": {
+                                        "type": "boolean"
+                                    },
+                                    "traffic_zone": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
         "/api/companies": {
             "get": {
                 "tags": [
@@ -2458,6 +2695,27 @@
                 },
                 "responses": {
                     "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/insurance-companies": {
+            "get": {
+                "tags": [
+                    "insurance-companies"
+                ],
+                "summary": "get all insurance companies",
+                "description": "get all insurance companies",
+                "operationId": "bd372e7d07a138658c71d11f3b122a33",
+                "responses": {
+                    "200": {
                         "description": "Success",
                         "content": {
                             "application/json": {}
