@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\Api\AddressController;
 use App\Http\Controllers\Api\BillOfLadingController;
+use App\Http\Controllers\Api\CargoController;
 use App\Http\Controllers\Api\DriverController;
 use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\SenderReceiverController;
 use App\Http\Controllers\Api\VehicleController;
 use App\Http\Controllers\Api\DraftController;
 use App\Http\Controllers\Api\FieldController;
+use App\Http\Controllers\Api\InsuranceCompanyController;
 use App\Http\Controllers\Api\InsuranceController;
 use App\Http\Controllers\Api\TariffController;
 use Illuminate\Http\Request;
@@ -49,5 +51,12 @@ Route::apiResource('bill-of-ladings',BillOfLadingController::class);
 
 Route::apiResource('insurances',InsuranceController::class);
 
-Route::apiResource('tariffs',TariffController::class);
+Route::apiResource('tariffs',TariffController::class)->except('index');
+
+Route::get('insurances/{insurance}/tariffs',[TariffController::class,'index']);
+
+Route::get('insurance-companies',[InsuranceCompanyController::class,'index']);
+
+Route::apiResource('cargoes',CargoController::class);
+
 
