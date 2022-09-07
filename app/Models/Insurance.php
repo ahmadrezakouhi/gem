@@ -19,10 +19,11 @@ class Insurance extends Model
         'issue_date'=>'datetime'
     ];
 
+    public function tariffs(){
+        return $this->hasMany(Tariff::class);
+    }
 
 
 
 
-
-    
 }
