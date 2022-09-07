@@ -24,7 +24,7 @@ class VehicleFactory extends Factory
         $colors = ['سفید','مشکی','قرمز','نارنجی','بنفش'];
         $brand_titles = ['ولوو','رنو','بنز','ماک'];
         return [
-            'panel_code'=>Company::find(rand(1,20))->panel_code,
+            'panel_code'=>Company::inRandomOrder()->first()->panel_code,
             'number_plate'=>fake()->numerify('######'),
             'number_plate_zone'=>fake()->numerify('##'),
             'number_plate_type'=>fake()->numberBetween(0,1),
@@ -39,7 +39,7 @@ class VehicleFactory extends Factory
             'production'=>fake()->numberBetween(1920,2022),
             'loading_type'=>fake()->randomElement($loading_types),
             'type'=>fake()->numberBetween(0,1),
-            'status'=>fake()->numberBetween(0,1),
+            'status'=>fake()->boolean(),
             'inspection_number'=>fake()->numerify('##########'),
             'inspection_expire'=>fake()->iso8601(),
             'insurance_number'=>fake()->numerify('#########'),
@@ -58,10 +58,10 @@ class VehicleFactory extends Factory
             'weight'=>fake()->numerify(1000,10000),
             'loading_length'=>fake()->numerify(1,10),
             'loading_width'=>fake()->numerify(1,10),
-            'has_roll'=>fake()->numberBetween(0,1),
+            'has_roll'=>fake()->boolean(),
             'chassis_number'=>fake()->numerify('##########'),
             'document_number'=>fake()->numerify('##########'),
-            'violation'=>fake()->numberBetween(0,1),
+            'violation'=>fake()->boolean(),
             'description'=>Faker::paragraph(),
             'engine_number'=>fake()->numerify('###########'),
             'document_date'=>fake()->iso8601(),
