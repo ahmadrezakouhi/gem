@@ -9,4 +9,9 @@ class Field extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $casts = [
+        'unique'=>'boolean',
+        'is_draft'=>'boolean',
+        'visible'=>'boolean'
+    ];
 }
