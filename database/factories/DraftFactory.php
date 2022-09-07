@@ -23,15 +23,13 @@ class DraftFactory extends Factory
     {
         $sender =fake()->randomElement(SenderReceiver::where('status','!=',1)->get());
         $receiver =fake()->randomElement(SenderReceiver::where('status','!=',0)->get());
-        $cargoes = ['اثایه منزل','سوسیس و کالباس','لبنیات','کاشی','شیرآلات'];
         $first_driver = fake()->randomElement(Driver::all());
         $second_driver = fake()->randomElement(Driver::all());
         $vehicle = fake()->randomElement(Vehicle::all());
         $status_code = fake()->numberBetween(0,1);
         $status_titles = ['رد شده','تایید شده'];
-        $warehouse_type_title = ['سرد خانه','انبار نفت','گمرک','سایر'];
         return [
-            'panel_code'=>Company::find(rand(1,20))->panel_code,
+            'panel_code'=>Company::inRandomOrder()->first()->panel_code,
             'draft_number'=>fake()->numerify('########'),
             'draft_serial'=>fake()->numerify('########'),
             'bill_of_lading_number'=>fake()->numerify('##########'),
@@ -41,9 +39,9 @@ class DraftFactory extends Factory
             'cargo_declaration_date'=>fake()->iso8601(),
             'licence_number'=>fake()->numerify('########'),
             'cargo_code'=>fake()->numerify('#########'),
-            'cargo_title'=>fake()->randomElement($cargoes),
+            'cargo_title'=>Faker::word(),
             'packing_code'=>fake()->numerify('#########'),
-            'packing_title'=>'تست',
+            'packing_title'=>Faker::word(),
             'description'=>Faker::paragraph(),
             'weight'=>fake()->numberBetween(1000,30000),
             'quantity'=>fake()->numberBetween(1000,3000),
@@ -67,7 +65,7 @@ class DraftFactory extends Factory
             'receipt'=>fake()->numberBetween(0,1),
             'warehouse_code'=>fake()->numerify('#########'),
             'warehouse_type_code'=>fake()->numerify('###########'),
-            'warehouse_type_title'=>fake()->randomElement($warehouse_type_title),
+            'warehouse_type_title'=>Faker::word(),
             'document_code'=>fake()->numerify('###########'),
             'document_date'=>fake()->iso8601(),
             'loading_number_plate'=>fake()->numerify('##ص###'),
