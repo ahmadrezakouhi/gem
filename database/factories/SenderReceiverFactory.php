@@ -18,7 +18,7 @@ class SenderReceiverFactory extends Factory
     public function definition()
     {
         return [
-            'panel_code'=>Company::find(rand(1,20))->panel_code,
+            'panel_code'=>Company::inRandomOrder()->first()->panel_code,
             'national_code'=>Faker::melliCode(),
             'title'=>fake()->company(),
             'name'=>Faker::firstName(),
