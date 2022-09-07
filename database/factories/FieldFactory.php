@@ -19,16 +19,16 @@ class FieldFactory extends Factory
     public function definition()
     {
         return [
-            'panel_code'=>Company::find(rand(1,20))->panel_code,
+            'panel_code'=>Company::inRandomOrder()->first()->panel_code,
             'title'=>fake()->word(),
             'description'=>Faker::paragraph(),
             'font'=>'yekan',
-            'unique'=>fake()->numberBetween(0,1),
+            'unique'=>fake()->boolean(),
             'separator'=>',',
             'length'=>fake()->randomDigitNot(0)*10,
             'evaluated_field'=>'field_'.fake()->numberBetween(1,12),
-            'is_draft'=>fake()->numberBetween(0,1),
-            'visible'=>fake()->numberBetween(0,1)
+            'is_draft'=>fake()->boolean(),
+            'visible'=>fake()->boolean()
 
         ];
     }
