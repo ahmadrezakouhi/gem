@@ -26,18 +26,17 @@ class BillOfLadingFactory extends Factory
         $first_driver = fake()->randomElement(Driver::all());
         $second_driver = fake()->randomElement(Driver::all());
         $vehicle = fake()->randomElement(Vehicle::all());
-        $warehouse_type_title = ['سرد خانه','انبار نفت','گمرک','سایر'];
         return [
-            'panel_code'=>Company::find(rand(1,20))->panel_code,
+            'panel_code'=>Company::inRandomOrder()->first()->panel_code,
             'bill_of_lading_number'=>fake()->numerify('########'),
             'bill_of_lading_serial'=>fake()->numerify('########'),
             'draft_number'=>fake()->numerify('########'),
             'draft_serial'=>fake()->numerify('########'),
-            'overburden'=>fake()->numberBetween(0,1),
+            'overburden'=>fake()->boolean(),
             'estimate_receive_date'=>fake()->iso8601(),
             'warehouse_code'=>fake()->numerify('########'),
             'warehouse_type_code'=>fake()->numerify('#########'),
-            'warehouse_type_title'=>fake()->randomElement($warehouse_type_title),
+            'warehouse_type_title'=>faker::word(),
             'warehouse_fee'=>getRandomCost(6),
             'loading_code'=>fake()->numerify('#########'),
             'description'=>Faker::paragraph(),
