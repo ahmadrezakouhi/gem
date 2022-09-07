@@ -11,39 +11,28 @@ class Vehicle extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
-
-    protected function smartNumberExpire(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
-
-    protected function inspectionExpire(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
-
-
-
-    protected function insuranceExpire(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
+    protected $casts=[
+            'smart_number_expire'=>'datetime',
+            'status'=>'boolean',
+            'inspection_expire'=>'datetime',
+            'insurance_expire'=>'datetime',
+            'has_roll'=>'boolean',
+            'violation'=>'boolean',
+            'document_date'=>'datetime'
+    ];
 
 
 
 
-    protected function documentDate(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => convertIsoDate($value),
-        );
-    }
+
+
+
+
+
+
+
+
+
+
 
 }
