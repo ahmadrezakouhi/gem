@@ -88,7 +88,7 @@ return new class extends Migration
             $table->timestamp('vehicle_inspection_expire')->nullable();
             $table->string('vehicle_brand_title',50)->nullable();
             $table->string('vehicle_loading_type',50)->nullable();
-            $table->boolean('vehicle_status')->default(false);
+            $table->tinyInteger('vehicle_status')->default(0);
             $table->string('field_1')->nullable();
             $table->string('field_2')->nullable();
             $table->string('field_3')->nullable();
