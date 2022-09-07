@@ -22,7 +22,8 @@ return new class extends Migration
             $table->unsignedBigInteger('from_number')->nullable();
             $table->unsignedBigInteger('to_number')->nullable();
             $table->string('serial',10)->nullable();
-            $table->string('status_code',50)->nullable();
+            $table->unsignedInteger('status_code')->nullable();
+            $table->string('status_title',50)->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
