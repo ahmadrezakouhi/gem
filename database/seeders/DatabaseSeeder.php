@@ -36,7 +36,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             InsuranceSeeder::class,
-            TariffSeeder::class
+            TariffSeeder::class,
+            InsuranceCompanySeeder::class,
+            CargoSeeder::class
         ]);
 
         // \App\Models\User::factory()->create([
