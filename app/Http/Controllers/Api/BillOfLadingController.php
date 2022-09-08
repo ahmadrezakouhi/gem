@@ -46,7 +46,7 @@ class BillOfLadingController extends Controller
      *       @OA\Schema(
      *          @OA\Property(
      *           property="bill_of_lading_serial",
-     *           type="integer",
+     *           type="string",
      *         ),
      *         @OA\Property(
      *           property="bill_of_lading_number",
@@ -169,6 +169,14 @@ class BillOfLadingController extends Controller
      *           type="integer",
      *         ),
      *          @OA\Property(
+     *           property="register_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="receipt",
+     *           type="boolean",
+     *         ),
+     *          @OA\Property(
      *           property="sender_national_code",
      *           type="string",
      *         ),
@@ -226,7 +234,15 @@ class BillOfLadingController extends Controller
      *         ),
      *
      *          @OA\Property(
-     *           property="first_driver_fullname",
+     *           property="first_driver_name",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="first_driver_last_name",
+     *           type="string",
+     *         ),
+     *           @OA\Property(
+     *           property="first_driver_personal_code",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -245,9 +261,20 @@ class BillOfLadingController extends Controller
      *           property="first_driver_phones",
      *           type="string",
      *         ),
-     *
+     * *          @OA\Property(
+     *           property="first_driver_address",
+     *           type="string",
+     *         ),
      *           @OA\Property(
-     *           property="second_driver_fullname",
+     *           property="second_driver_name",
+     *           type="string",
+     *         ),
+     *        @OA\Property(
+     *           property="second_driver_last_name",
+     *           type="string",
+     *         ),
+     *        @OA\Property(
+     *           property="second_driver_personal_code",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -264,6 +291,10 @@ class BillOfLadingController extends Controller
      *         ),
      *          @OA\Property(
      *           property="second_driver_phones",
+     *           type="string",
+     *         ),
+     * *          @OA\Property(
+     *           property="second_driver_address",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -427,14 +458,14 @@ class BillOfLadingController extends Controller
      * ),
      *
      *
-     *   @OA\RequestBody(
+      *   @OA\RequestBody(
      *     required=true,
      *     @OA\MediaType(
      *       mediaType="application/json",
      *       @OA\Schema(
      *          @OA\Property(
      *           property="bill_of_lading_serial",
-     *           type="integer",
+     *           type="string",
      *         ),
      *         @OA\Property(
      *           property="bill_of_lading_number",
@@ -557,6 +588,14 @@ class BillOfLadingController extends Controller
      *           type="integer",
      *         ),
      *          @OA\Property(
+     *           property="register_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="receipt",
+     *           type="boolean",
+     *         ),
+     *          @OA\Property(
      *           property="sender_national_code",
      *           type="string",
      *         ),
@@ -614,7 +653,15 @@ class BillOfLadingController extends Controller
      *         ),
      *
      *          @OA\Property(
-     *           property="first_driver_fullname",
+     *           property="first_driver_name",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="first_driver_last_name",
+     *           type="string",
+     *         ),
+     *           @OA\Property(
+     *           property="first_driver_personal_code",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -633,9 +680,20 @@ class BillOfLadingController extends Controller
      *           property="first_driver_phones",
      *           type="string",
      *         ),
-     *
+     * *          @OA\Property(
+     *           property="first_driver_address",
+     *           type="string",
+     *         ),
      *           @OA\Property(
-     *           property="second_driver_fullname",
+     *           property="second_driver_name",
+     *           type="string",
+     *         ),
+     *        @OA\Property(
+     *           property="second_driver_last_name",
+     *           type="string",
+     *         ),
+     *        @OA\Property(
+     *           property="second_driver_personal_code",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -652,6 +710,10 @@ class BillOfLadingController extends Controller
      *         ),
      *          @OA\Property(
      *           property="second_driver_phones",
+     *           type="string",
+     *         ),
+     * *          @OA\Property(
+     *           property="second_driver_address",
      *           type="string",
      *         ),
      *          @OA\Property(
