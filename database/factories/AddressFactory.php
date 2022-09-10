@@ -19,8 +19,10 @@ class AddressFactory extends Factory
     {
         return [
             'sender_receiver_id'=>SenderReceiver::inRandomOrder()->first()->id,
-            'province'=>Faker::state(),
-            'city'=>Faker::city(),
+            'province_code'=>fake()->numerify('######'),
+            'province_title'=>Faker::state(),
+            'city_code'=>fake()->numerify('######'),
+            'city_title'=>Faker::city(),
             'postal_code'=>fake()->numerify('########'),
             'address'=>Faker::address(),
             'status'=>fake()->numberBetween(0,2)
