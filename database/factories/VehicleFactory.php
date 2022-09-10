@@ -30,7 +30,7 @@ class VehicleFactory extends Factory
             'number_plate_type'=>fake()->numberBetween(0,1),
             'numbering_location_code'=>fake()->numerify('#########'),
             'numbering_location'=>Faker::city(),
-            'smart_number'=>fake()->numerify('#########'),
+            'smart_number'=>fake()->numerify('#######'),
             'smart_number_expire'=>fake()->iso8601(),
             'VIN'=>fake()->numerify('#################'),
             'allowed_driver_licence'=>fake()->numberBetween(1,3),
