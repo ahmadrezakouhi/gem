@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\BillOfLadingController;
 use App\Http\Controllers\Api\CargoController;
 use App\Http\Controllers\Api\DriverController;
 use App\Http\Controllers\Api\CompanyController;
+use App\Http\Controllers\Api\DraftBillOfLadingController;
 use App\Http\Controllers\Api\SenderReceiverController;
 use App\Http\Controllers\Api\VehicleController;
 use App\Http\Controllers\Api\DraftController;
@@ -58,5 +59,7 @@ Route::get('insurances/{insurance}/tariffs',[TariffController::class,'index']);
 Route::get('insurance-companies',[InsuranceCompanyController::class,'index']);
 
 Route::apiResource('cargoes',CargoController::class);
+
+Route::apiResource('drafts-bill-of-ladings',DraftBillOfLadingController::class);
 
 
