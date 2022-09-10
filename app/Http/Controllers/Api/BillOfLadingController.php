@@ -30,7 +30,7 @@ class BillOfLadingController extends Controller
      **/
     public function index()
     {
-        return BillOfLading::orderBy('id','desc')->paginate();
+        return BillOfLading::with('cargoes')->orderBy('id','desc')->paginate();
     }
 
     /**
@@ -39,7 +39,7 @@ class BillOfLadingController extends Controller
      *   tags={"bill-of-ladings"},
      *   summary="create bill of lading",
      *       description="create bill of lading",
-     *   @OA\RequestBody(
+      *   @OA\RequestBody(
      *     required=true,
      *     @OA\MediaType(
      *       mediaType="application/json",
@@ -105,6 +105,42 @@ class BillOfLadingController extends Controller
      *         ),
      *          @OA\Property(
      *           property="description",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="document_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="document_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="cottage_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="cottage_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="cortex_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="order_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="item",
+     *           type="string",
+     *         ),
+     *  *          @OA\Property(
+     *           property="status_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="status_title",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -177,6 +213,10 @@ class BillOfLadingController extends Controller
      *           type="boolean",
      *         ),
      *          @OA\Property(
+     *           property="sender_id",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
      *           property="sender_national_code",
      *           type="string",
      *         ),
@@ -189,11 +229,27 @@ class BillOfLadingController extends Controller
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="sender_fullname",
+     *           property="sender_name",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="sender_city",
+     *           property="sender_last_name",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="sender_province_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="sender_province_title",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="sender_city_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="sender_city_title",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -202,6 +258,10 @@ class BillOfLadingController extends Controller
      *         ),
      *          @OA\Property(
      *           property="sender_address",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_id",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -217,11 +277,27 @@ class BillOfLadingController extends Controller
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="receiver_fullname",
+     *           property="receiver_name",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="receiver_city",
+     *           property="receiver_last_name",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_province_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_province_title",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_city_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_city_title",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -331,51 +407,51 @@ class BillOfLadingController extends Controller
      *           type="tiny integer",
      *         ),
      *          @OA\Property(
-     *           property="field_1",
+     *           property="sc_field_1",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_2",
+     *           property="sc_field_2",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_3",
+     *           property="sc_field_3",
      *           type="string",
      *         ),
      *         @OA\Property(
-     *           property="field_4",
+     *           property="sc_field_4",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_5",
+     *           property="sc_field_5",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_6",
+     *           property="sc_field_6",
      *           type="string",
      *         ),
      *         @OA\Property(
-     *           property="field_7",
+     *           property="sc_field_7",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_8",
+     *           property="sc_field_8",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_9",
+     *           property="sc_field_9",
      *           type="string",
      *         ),
      *           @OA\Property(
-     *           property="field_10",
+     *           property="sc_field_10",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_11",
+     *           property="sc_field_11",
      *           type="string",
      *         ),
      *           @OA\Property(
-     *           property="field_12",
+     *           property="sc_field_12",
      *           type="string",
      *         ),
      *       ),
@@ -437,7 +513,7 @@ class BillOfLadingController extends Controller
      **/
     public function show(BillOfLading $bill_of_lading)
     {
-        return response()->json($bill_of_lading,Response::HTTP_ACCEPTED);
+        return response()->json($bill_of_lading->load('cargoes'),Response::HTTP_ACCEPTED);
     }
 
      /**
@@ -527,8 +603,40 @@ class BillOfLadingController extends Controller
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="scale_fee",
-     *           type="integer",
+     *           property="document_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="document_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="cottage_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="cottage_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="cortex_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="order_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="item",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="status_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="status_title",
+     *           type="string",
      *         ),
      *           @OA\Property(
      *           property="sleep_fee",
@@ -596,6 +704,10 @@ class BillOfLadingController extends Controller
      *           type="boolean",
      *         ),
      *          @OA\Property(
+     *           property="sender_id",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
      *           property="sender_national_code",
      *           type="string",
      *         ),
@@ -608,11 +720,27 @@ class BillOfLadingController extends Controller
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="sender_fullname",
+     *           property="sender_name",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="sender_city",
+     *           property="sender_last_name",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="sender_province_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="sender_province_title",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="sender_city_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="sender_city_title",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -621,6 +749,10 @@ class BillOfLadingController extends Controller
      *         ),
      *          @OA\Property(
      *           property="sender_address",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_id",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -636,11 +768,27 @@ class BillOfLadingController extends Controller
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="receiver_fullname",
+     *           property="receiver_name",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="receiver_city",
+     *           property="receiver_last_name",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_province_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_province_title",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_city_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_city_title",
      *           type="string",
      *         ),
      *          @OA\Property(
@@ -750,51 +898,51 @@ class BillOfLadingController extends Controller
      *           type="tiny integer",
      *         ),
      *          @OA\Property(
-     *           property="field_1",
+     *           property="sc_field_1",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_2",
+     *           property="sc_field_2",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_3",
+     *           property="sc_field_3",
      *           type="string",
      *         ),
      *         @OA\Property(
-     *           property="field_4",
+     *           property="sc_field_4",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_5",
+     *           property="sc_field_5",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_6",
+     *           property="sc_field_6",
      *           type="string",
      *         ),
      *         @OA\Property(
-     *           property="field_7",
+     *           property="sc_field_7",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_8",
+     *           property="sc_field_8",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_9",
+     *           property="sc_field_9",
      *           type="string",
      *         ),
      *           @OA\Property(
-     *           property="field_10",
+     *           property="sc_field_10",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="field_11",
+     *           property="sc_field_11",
      *           type="string",
      *         ),
      *           @OA\Property(
-     *           property="field_12",
+     *           property="sc_field_12",
      *           type="string",
      *         ),
      *       ),
