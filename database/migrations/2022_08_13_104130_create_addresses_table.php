@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('sender_receiver_id');
             $table->foreign('sender_receiver_id')->references('id')->on('senders_receivers');
-            $table->string('province',50)->nullable();
-            $table->string('city',50)->nullable();
+            $table->unsignedInteger('province_code')->nullable();
+            $table->string('province_title',255)->nullable();
+            $table->unsignedInteger('city_code')->nullable();
+            $table->string('city_title',255)->nullable();
             $table->string('postal_code',20)->nullable();
             $table->text('address')->nullable();
             $table->tinyInteger('status')->unsigned()->nullable();
