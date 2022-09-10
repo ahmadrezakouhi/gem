@@ -51,12 +51,20 @@ class AddressController extends Controller
      *           type="integer",
      *         ),
      *          @OA\Property(
-     *           property="province",
+     *           property="province_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="province_title",
      *           type="string",
      *         ),
      *
      *           @OA\Property(
-     *           property="city",
+     *           property="city_code",
+     *           type="integer",
+     *         ),
+     *           @OA\Property(
+     *           property="city_title",
      *           type="string",
      *         ),
      *
@@ -170,16 +178,23 @@ class AddressController extends Controller
      *           description="foreign key to senders_recivers table",
      *           type="integer",
      *         ),
+     *          *          @OA\Property(
+     *           property="province_code",
+     *           type="integer",
+     *         ),
      *          @OA\Property(
-     *           property="province",
+     *           property="province_title",
      *           type="string",
      *         ),
      *
      *           @OA\Property(
-     *           property="city",
+     *           property="city_code",
+     *           type="integer",
+     *         ),
+     *           @OA\Property(
+     *           property="city_title",
      *           type="string",
      *         ),
-     *
      *
      *           @OA\Property(
      *           property="postal_code",
