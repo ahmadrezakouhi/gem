@@ -231,7 +231,7 @@
                             "schema": {
                                 "properties": {
                                     "bill_of_lading_serial": {
-                                        "type": "integer"
+                                        "type": "string"
                                     },
                                     "bill_of_lading_number": {
                                         "type": "integer"
@@ -269,6 +269,35 @@
                                         "type": "string"
                                     },
                                     "description": {
+                                        "type": "string"
+                                    },
+                                    "document_number": {
+                                        "type": "string"
+                                    },
+                                    "document_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cottage_number": {
+                                        "type": "string"
+                                    },
+                                    "cottage_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cortex_number": {
+                                        "type": "string"
+                                    },
+                                    "order_number": {
+                                        "type": "string"
+                                    },
+                                    "item": {
+                                        "type": "string"
+                                    },
+                                    "status_code": {
+                                        "type": "string"
+                                    },
+                                    "status_title": {
                                         "type": "string"
                                     },
                                     "scale_fee": {
@@ -316,6 +345,16 @@
                                     "fixed_cost": {
                                         "type": "integer"
                                     },
+                                    "register_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "receipt": {
+                                        "type": "boolean"
+                                    },
+                                    "sender_id": {
+                                        "type": "string"
+                                    },
                                     "sender_national_code": {
                                         "type": "string"
                                     },
@@ -325,16 +364,31 @@
                                     "sender_economic_code": {
                                         "type": "string"
                                     },
-                                    "sender_fullname": {
+                                    "sender_name": {
                                         "type": "string"
                                     },
-                                    "sender_city": {
+                                    "sender_last_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_province_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_province_title": {
+                                        "type": "string"
+                                    },
+                                    "sender_city_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_city_title": {
                                         "type": "string"
                                     },
                                     "sender_phones": {
                                         "type": "string"
                                     },
                                     "sender_address": {
+                                        "type": "string"
+                                    },
+                                    "receiver_id": {
                                         "type": "string"
                                     },
                                     "receiver_national_code": {
@@ -346,10 +400,22 @@
                                     "receiver_economic_code": {
                                         "type": "string"
                                     },
-                                    "receiver_fullname": {
+                                    "receiver_name": {
                                         "type": "string"
                                     },
-                                    "receiver_city": {
+                                    "receiver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_province_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_province_title": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city_title": {
                                         "type": "string"
                                     },
                                     "receiver_phones": {
@@ -358,7 +424,13 @@
                                     "receiver_address": {
                                         "type": "string"
                                     },
-                                    "first_driver_fullname": {
+                                    "first_driver_name": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_personal_code": {
                                         "type": "string"
                                     },
                                     "first_driver_national_code": {
@@ -373,7 +445,16 @@
                                     "first_driver_phones": {
                                         "type": "string"
                                     },
-                                    "second_driver_fullname": {
+                                    "first_driver_address": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_name": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_personal_code": {
                                         "type": "string"
                                     },
                                     "second_driver_national_code": {
@@ -386,6 +467,9 @@
                                         "type": "string"
                                     },
                                     "second_driver_phones": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_address": {
                                         "type": "string"
                                     },
                                     "vehicle_smart_number": {
@@ -414,40 +498,40 @@
                                     "vehicle_status": {
                                         "type": "tiny integer"
                                     },
-                                    "field_1": {
+                                    "sc_field_1": {
                                         "type": "string"
                                     },
-                                    "field_2": {
+                                    "sc_field_2": {
                                         "type": "string"
                                     },
-                                    "field_3": {
+                                    "sc_field_3": {
                                         "type": "string"
                                     },
-                                    "field_4": {
+                                    "sc_field_4": {
                                         "type": "string"
                                     },
-                                    "field_5": {
+                                    "sc_field_5": {
                                         "type": "string"
                                     },
-                                    "field_6": {
+                                    "sc_field_6": {
                                         "type": "string"
                                     },
-                                    "field_7": {
+                                    "sc_field_7": {
                                         "type": "string"
                                     },
-                                    "field_8": {
+                                    "sc_field_8": {
                                         "type": "string"
                                     },
-                                    "field_9": {
+                                    "sc_field_9": {
                                         "type": "string"
                                     },
-                                    "field_10": {
+                                    "sc_field_10": {
                                         "type": "string"
                                     },
-                                    "field_11": {
+                                    "sc_field_11": {
                                         "type": "string"
                                     },
-                                    "field_12": {
+                                    "sc_field_12": {
                                         "type": "string"
                                     }
                                 },
@@ -552,7 +636,7 @@
                             "schema": {
                                 "properties": {
                                     "bill_of_lading_serial": {
-                                        "type": "integer"
+                                        "type": "string"
                                     },
                                     "bill_of_lading_number": {
                                         "type": "integer"
@@ -592,8 +676,34 @@
                                     "description": {
                                         "type": "string"
                                     },
-                                    "scale_fee": {
-                                        "type": "integer"
+                                    "document_number": {
+                                        "type": "string"
+                                    },
+                                    "document_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cottage_number": {
+                                        "type": "string"
+                                    },
+                                    "cottage_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cortex_number": {
+                                        "type": "string"
+                                    },
+                                    "order_number": {
+                                        "type": "string"
+                                    },
+                                    "item": {
+                                        "type": "string"
+                                    },
+                                    "status_code": {
+                                        "type": "string"
+                                    },
+                                    "status_title": {
+                                        "type": "string"
                                     },
                                     "sleep_fee": {
                                         "type": "integer"
@@ -637,6 +747,16 @@
                                     "fixed_cost": {
                                         "type": "integer"
                                     },
+                                    "register_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "receipt": {
+                                        "type": "boolean"
+                                    },
+                                    "sender_id": {
+                                        "type": "string"
+                                    },
                                     "sender_national_code": {
                                         "type": "string"
                                     },
@@ -646,16 +766,31 @@
                                     "sender_economic_code": {
                                         "type": "string"
                                     },
-                                    "sender_fullname": {
+                                    "sender_name": {
                                         "type": "string"
                                     },
-                                    "sender_city": {
+                                    "sender_last_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_province_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_province_title": {
+                                        "type": "string"
+                                    },
+                                    "sender_city_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_city_title": {
                                         "type": "string"
                                     },
                                     "sender_phones": {
                                         "type": "string"
                                     },
                                     "sender_address": {
+                                        "type": "string"
+                                    },
+                                    "receiver_id": {
                                         "type": "string"
                                     },
                                     "receiver_national_code": {
@@ -667,10 +802,22 @@
                                     "receiver_economic_code": {
                                         "type": "string"
                                     },
-                                    "receiver_fullname": {
+                                    "receiver_name": {
                                         "type": "string"
                                     },
-                                    "receiver_city": {
+                                    "receiver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_province_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_province_title": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city_title": {
                                         "type": "string"
                                     },
                                     "receiver_phones": {
@@ -679,7 +826,13 @@
                                     "receiver_address": {
                                         "type": "string"
                                     },
-                                    "first_driver_fullname": {
+                                    "first_driver_name": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_personal_code": {
                                         "type": "string"
                                     },
                                     "first_driver_national_code": {
@@ -694,7 +847,16 @@
                                     "first_driver_phones": {
                                         "type": "string"
                                     },
-                                    "second_driver_fullname": {
+                                    "first_driver_address": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_name": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_personal_code": {
                                         "type": "string"
                                     },
                                     "second_driver_national_code": {
@@ -707,6 +869,9 @@
                                         "type": "string"
                                     },
                                     "second_driver_phones": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_address": {
                                         "type": "string"
                                     },
                                     "vehicle_smart_number": {
@@ -735,40 +900,40 @@
                                     "vehicle_status": {
                                         "type": "tiny integer"
                                     },
-                                    "field_1": {
+                                    "sc_field_1": {
                                         "type": "string"
                                     },
-                                    "field_2": {
+                                    "sc_field_2": {
                                         "type": "string"
                                     },
-                                    "field_3": {
+                                    "sc_field_3": {
                                         "type": "string"
                                     },
-                                    "field_4": {
+                                    "sc_field_4": {
                                         "type": "string"
                                     },
-                                    "field_5": {
+                                    "sc_field_5": {
                                         "type": "string"
                                     },
-                                    "field_6": {
+                                    "sc_field_6": {
                                         "type": "string"
                                     },
-                                    "field_7": {
+                                    "sc_field_7": {
                                         "type": "string"
                                     },
-                                    "field_8": {
+                                    "sc_field_8": {
                                         "type": "string"
                                     },
-                                    "field_9": {
+                                    "sc_field_9": {
                                         "type": "string"
                                     },
-                                    "field_10": {
+                                    "sc_field_10": {
                                         "type": "string"
                                     },
-                                    "field_11": {
+                                    "sc_field_11": {
                                         "type": "string"
                                     },
-                                    "field_12": {
+                                    "sc_field_12": {
                                         "type": "string"
                                     }
                                 },
@@ -3101,10 +3266,22 @@
                                     "description": {
                                         "type": "string"
                                     },
+                                    "province_code": {
+                                        "type": "string"
+                                    },
+                                    "province_title": {
+                                        "type": "string"
+                                    },
+                                    "city_code": {
+                                        "type": "string"
+                                    },
+                                    "city_title": {
+                                        "type": "string"
+                                    },
                                     "address": {
                                         "type": "string"
                                     },
-                                    "phone": {
+                                    "phones": {
                                         "type": "string"
                                     },
                                     "mobile": {
@@ -3182,6 +3359,18 @@
                                         "type": "string"
                                     },
                                     "description": {
+                                        "type": "string"
+                                    },
+                                    "province_code": {
+                                        "type": "string"
+                                    },
+                                    "province_title": {
+                                        "type": "string"
+                                    },
+                                    "city_code": {
+                                        "type": "string"
+                                    },
+                                    "city_title": {
                                         "type": "string"
                                     },
                                     "address": {
