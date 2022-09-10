@@ -15,7 +15,12 @@ class BillOfLading extends Model
             'first_driver_health_card_expire'=>'datetime',
             'second_driver_health_card_expire'=>'datetime',
             'vehicle_insurance_expire'=>'datetime',
-            'vehicle_inspection_expire'=>'datetime'
+            'vehicle_inspection_expire'=>'datetime',
+            'register_date'=>'datetime',
+            'receipt'=>'boolean',
+            'document_date'=>'datetime',
+            'cottage_date'=>'datetime'
+
 
 
     ];
