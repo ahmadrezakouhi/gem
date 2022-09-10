@@ -30,6 +30,23 @@ return new class extends Migration
             $table->boolean('traffic')->default(false);
             $table->boolean('incendiary')->default(false);
             $table->boolean('traffic_zone')->default(false);
+            $table->string('order_number',20)->nullable();
+            $table->string('order_row',20)->nullable();
+            $table->string('cortex_number',20)->nullable();
+            $table->string('field_1',255)->nullable();
+            $table->string('field_2',255)->nullable();
+            $table->string('field_3',255)->nullable();
+            $table->string('field_4',255)->nullable();
+            $table->string('field_5',255)->nullable();
+            $table->string('field_6',255)->nullable();
+            $table->string('field_7',255)->nullable();
+            $table->string('field_8',255)->nullable();
+            $table->string('field_9',255)->nullable();
+            $table->string('field_10',255)->nullable();
+            $table->string('field_11',255)->nullable();
+            $table->string('field_12',255)->nullable();
+
+
             $table->timestamps();
         });
     }
