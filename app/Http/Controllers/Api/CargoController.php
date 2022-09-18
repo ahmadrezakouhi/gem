@@ -201,11 +201,11 @@ class CargoController extends Controller
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="packing_code",
+     *           property="package_code",
      *           type="integer",
      *         ),
      *           @OA\Property(
-     *           property="packing_title",
+     *           property="package_title",
      *           type="string",
      *         ),
      *

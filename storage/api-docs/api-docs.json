@@ -43,10 +43,16 @@
                                         "description": "foreign key to senders_recivers table",
                                         "type": "integer"
                                     },
-                                    "province": {
+                                    "province_code": {
+                                        "type": "integer"
+                                    },
+                                    "province_title": {
                                         "type": "string"
                                     },
-                                    "city": {
+                                    "city_code": {
+                                        "type": "integer"
+                                    },
+                                    "city_title": {
                                         "type": "string"
                                     },
                                     "postal_code": {
@@ -163,10 +169,16 @@
                                         "description": "foreign key to senders_recivers table",
                                         "type": "integer"
                                     },
-                                    "province": {
+                                    "province_code": {
+                                        "type": "integer"
+                                    },
+                                    "province_title": {
                                         "type": "string"
                                     },
-                                    "city": {
+                                    "city_code": {
+                                        "type": "integer"
+                                    },
+                                    "city_title": {
                                         "type": "string"
                                     },
                                     "postal_code": {
@@ -3266,22 +3278,10 @@
                                     "description": {
                                         "type": "string"
                                     },
-                                    "province_code": {
-                                        "type": "string"
-                                    },
-                                    "province_title": {
-                                        "type": "string"
-                                    },
-                                    "city_code": {
-                                        "type": "string"
-                                    },
-                                    "city_title": {
-                                        "type": "string"
-                                    },
                                     "address": {
                                         "type": "string"
                                     },
-                                    "phones": {
+                                    "phone": {
                                         "type": "string"
                                     },
                                     "mobile": {
@@ -3359,18 +3359,6 @@
                                         "type": "string"
                                     },
                                     "description": {
-                                        "type": "string"
-                                    },
-                                    "province_code": {
-                                        "type": "string"
-                                    },
-                                    "province_title": {
-                                        "type": "string"
-                                    },
-                                    "city_code": {
-                                        "type": "string"
-                                    },
-                                    "city_title": {
                                         "type": "string"
                                     },
                                     "address": {
