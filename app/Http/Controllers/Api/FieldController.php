@@ -37,7 +37,12 @@ class FieldController extends Controller
      **/
     public function index(Request $request)
     {
-        return Field::where('is_draft',$request->is_draft)->orderBy('id','desc')->get();
+        if($request->is_draft === 'null'){
+            return Field::orderBy('id','desc')->get();
+        }else {
+            return Field::where('is_draft',$request->is_draft ==='true' ? true : false )->orderBy('id','desc')->get();
+        }
+
     }
 
     /**
