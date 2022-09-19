@@ -25,7 +25,7 @@ class DraftBillOfLadingFactory extends Factory
             'from_number'=>fake()->numerify('########'),
             'to_number'=>fake()->numerify('#########'),
             'serial'=>fake()->numerify('#########'),
-            'status_code'=>fake()->numerify('########'),
+            'status_code'=>fake()->numberBetween(1,3),
             'status_title'=>Faker::word(),
             'description'=>Faker::paragraph()
         ];
