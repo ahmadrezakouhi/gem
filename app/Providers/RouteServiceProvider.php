@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\BillOfLading;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -36,6 +37,12 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        Route::bind('bill-of-lading', function ($value) {
+            $bill_of_lading = new BillOfLading();
+            $bill_of_lading->code = '123456789';
+            return $value!=0 ?BillOfLading::where('id',$value)->firstOrFail(): $bill_of_lading;
+        });
     }
 
     /**
@@ -46,7 +53,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(120)->by($request->user()?->id ?: $request->ip()); //60
+            return Limit::perMinute(1000)->by($request->user()?->id ?: $request->ip()); //60
         });
     }
 }
