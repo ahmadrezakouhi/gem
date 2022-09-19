@@ -15,6 +15,11 @@ class Cargo extends Model
             'traffic_zone'=>'boolean'
     ];
 
+
+
+    
+
+
     public function billOfLading(){
         return $this->belongsTo(BillOfLading::class);
     }
