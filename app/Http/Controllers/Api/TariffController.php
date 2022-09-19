@@ -29,9 +29,10 @@ class TariffController extends Controller
      *   ),
      *)
      **/
-    public function index(Insurance $insurance)
+    public function index(/*Insurance $insurance*/)
     {
-        return $insurance->tariffs()->orderBy('id','desc')->get();
+        // return $insurance->tariffs()->orderBy('id','desc')->get();
+        return Tariff::orderBy('id','desc')->get();
     }
 
      /**
