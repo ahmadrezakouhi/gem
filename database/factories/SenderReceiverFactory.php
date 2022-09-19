@@ -17,6 +17,9 @@ class SenderReceiverFactory extends Factory
      */
     public function definition()
     {
+        $is_sender = fake()->boolean();
+        $is_receiver = fake()->boolean();
+        $boleanWithNull = [false,true,null];
         return [
             'panel_code'=>Company::inRandomOrder()->first()->panel_code,
             'national_code'=>Faker::melliCode(),
@@ -24,7 +27,7 @@ class SenderReceiverFactory extends Factory
             'name'=>Faker::firstName(),
             'last_name'=>Faker::lastName(),
             'economic_code'=>fake()->numerify('##########'),
-            'postal_code'=>fake()->numerify('#########'),
+            'postal_code'=>fake()->numerify('########'),
             'description'=>Faker::paragraph(),
             'address'=>Faker::address(),
             'tel'=>fake()->phoneNumber(),
@@ -32,6 +35,9 @@ class SenderReceiverFactory extends Factory
             'fax'=>fake()->phoneNumber(),
             'email'=>fake()->email(),
             'status'=>fake()->numberBetween(1,3),
+            'is_sender'=>$is_sender,
+            'is_receiver'=> !$is_sender && !$is_receiver ?? $is_receiver,
+            'is_active'=>fake()->randomElement($boleanWithNull)
         ];
     }
 }
