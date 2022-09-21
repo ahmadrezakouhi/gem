@@ -13,6 +13,8 @@ use App\Http\Controllers\Api\FieldController;
 use App\Http\Controllers\Api\InsuranceCompanyController;
 use App\Http\Controllers\Api\InsuranceController;
 use App\Http\Controllers\Api\TariffController;
+use App\Http\Controllers\Api\TransportCotractController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -52,14 +54,19 @@ Route::apiResource('bill-of-ladings',BillOfLadingController::class);
 
 Route::apiResource('insurances',InsuranceController::class);
 
-Route::apiResource('tariffs',TariffController::class)->except('index');
+Route::apiResource('tariffs',TariffController::class);//->except('index');
 
-Route::get('insurances/{insurance}/tariffs',[TariffController::class,'index']);
+// Route::get('insurances/{insurance}/tariffs',[TariffController::class,'index']);
 
 Route::get('insurance-companies',[InsuranceCompanyController::class,'index']);
 
 Route::apiResource('cargoes',CargoController::class);
 
-Route::apiResource('drafts-bill-of-ladings',DraftBillOfLadingController::class);
+Route::apiResource('drafts-bill-of-ladings',DraftBillOfLadingController::class,
+['parameters' => [
+    'drafts-bill-of-ladings' => 'draft_bill_of_lading'
+]]);
 
+Route::apiResource('transport-contracts',TransportCotractController::class);
 
+Route::apiResource('users',UserController::class);
