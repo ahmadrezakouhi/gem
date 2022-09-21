@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreign('bill_of_lading_id')->references('id')->on('bill_of_ladings');
             $table->unsignedBigInteger('cargo_code')->nullable();
             $table->string('cargo_title',100)->nullable();
-            $table->unsignedBigInteger('packing_code')->nullable();
-            $table->string('packing_title',100)->nullable();
+            $table->unsignedBigInteger('package_code')->nullable();
+            $table->string('package_title',100)->nullable();
             $table->text('description')->nullable();
             $table->unsignedInteger('weight')->nullable();
             $table->unsignedInteger('quantity')->nullable();
