@@ -30,6 +30,9 @@ return new class extends Migration
             $table->string('fax',50)->nullable();
             $table->string('email',100)->nullable();
             $table->tinyInteger('status')->nullable();
+            $table->boolean('is_receiver')->default(false);
+            $table->boolean('is_sender')->default(false);
+            $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
     }
