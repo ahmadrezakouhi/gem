@@ -13,6 +13,7 @@ use App\Models\Driver;
 use App\Models\Field;
 use App\Models\SenderReceiver;
 use App\Models\Tariff;
+use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 
@@ -25,8 +26,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+
         Company::factory(20)->create();
+
         Driver::factory(20)->create();
         SenderReceiver::factory(20)->create();
         Address::factory(20)->create();
@@ -42,7 +44,7 @@ class DatabaseSeeder extends Seeder
             CargoSeeder::class,
             DraftBillOfLadingSeeder::class
         ]);
-
+        User::factory(20)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
