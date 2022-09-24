@@ -30,7 +30,7 @@ class BillOfLadingController extends Controller
      **/
     public function index()
     {
-        return BillOfLading::with('cargoes')->orderBy('id','desc')->paginate();
+        return BillOfLading::with('cargoes')->orderBy('id', 'desc')->paginate();
     }
 
     /**
@@ -39,7 +39,7 @@ class BillOfLadingController extends Controller
      *   tags={"bill-of-ladings"},
      *   summary="create bill of lading",
      *       description="create bill of lading",
-      *   @OA\RequestBody(
+     *   @OA\RequestBody(
      *     required=true,
      *     @OA\MediaType(
      *       mediaType="application/json",
@@ -478,7 +478,7 @@ class BillOfLadingController extends Controller
     public function store(Request $request)
     {
         $bill_of_lading = BillOfLading::create($request->all());
-        return response()->json($bill_of_lading,Response::HTTP_CREATED);
+        return response()->json($bill_of_lading, Response::HTTP_CREATED);
     }
 
     /**
@@ -513,10 +513,10 @@ class BillOfLadingController extends Controller
      **/
     public function show(BillOfLading $bill_of_lading)
     {
-        return response()->json($bill_of_lading->load('cargoes'),Response::HTTP_ACCEPTED);
+        return response()->json($bill_of_lading->load('cargoes'), Response::HTTP_ACCEPTED);
     }
 
-     /**
+    /**
      * @OA\Patch(
      *   path="/api/bill-of-ladings/{bill-of-lading}",
      *   tags={"bill-of-ladings"},
@@ -534,7 +534,7 @@ class BillOfLadingController extends Controller
      * ),
      *
      *
-      *   @OA\RequestBody(
+     *   @OA\RequestBody(
      *     required=true,
      *     @OA\MediaType(
      *       mediaType="application/json",
@@ -968,11 +968,16 @@ class BillOfLadingController extends Controller
      **/
     public function update(Request $request, BillOfLading $bill_of_lading)
     {
+
+        $bill_of_lading->cargoes()->delete();
+        foreach ($request->cargoes as $cargoe) {
+            $bill_of_lading->cargoes()->create($cargoe);
+        }
         $bill_of_lading->update($request->all());
-        return response()->json($bill_of_lading,Response::HTTP_ACCEPTED);
+        return response()->json($bill_of_lading, Response::HTTP_ACCEPTED);
     }
 
-     /**
+    /**
      * @OA\Delete(
      *   path="/api/bill-of-ladings/{bill-of-lading}",
      *   tags={"bill-of-ladings"},
@@ -1005,6 +1010,6 @@ class BillOfLadingController extends Controller
     public function destroy(BillOfLading $bill_of_lading)
     {
         $bill_of_lading->delete();
-        return response()->json(null,Response::HTTP_NO_CONTENT);
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }
