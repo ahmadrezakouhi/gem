@@ -18,17 +18,19 @@ class InsuranceFactory extends Factory
      */
     public function definition()
     {
-
+        $types=[11=>'بیمه مسئولیت مدنی',12=>'بیمه باربری'];
+        $index = fake()->numberBetween(11,12);
         return [
             'panel_code'=>Company::inRandomOrder()->first()->panel_code,
             'insurance_company_code'=>fake()->numerify('##########'),
-            'insurance_company_title'=>null,
+            'insurance_company_title'=>Faker::word(),
             'insurance_policy_number'=>fake()->numerify('########'),
             'start_date'=>fake()->iso8601(),
             'end_date'=>fake()->iso8601(),
             'active'=>fake()->numberBetween(0,1),
             'default'=>fake()->numberBetween(0,1),
-            'type'=>fake()->randomElement(['بیمه باربری','بیمه مسئولیت مدنی']),
+            'type_code'=>$index,
+            'type_title'=>$types[$index],
             'insurance_company_national_code'=>Faker::melliCode(),
             'insurance_company_phone'=>fake()->phoneNumber(),
             'insurance_company_province'=>Faker::state(),
