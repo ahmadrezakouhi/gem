@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\BillOfLading;
+use App\Models\Cargo;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -341,6 +342,10 @@ class BillOfLadingController extends Controller
      *           property="first_driver_address",
      *           type="string",
      *         ),
+     * *          @OA\Property(
+     *           property="first_dirver_on_time_password",
+     *           type="string",
+     *         ),
      *           @OA\Property(
      *           property="second_driver_name",
      *           type="string",
@@ -405,6 +410,26 @@ class BillOfLadingController extends Controller
      *          @OA\Property(
      *           property="vehicle_status",
      *           type="tiny integer",
+     *         ),
+     *          @OA\Property(
+     *           property="vehicle_one_time_password",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="insurance_id",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="insurance_title",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="transport_contract_id",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="transport_contract_title",
+     *           type="string",
      *         ),
      *          @OA\Property(
      *           property="sc_field_1",
@@ -478,6 +503,7 @@ class BillOfLadingController extends Controller
     public function store(Request $request)
     {
         $bill_of_lading = BillOfLading::create($request->all());
+        $this->createCargoesForBillOfLading($bill_of_lading,$request->cargoes);
         return response()->json($bill_of_lading, Response::HTTP_CREATED);
     }
 
@@ -832,6 +858,10 @@ class BillOfLadingController extends Controller
      *           property="first_driver_address",
      *           type="string",
      *         ),
+     * *          @OA\Property(
+     *           property="first_driver_one_time_password",
+     *           type="string",
+     *         ),
      *           @OA\Property(
      *           property="second_driver_name",
      *           type="string",
@@ -896,6 +926,26 @@ class BillOfLadingController extends Controller
      *          @OA\Property(
      *           property="vehicle_status",
      *           type="tiny integer",
+     *         ),
+     *          @OA\Property(
+     *           property="vehicle_one_time_password",
+     *           type="tiny integer",
+     *         ),
+     *          @OA\Property(
+     *           property="insurance_id",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="insurance_title",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="transport_contract_id",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="transport_contract_title",
+     *           type="string",
      *         ),
      *          @OA\Property(
      *           property="sc_field_1",
@@ -970,9 +1020,7 @@ class BillOfLadingController extends Controller
     {
 
         $bill_of_lading->cargoes()->delete();
-        foreach ($request->cargoes as $cargoe) {
-            $bill_of_lading->cargoes()->create($cargoe);
-        }
+        $this->createCargoesForBillOfLading($bill_of_lading,$request->cargoes);
         $bill_of_lading->update($request->all());
         return response()->json($bill_of_lading, Response::HTTP_ACCEPTED);
     }
@@ -1011,5 +1059,13 @@ class BillOfLadingController extends Controller
     {
         $bill_of_lading->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
+    }
+
+
+
+    private function createCargoesForBillOfLading(BillOfLading $bill_of_lading, array $cargoes){
+        foreach ($cargoes as $cargoe) {
+            $bill_of_lading->cargoes()->create($cargoe);
+        }
     }
 }
