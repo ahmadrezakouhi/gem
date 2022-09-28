@@ -52,7 +52,12 @@ Route::apiResource('fields',FieldController::class);
 
 Route::apiResource('bill-of-ladings',BillOfLadingController::class);
 
-Route::apiResource('insurances',InsuranceController::class);
+
+Route::get('insurances/active',[InsuranceController::class ,'getInsurancesActive'])->name('insurnases.active');
+
+// Route::prefix('insurances')->group(function(){
+    Route::apiResource('insurances',InsuranceController::class);
+// });
 
 Route::apiResource('tariffs',TariffController::class);//->except('index');
 
