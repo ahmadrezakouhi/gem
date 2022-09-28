@@ -460,6 +460,9 @@
                                     "first_driver_address": {
                                         "type": "string"
                                     },
+                                    "first_dirver_on_time_password": {
+                                        "type": "string"
+                                    },
                                     "second_driver_name": {
                                         "type": "string"
                                     },
@@ -509,6 +512,21 @@
                                     },
                                     "vehicle_status": {
                                         "type": "tiny integer"
+                                    },
+                                    "vehicle_one_time_password": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_id": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_title": {
+                                        "type": "string"
+                                    },
+                                    "transport_contract_id": {
+                                        "type": "integer"
+                                    },
+                                    "transport_contract_title": {
+                                        "type": "string"
                                     },
                                     "sc_field_1": {
                                         "type": "string"
@@ -862,6 +880,9 @@
                                     "first_driver_address": {
                                         "type": "string"
                                     },
+                                    "first_driver_one_time_password": {
+                                        "type": "string"
+                                    },
                                     "second_driver_name": {
                                         "type": "string"
                                     },
@@ -911,6 +932,21 @@
                                     },
                                     "vehicle_status": {
                                         "type": "tiny integer"
+                                    },
+                                    "vehicle_one_time_password": {
+                                        "type": "tiny integer"
+                                    },
+                                    "insurance_id": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_title": {
+                                        "type": "string"
+                                    },
+                                    "transport_contract_id": {
+                                        "type": "integer"
+                                    },
+                                    "transport_contract_title": {
+                                        "type": "string"
                                     },
                                     "sc_field_1": {
                                         "type": "string"
@@ -1152,10 +1188,10 @@
                                     "cargo_title": {
                                         "type": "string"
                                     },
-                                    "packing_code": {
+                                    "package_code": {
                                         "type": "integer"
                                     },
-                                    "packing_title": {
+                                    "package_title": {
                                         "type": "string"
                                     },
                                     "description": {
@@ -1408,6 +1444,221 @@
                 ],
                 "responses": {
                     "204": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/drafts-bill-of-ladings": {
+            "get": {
+                "tags": [
+                    "drafts-bill-of-ladings"
+                ],
+                "summary": "get all drafts-bill-of-ladings",
+                "description": "get all drafts-bill-of-ladings",
+                "operationId": "ce6bb86b2c4cdfb68434026893fac00f",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "drafts-bill-of-ladings"
+                ],
+                "summary": "create drafts-bill-of-ladings",
+                "description": "create drafts-bill-of-ladings",
+                "operationId": "67621340c378882dbaabda0e2d74fe75",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "draft-bill-of-lading": {
+                                        "type": "integer"
+                                    },
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "issue_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "draft_bill_of_lading_number": {
+                                        "type": "string"
+                                    },
+                                    "from_number": {
+                                        "type": "integer"
+                                    },
+                                    "to_number": {
+                                        "type": "integer"
+                                    },
+                                    "serial": {
+                                        "type": "string"
+                                    },
+                                    "status_code": {
+                                        "type": "integer"
+                                    },
+                                    "status_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/drafts-bill-of-ladings/{draft-bill-of-lading}": {
+            "get": {
+                "tags": [
+                    "drafts-bill-of-ladings"
+                ],
+                "summary": "get drafts-bill-of-ladings by id",
+                "description": "get drafts-bill-of-ladings by id",
+                "operationId": "e7a37fc75dc9e2859e56318ed865675e",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "drafts-bill-of-ladings"
+                ],
+                "summary": "delete drafts-bill-of-ladings by id",
+                "description": "delete drafts-bill-of-ladings by id",
+                "operationId": "6a2ba45a8f042eebe10f072258d8880e",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "drafts-bill-of-ladings"
+                ],
+                "summary": "update drafts-bill-of-ladings",
+                "description": "update drafts-bill-of-ladings",
+                "operationId": "715381ed0642dbcbda4dd0e4e7451ea6",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "draft-bill-of-lading": {
+                                        "type": "integer"
+                                    },
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "issue_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "draft_bill_of_lading_number": {
+                                        "type": "string"
+                                    },
+                                    "from_number": {
+                                        "type": "integer"
+                                    },
+                                    "to_number": {
+                                        "type": "integer"
+                                    },
+                                    "serial": {
+                                        "type": "string"
+                                    },
+                                    "status_code": {
+                                        "type": "integer"
+                                    },
+                                    "status_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
                         "description": "Success",
                         "content": {
                             "application/json": {}
@@ -2965,7 +3216,10 @@
                                         "type": "integer",
                                         "default": "0"
                                     },
-                                    "type": {
+                                    "type_code": {
+                                        "type": "integer"
+                                    },
+                                    "type_title": {
                                         "type": "string"
                                     },
                                     "insurance_company_national_code": {
@@ -3026,6 +3280,27 @@
                 },
                 "responses": {
                     "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/insurances/active": {
+            "get": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "get all ative insurances",
+                "description": "get all active insurnces",
+                "operationId": "df280090009d02a70da2fee7e02dcf2b",
+                "responses": {
+                    "200": {
                         "description": "Success",
                         "content": {
                             "application/json": {}
@@ -3147,7 +3422,10 @@
                                         "type": "integer",
                                         "default": "0"
                                     },
-                                    "type": {
+                                    "type_code": {
+                                        "type": "integer"
+                                    },
+                                    "type_title": {
                                         "type": "string"
                                     },
                                     "insurance_company_national_code": {
@@ -3615,6 +3893,318 @@
                                         "type": "integer"
                                     },
                                     "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/transport-contracts": {
+            "get": {
+                "tags": [
+                    "transport-contracts"
+                ],
+                "summary": "get all transport contracts",
+                "description": "get all transport contracts",
+                "operationId": "756480a2dc6137d53a7f72fc134a01af",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/transport-contracts/{transport_contract}": {
+            "get": {
+                "tags": [
+                    "transport-contracts"
+                ],
+                "summary": "get transport contract by id",
+                "description": "get transport contract by id",
+                "operationId": "4105e2c5150d3ced235d884de06b3335",
+                "parameters": [
+                    {
+                        "name": "transport_contract",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "transport-contracts"
+                ],
+                "summary": "delete transport contract by id",
+                "description": "delete transpornt contract by id",
+                "operationId": "aff58ac0f0cf9096ed2170314a4cf5cc",
+                "parameters": [
+                    {
+                        "name": "transport_contract",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "get all users",
+                "description": "get all users",
+                "operationId": "566aed8efb436ca506e0ef51a032ecd9",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "create user",
+                "description": "create user",
+                "operationId": "be551c1d694a01c164966f58bfa77013",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "national_code": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "username_maha": {
+                                        "type": "string"
+                                    },
+                                    "password_maha": {
+                                        "type": "string"
+                                    },
+                                    "personal_code": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "moblie": {
+                                        "type": "string"
+                                    },
+                                    "permissions": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/users/{user}": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "get user by id",
+                "description": "get user by id",
+                "operationId": "f310aa35b9243239c65dbc8b8f4b135e",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "delete user by id",
+                "description": "delete user by id",
+                "operationId": "cf641f0b739211ff3a1c21b1ef310591",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "update user",
+                "description": "update user",
+                "operationId": "4ca690f1a83780f0363b175d06b5a54e",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "national_code": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "username_maha": {
+                                        "type": "string"
+                                    },
+                                    "password_maha": {
+                                        "type": "string"
+                                    },
+                                    "personal_code": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "moblie": {
+                                        "type": "string"
+                                    },
+                                    "permission": {
                                         "type": "string"
                                     }
                                 },
