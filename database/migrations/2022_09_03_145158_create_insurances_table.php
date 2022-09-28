@@ -24,7 +24,8 @@ return new class extends Migration
             $table->timestamp('end_date')->nullable();
             $table->boolean('active')->default(0);
             $table->boolean('default')->default(0);
-            $table->enum('type',['بیمه مسئولیت مدنی','بیمه باربری'])->nullable();
+            $table->unsignedInteger('type_code')->nullable();
+            $table->string('type_title')->nullable();
             $table->string('insurance_company_national_code',20)->nullable();
             $table->string('insurance_company_phone',20)->nullable();
             $table->string('insurance_company_province',100)->nullable();
