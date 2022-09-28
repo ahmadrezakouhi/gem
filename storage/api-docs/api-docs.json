@@ -1,0 +1,4617 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "gem",
+        "description": "gem is project about transportation",
+        "version": "1"
+    },
+    "paths": {
+        "/api/addresses": {
+            "get": {
+                "tags": [
+                    "addresses"
+                ],
+                "summary": "get all addresses",
+                "description": "get all addresses",
+                "operationId": "dc6b190d3f07db7ed032fa181dc45150",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "addresses"
+                ],
+                "summary": "create address",
+                "description": "create address",
+                "operationId": "6344fc023028e43a5490f1c6372bd391",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "sender_reciver_id": {
+                                        "description": "foreign key to senders_recivers table",
+                                        "type": "integer"
+                                    },
+                                    "province_code": {
+                                        "type": "integer"
+                                    },
+                                    "province_title": {
+                                        "type": "string"
+                                    },
+                                    "city_code": {
+                                        "type": "integer"
+                                    },
+                                    "city_title": {
+                                        "type": "string"
+                                    },
+                                    "postal_code": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/addresses/{address}": {
+            "get": {
+                "tags": [
+                    "addresses"
+                ],
+                "summary": "get address by id",
+                "description": "get address by id",
+                "operationId": "85431c549062d0c537257448ad3eedda",
+                "parameters": [
+                    {
+                        "name": "address",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "addresses"
+                ],
+                "summary": "delete address ",
+                "description": "delete address ",
+                "operationId": "fc2684b35fd67400b287e6b5638d75b2",
+                "parameters": [
+                    {
+                        "name": "address",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "addresses"
+                ],
+                "summary": "update address",
+                "description": "update address",
+                "operationId": "8c7a1bda21bd34b28826fb6c6a9bcf12",
+                "parameters": [
+                    {
+                        "name": "address",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "sender_reciver_id": {
+                                        "description": "foreign key to senders_recivers table",
+                                        "type": "integer"
+                                    },
+                                    "province_code": {
+                                        "type": "integer"
+                                    },
+                                    "province_title": {
+                                        "type": "string"
+                                    },
+                                    "city_code": {
+                                        "type": "integer"
+                                    },
+                                    "city_title": {
+                                        "type": "string"
+                                    },
+                                    "postal_code": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-of-ladings": {
+            "get": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "get all bill of ladings",
+                "description": "get all bill of ladings",
+                "operationId": "19708f13ba727959a738d365dbe06e0c",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "create bill of lading",
+                "description": "create bill of lading",
+                "operationId": "a5b5d98972a2f492817ca79346b9dd0a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "bill_of_lading_serial": {
+                                        "type": "string"
+                                    },
+                                    "bill_of_lading_number": {
+                                        "type": "integer"
+                                    },
+                                    "draft_number": {
+                                        "type": "integer"
+                                    },
+                                    "draft_serial": {
+                                        "type": "integer"
+                                    },
+                                    "overburden": {
+                                        "type": "tiny integer",
+                                        "default": "0"
+                                    },
+                                    "estimate_receive_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "warehouse_code": {
+                                        "type": "integer"
+                                    },
+                                    "warehouse_type_code": {
+                                        "type": "integer"
+                                    },
+                                    "warehouse_type_title": {
+                                        "type": "string"
+                                    },
+                                    "warehouse_fee": {
+                                        "type": "integer"
+                                    },
+                                    "loading_code": {
+                                        "type": "integer"
+                                    },
+                                    "loading_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "document_number": {
+                                        "type": "string"
+                                    },
+                                    "document_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cottage_number": {
+                                        "type": "string"
+                                    },
+                                    "cottage_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cortex_number": {
+                                        "type": "string"
+                                    },
+                                    "order_number": {
+                                        "type": "string"
+                                    },
+                                    "item": {
+                                        "type": "string"
+                                    },
+                                    "status_code": {
+                                        "type": "string"
+                                    },
+                                    "status_title": {
+                                        "type": "string"
+                                    },
+                                    "scale_fee": {
+                                        "type": "integer"
+                                    },
+                                    "sleep_fee": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_tax": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_fee": {
+                                        "type": "integer"
+                                    },
+                                    "overload_fee": {
+                                        "type": "integer"
+                                    },
+                                    "commission": {
+                                        "type": "integer"
+                                    },
+                                    "advance_freight": {
+                                        "type": "integer"
+                                    },
+                                    "add_valorem_tax": {
+                                        "type": "integer"
+                                    },
+                                    "unload_fee": {
+                                        "type": "integer"
+                                    },
+                                    "terminal_fee": {
+                                        "type": "integer"
+                                    },
+                                    "cost": {
+                                        "type": "integer"
+                                    },
+                                    "driver_insurance_fee": {
+                                        "type": "integer"
+                                    },
+                                    "freight_collect": {
+                                        "type": "integer"
+                                    },
+                                    "freight_insurance": {
+                                        "type": "integer"
+                                    },
+                                    "fixed_cost": {
+                                        "type": "integer"
+                                    },
+                                    "register_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "receipt": {
+                                        "type": "boolean"
+                                    },
+                                    "sender_id": {
+                                        "type": "string"
+                                    },
+                                    "sender_national_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_last_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_province_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_province_title": {
+                                        "type": "string"
+                                    },
+                                    "sender_city_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_city_title": {
+                                        "type": "string"
+                                    },
+                                    "sender_phones": {
+                                        "type": "string"
+                                    },
+                                    "sender_address": {
+                                        "type": "string"
+                                    },
+                                    "receiver_id": {
+                                        "type": "string"
+                                    },
+                                    "receiver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_province_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_province_title": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city_title": {
+                                        "type": "string"
+                                    },
+                                    "receiver_phones": {
+                                        "type": "string"
+                                    },
+                                    "receiver_address": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_name": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_personal_code": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_health_card_expire": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_phones": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_address": {
+                                        "type": "string"
+                                    },
+                                    "first_dirver_on_time_password": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_name": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_personal_code": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_health_card_expire": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_phones": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_address": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_number_plate": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_insurance_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "vehicle_inspection_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "vehilce_brand_title": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_loading_type": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_status": {
+                                        "type": "tiny integer"
+                                    },
+                                    "vehicle_one_time_password": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_id": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_title": {
+                                        "type": "string"
+                                    },
+                                    "transport_contract_id": {
+                                        "type": "integer"
+                                    },
+                                    "transport_contract_title": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_1": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_2": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_3": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_4": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_5": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_6": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_7": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_8": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_9": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_10": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_11": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_12": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-of-ladings/{bill-of-lading}": {
+            "get": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "get bill of ladings by id",
+                "description": "get bill of ladings by id",
+                "operationId": "71ca1b69ef007b24fbb6c17b2312cf6b",
+                "parameters": [
+                    {
+                        "name": "bill-of-ladings",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "delete bill of lading by id",
+                "description": "delete bill of lading by id",
+                "operationId": "ef375ec20b6f686e5f0a8c95e9ea3482",
+                "parameters": [
+                    {
+                        "name": "bill_of_ladings",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "update bill of lading",
+                "description": "update bill of lading",
+                "operationId": "ffe7010f71e0cebf95905291f93cacfc",
+                "parameters": [
+                    {
+                        "name": "draft",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "bill_of_lading_serial": {
+                                        "type": "string"
+                                    },
+                                    "bill_of_lading_number": {
+                                        "type": "integer"
+                                    },
+                                    "draft_number": {
+                                        "type": "integer"
+                                    },
+                                    "draft_serial": {
+                                        "type": "integer"
+                                    },
+                                    "overburden": {
+                                        "type": "tiny integer",
+                                        "default": "0"
+                                    },
+                                    "estimate_receive_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "warehouse_code": {
+                                        "type": "integer"
+                                    },
+                                    "warehouse_type_code": {
+                                        "type": "integer"
+                                    },
+                                    "warehouse_type_title": {
+                                        "type": "string"
+                                    },
+                                    "warehouse_fee": {
+                                        "type": "integer"
+                                    },
+                                    "loading_code": {
+                                        "type": "integer"
+                                    },
+                                    "loading_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "document_number": {
+                                        "type": "string"
+                                    },
+                                    "document_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cottage_number": {
+                                        "type": "string"
+                                    },
+                                    "cottage_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cortex_number": {
+                                        "type": "string"
+                                    },
+                                    "order_number": {
+                                        "type": "string"
+                                    },
+                                    "item": {
+                                        "type": "string"
+                                    },
+                                    "status_code": {
+                                        "type": "string"
+                                    },
+                                    "status_title": {
+                                        "type": "string"
+                                    },
+                                    "sleep_fee": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_tax": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_fee": {
+                                        "type": "integer"
+                                    },
+                                    "overload_fee": {
+                                        "type": "integer"
+                                    },
+                                    "commission": {
+                                        "type": "integer"
+                                    },
+                                    "advance_freight": {
+                                        "type": "integer"
+                                    },
+                                    "add_valorem_tax": {
+                                        "type": "integer"
+                                    },
+                                    "unload_fee": {
+                                        "type": "integer"
+                                    },
+                                    "terminal_fee": {
+                                        "type": "integer"
+                                    },
+                                    "cost": {
+                                        "type": "integer"
+                                    },
+                                    "driver_insurance_fee": {
+                                        "type": "integer"
+                                    },
+                                    "freight_collect": {
+                                        "type": "integer"
+                                    },
+                                    "freight_insurance": {
+                                        "type": "integer"
+                                    },
+                                    "fixed_cost": {
+                                        "type": "integer"
+                                    },
+                                    "register_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "receipt": {
+                                        "type": "boolean"
+                                    },
+                                    "sender_id": {
+                                        "type": "string"
+                                    },
+                                    "sender_national_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_last_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_province_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_province_title": {
+                                        "type": "string"
+                                    },
+                                    "sender_city_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_city_title": {
+                                        "type": "string"
+                                    },
+                                    "sender_phones": {
+                                        "type": "string"
+                                    },
+                                    "sender_address": {
+                                        "type": "string"
+                                    },
+                                    "receiver_id": {
+                                        "type": "string"
+                                    },
+                                    "receiver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_province_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_province_title": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city_title": {
+                                        "type": "string"
+                                    },
+                                    "receiver_phones": {
+                                        "type": "string"
+                                    },
+                                    "receiver_address": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_name": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_personal_code": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_health_card_expire": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_phones": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_address": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_one_time_password": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_name": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_personal_code": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_health_card_expire": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_phones": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_address": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_number_plate": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_insurance_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "vehicle_inspection_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "vehilce_brand_title": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_loading_type": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_status": {
+                                        "type": "tiny integer"
+                                    },
+                                    "vehicle_one_time_password": {
+                                        "type": "tiny integer"
+                                    },
+                                    "insurance_id": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_title": {
+                                        "type": "string"
+                                    },
+                                    "transport_contract_id": {
+                                        "type": "integer"
+                                    },
+                                    "transport_contract_title": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_1": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_2": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_3": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_4": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_5": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_6": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_7": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_8": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_9": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_10": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_11": {
+                                        "type": "string"
+                                    },
+                                    "sc_field_12": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/cargoes": {
+            "get": {
+                "tags": [
+                    "cargoes"
+                ],
+                "summary": "get all cargoes",
+                "description": "get all cargoes",
+                "operationId": "8a5c4900e9af84fa5575586eb3a179a3",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "cargoes"
+                ],
+                "summary": "create cargo",
+                "description": "create cargo",
+                "operationId": "5d51a0b5c8d7cf0ec921e9cce1c0e536",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "bill_of_lading_id": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_title": {
+                                        "type": "string"
+                                    },
+                                    "packing_code": {
+                                        "type": "integer"
+                                    },
+                                    "packing_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "value": {
+                                        "type": "integer"
+                                    },
+                                    "owner": {
+                                        "type": "string"
+                                    },
+                                    "location_loading": {
+                                        "type": "string"
+                                    },
+                                    "traffic": {
+                                        "type": "boolean"
+                                    },
+                                    "incendiary": {
+                                        "type": "boolean"
+                                    },
+                                    "traffic_zone": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/cargoes/{cargo}": {
+            "get": {
+                "tags": [
+                    "cargoes"
+                ],
+                "summary": "get cargo by id",
+                "description": "get cargo by id",
+                "operationId": "56de61f1a65a10a28d3b8280d3b27737",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "cargoes"
+                ],
+                "summary": "delete cargo by id",
+                "description": "delete cargo by id",
+                "operationId": "b6be4fc601dc1174b4f5766186e0eb82",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "cargoes"
+                ],
+                "summary": "update cargo",
+                "description": "update cargo",
+                "operationId": "9302e990b1cc6cb7b8de1d7cc96c9526",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "bill_of_lading_id": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_title": {
+                                        "type": "string"
+                                    },
+                                    "package_code": {
+                                        "type": "integer"
+                                    },
+                                    "package_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "value": {
+                                        "type": "integer"
+                                    },
+                                    "owner": {
+                                        "type": "string"
+                                    },
+                                    "location_loading": {
+                                        "type": "string"
+                                    },
+                                    "traffic": {
+                                        "type": "boolean"
+                                    },
+                                    "incendiary": {
+                                        "type": "boolean"
+                                    },
+                                    "traffic_zone": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/companies": {
+            "get": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "get all companies",
+                "description": "get all companies",
+                "operationId": "a261a49d113a2af2a5ccb5798c6aae7e",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "create company",
+                "description": "create company",
+                "operationId": "4ba2fab8115d4cb8d481328838cb4bba",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "company_code": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "fax": {
+                                        "type": "string"
+                                    },
+                                    "mobile": {
+                                        "type": "string"
+                                    },
+                                    "manager_name": {
+                                        "type": "string"
+                                    },
+                                    "manager_last_name": {
+                                        "type": "string"
+                                    },
+                                    "presentor_name": {
+                                        "type": "string"
+                                    },
+                                    "presentor_last_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/companies/{company}": {
+            "get": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "get company by id",
+                "description": "get company by id",
+                "operationId": "03cb9962567d5b36fab6c2a6421cbbb2",
+                "parameters": [
+                    {
+                        "name": "company",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "update company",
+                "description": "update company",
+                "operationId": "d9c55b0bbed814a013d238d73d794d42",
+                "parameters": [
+                    {
+                        "name": "company",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "company_code": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "fax": {
+                                        "type": "string"
+                                    },
+                                    "mobile": {
+                                        "type": "string"
+                                    },
+                                    "manager_name": {
+                                        "type": "string"
+                                    },
+                                    "manager_last_name": {
+                                        "type": "string"
+                                    },
+                                    "presentor_name": {
+                                        "type": "string"
+                                    },
+                                    "presentor_last_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/companies/{comapny}": {
+            "delete": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "delete company by id",
+                "description": "delete company by id",
+                "operationId": "71c3be91ca13782ed8116c5c0c0439e6",
+                "parameters": [
+                    {
+                        "name": "company",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/drafts-bill-of-ladings": {
+            "get": {
+                "tags": [
+                    "drafts-bill-of-ladings"
+                ],
+                "summary": "get all drafts-bill-of-ladings",
+                "description": "get all drafts-bill-of-ladings",
+                "operationId": "ce6bb86b2c4cdfb68434026893fac00f",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "drafts-bill-of-ladings"
+                ],
+                "summary": "create drafts-bill-of-ladings",
+                "description": "create drafts-bill-of-ladings",
+                "operationId": "67621340c378882dbaabda0e2d74fe75",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "draft-bill-of-lading": {
+                                        "type": "integer"
+                                    },
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "issue_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "draft_bill_of_lading_number": {
+                                        "type": "string"
+                                    },
+                                    "from_number": {
+                                        "type": "integer"
+                                    },
+                                    "to_number": {
+                                        "type": "integer"
+                                    },
+                                    "serial": {
+                                        "type": "string"
+                                    },
+                                    "status_code": {
+                                        "type": "integer"
+                                    },
+                                    "status_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/drafts-bill-of-ladings/{draft-bill-of-lading}": {
+            "get": {
+                "tags": [
+                    "drafts-bill-of-ladings"
+                ],
+                "summary": "get drafts-bill-of-ladings by id",
+                "description": "get drafts-bill-of-ladings by id",
+                "operationId": "e7a37fc75dc9e2859e56318ed865675e",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "drafts-bill-of-ladings"
+                ],
+                "summary": "delete drafts-bill-of-ladings by id",
+                "description": "delete drafts-bill-of-ladings by id",
+                "operationId": "6a2ba45a8f042eebe10f072258d8880e",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "drafts-bill-of-ladings"
+                ],
+                "summary": "update drafts-bill-of-ladings",
+                "description": "update drafts-bill-of-ladings",
+                "operationId": "715381ed0642dbcbda4dd0e4e7451ea6",
+                "parameters": [
+                    {
+                        "name": "cargo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "draft-bill-of-lading": {
+                                        "type": "integer"
+                                    },
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "issue_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "draft_bill_of_lading_number": {
+                                        "type": "string"
+                                    },
+                                    "from_number": {
+                                        "type": "integer"
+                                    },
+                                    "to_number": {
+                                        "type": "integer"
+                                    },
+                                    "serial": {
+                                        "type": "string"
+                                    },
+                                    "status_code": {
+                                        "type": "integer"
+                                    },
+                                    "status_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/drafts": {
+            "get": {
+                "tags": [
+                    "drafts"
+                ],
+                "summary": "get all drafts",
+                "description": "get all drafts",
+                "operationId": "e1f0c42d8ef829aec07f0812da5bc741",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "drafts"
+                ],
+                "summary": "create draft",
+                "description": "create draft",
+                "operationId": "a8f86ce82db5b6c836b002bad79510fa",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "draft_number": {
+                                        "type": "integer"
+                                    },
+                                    "bill_of_lading_number": {
+                                        "type": "integer"
+                                    },
+                                    "freight_type_code": {
+                                        "type": "integer"
+                                    },
+                                    "freight_type_title": {
+                                        "type": "string"
+                                    },
+                                    "cargo_declaration_number": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_declaration_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "licence_number": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_title": {
+                                        "type": "string"
+                                    },
+                                    "packing_code": {
+                                        "type": "integer"
+                                    },
+                                    "packing_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    },
+                                    "owner": {
+                                        "type": "string"
+                                    },
+                                    "location_loading": {
+                                        "type": "string"
+                                    },
+                                    "traffic": {
+                                        "type": "tiny integer"
+                                    },
+                                    "incendiary": {
+                                        "type": "tiny integer"
+                                    },
+                                    "traffic_zone": {
+                                        "type": "tiny integer"
+                                    },
+                                    "remained_order": {
+                                        "type": "integer"
+                                    },
+                                    "remained_cortex": {
+                                        "type": "integer"
+                                    },
+                                    "freight_charges": {
+                                        "type": "integer"
+                                    },
+                                    "hub_code": {
+                                        "type": "string"
+                                    },
+                                    "status_code": {
+                                        "type": "tiny integer"
+                                    },
+                                    "status_title": {
+                                        "type": "string"
+                                    },
+                                    "is_local_cancel": {
+                                        "type": "tiny integer"
+                                    },
+                                    "start_validity": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_validity": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "order_number": {
+                                        "type": "integer"
+                                    },
+                                    "is_logistics": {
+                                        "type": "tiny integer"
+                                    },
+                                    "receipt": {
+                                        "type": "tiny integer"
+                                    },
+                                    "warehouse_code": {
+                                        "type": "integer"
+                                    },
+                                    "warehouse_type_code": {
+                                        "type": "integer"
+                                    },
+                                    "warehouse_type_title": {
+                                        "type": "string"
+                                    },
+                                    "document_code": {
+                                        "type": "integer"
+                                    },
+                                    "document_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "loading_number_plate": {
+                                        "type": "string"
+                                    },
+                                    "loading_number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "sender_national_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_fullname": {
+                                        "type": "string"
+                                    },
+                                    "sender_city": {
+                                        "type": "string"
+                                    },
+                                    "sender_phones": {
+                                        "type": "string"
+                                    },
+                                    "sender_address": {
+                                        "type": "string"
+                                    },
+                                    "receiver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_fullname": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city": {
+                                        "type": "string"
+                                    },
+                                    "receiver_phones": {
+                                        "type": "string"
+                                    },
+                                    "receiver_address": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_fullname": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_health_card_expire": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_phones": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_fullname": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_health_card_expire": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_phones": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_number_plate": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_insurance_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "vehicle_inspection_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "vehilce_brand_title": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_loading_type": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_status": {
+                                        "type": "tiny integer"
+                                    },
+                                    "field_1": {
+                                        "type": "string"
+                                    },
+                                    "field_2": {
+                                        "type": "string"
+                                    },
+                                    "field_3": {
+                                        "type": "string"
+                                    },
+                                    "field_4": {
+                                        "type": "string"
+                                    },
+                                    "field_5": {
+                                        "type": "string"
+                                    },
+                                    "field_6": {
+                                        "type": "string"
+                                    },
+                                    "field_7": {
+                                        "type": "string"
+                                    },
+                                    "field_8": {
+                                        "type": "string"
+                                    },
+                                    "field_9": {
+                                        "type": "string"
+                                    },
+                                    "field_10": {
+                                        "type": "string"
+                                    },
+                                    "field_11": {
+                                        "type": "string"
+                                    },
+                                    "field_12": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/drafts/{draft}": {
+            "get": {
+                "tags": [
+                    "drafts"
+                ],
+                "summary": "get draft by id",
+                "description": "get draft by id",
+                "operationId": "c08847fcfdc3f9ba8166251e9bd3c132",
+                "parameters": [
+                    {
+                        "name": "draft",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "drafts"
+                ],
+                "summary": "delete draft by id",
+                "description": "delete draft by id",
+                "operationId": "2a5b72be0fc52d7a7f0b5b2164257f59",
+                "parameters": [
+                    {
+                        "name": "draft",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "drafts"
+                ],
+                "summary": "update draft",
+                "description": "update draft",
+                "operationId": "e5953fbc3a26a7e86d06ae4358916719",
+                "parameters": [
+                    {
+                        "name": "draft",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "draft_number": {
+                                        "type": "integer"
+                                    },
+                                    "bill_of_lading_number": {
+                                        "type": "integer"
+                                    },
+                                    "freight_type_code": {
+                                        "type": "integer"
+                                    },
+                                    "freight_type_title": {
+                                        "type": "string"
+                                    },
+                                    "cargo_declaration_number": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_declaration_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "licence_number": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_title": {
+                                        "type": "string"
+                                    },
+                                    "packing_code": {
+                                        "type": "integer"
+                                    },
+                                    "packing_title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    },
+                                    "owner": {
+                                        "type": "string"
+                                    },
+                                    "location_loading": {
+                                        "type": "string"
+                                    },
+                                    "traffic": {
+                                        "type": "tiny integer"
+                                    },
+                                    "incendiary": {
+                                        "type": "tiny integer"
+                                    },
+                                    "traffic_zone": {
+                                        "type": "tiny integer"
+                                    },
+                                    "remained_order": {
+                                        "type": "integer"
+                                    },
+                                    "remained_cortex": {
+                                        "type": "integer"
+                                    },
+                                    "freight_charges": {
+                                        "type": "integer"
+                                    },
+                                    "hub_code": {
+                                        "type": "integer"
+                                    },
+                                    "status_code": {
+                                        "type": "tiny integer"
+                                    },
+                                    "status_title": {
+                                        "type": "string"
+                                    },
+                                    "is_local_cancel": {
+                                        "type": "tiny integer"
+                                    },
+                                    "start_validity": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_validity": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "order_number": {
+                                        "type": "integer"
+                                    },
+                                    "is_logistics": {
+                                        "type": "tiny integer"
+                                    },
+                                    "receipt": {
+                                        "type": "tiny integer"
+                                    },
+                                    "warehouse_code": {
+                                        "type": "integer"
+                                    },
+                                    "warehouse_type_code": {
+                                        "type": "integer"
+                                    },
+                                    "warehouse_type_title": {
+                                        "type": "string"
+                                    },
+                                    "document_code": {
+                                        "type": "integer"
+                                    },
+                                    "document_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "loading_number_plate": {
+                                        "type": "string"
+                                    },
+                                    "loading_number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "sender_national_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_fullname": {
+                                        "type": "string"
+                                    },
+                                    "sender_city": {
+                                        "type": "string"
+                                    },
+                                    "sender_phones": {
+                                        "type": "string"
+                                    },
+                                    "sender_address": {
+                                        "type": "string"
+                                    },
+                                    "receiver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_fullname": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city": {
+                                        "type": "string"
+                                    },
+                                    "receiver_phones": {
+                                        "type": "string"
+                                    },
+                                    "receiver_address": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_fullname": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_health_card_expire": {
+                                        "type": "string"
+                                    },
+                                    "first_driver_phones": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_fullname": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_health_card_expire": {
+                                        "type": "string"
+                                    },
+                                    "second_driver_phones": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_smart_number": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_number_plate": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_insurance_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "vehicle_inspection_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "vehilce_brand_title": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_loading_type": {
+                                        "type": "string"
+                                    },
+                                    "vehicle_status": {
+                                        "type": "tiny integer"
+                                    },
+                                    "field_1": {
+                                        "type": "string"
+                                    },
+                                    "field_2": {
+                                        "type": "string"
+                                    },
+                                    "field_3": {
+                                        "type": "string"
+                                    },
+                                    "field_4": {
+                                        "type": "string"
+                                    },
+                                    "field_5": {
+                                        "type": "string"
+                                    },
+                                    "field_6": {
+                                        "type": "string"
+                                    },
+                                    "field_7": {
+                                        "type": "string"
+                                    },
+                                    "field_8": {
+                                        "type": "string"
+                                    },
+                                    "field_9": {
+                                        "type": "string"
+                                    },
+                                    "field_10": {
+                                        "type": "string"
+                                    },
+                                    "field_11": {
+                                        "type": "string"
+                                    },
+                                    "field_12": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/drivers": {
+            "get": {
+                "tags": [
+                    "drivers"
+                ],
+                "summary": "get all drivers",
+                "description": "get all drivers",
+                "operationId": "a75c8627a59b2479de780c37b0c06e03",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "drivers"
+                ],
+                "summary": "create driver",
+                "description": "create driver",
+                "operationId": "829ed7a657b54c9727b94e7b814c2497",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "father_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "national_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "birth_certificate_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "driver_licence_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "driver_licence_expire",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "health_card_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "health_card_expire",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "insurance_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "smart_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "smart_number_expire",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "vehicle_smart_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city_of_birth",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city_of_driver_licence",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "allowed_vehicle_type",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "tiny integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "tiny integer"
+                        }
+                    },
+                    {
+                        "name": "organization_phone",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phones",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "postal_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_of_activity",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "big integer"
+                        }
+                    },
+                    {
+                        "name": "education",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "IBAN",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success accept",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/drivers/{driver}": {
+            "get": {
+                "tags": [
+                    "drivers"
+                ],
+                "summary": "get driver by id",
+                "description": "get driver by id",
+                "operationId": "932db1d376b0d2c39ea954063cc0b390",
+                "parameters": [
+                    {
+                        "name": "driver",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "drivers"
+                ],
+                "summary": "delete driver by id",
+                "description": "delete driver by id",
+                "operationId": "ac7a4a6a3d6bdd4145338527b23f76da",
+                "parameters": [
+                    {
+                        "name": "driver",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "drivers"
+                ],
+                "summary": "update driver",
+                "description": "update driver",
+                "operationId": "98875cef74527687fe108a6dc6715cad",
+                "parameters": [
+                    {
+                        "name": "driver",
+                        "in": "path",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "father_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "national_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "birth_certificate_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "driver_licence_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "driver_licence_expire",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "health_card_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "health_card_expire",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "insurance_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "smart_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "smart_number_expire",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "vehicle_smart_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city_of_birth",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city_of_driver_licence",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "allowed_vehicle_type",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "tiny integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "tiny integer"
+                        }
+                    },
+                    {
+                        "name": "organization_phone",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phones",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "postal_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_of_activity",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "big integer"
+                        }
+                    },
+                    {
+                        "name": "education",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "IBAN",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success accept",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/fields": {
+            "get": {
+                "tags": [
+                    "fields"
+                ],
+                "summary": "get all fields",
+                "description": "get all fields",
+                "operationId": "964eb09631723774bc691b3072682546",
+                "parameters": [
+                    {
+                        "name": "is_draft",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "fields"
+                ],
+                "summary": "create field",
+                "description": "create field",
+                "operationId": "c3e1747ce5df9eea3ddd046af5969e8c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "font": {
+                                        "type": "string"
+                                    },
+                                    "unique": {
+                                        "type": "integer"
+                                    },
+                                    "separator": {
+                                        "type": "string"
+                                    },
+                                    "length": {
+                                        "type": "string"
+                                    },
+                                    "evaluated_field": {
+                                        "type": "string"
+                                    },
+                                    "is_draft": {
+                                        "type": "integer"
+                                    },
+                                    "visible": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/fields/{field}": {
+            "get": {
+                "tags": [
+                    "fields"
+                ],
+                "summary": "get field by id",
+                "description": "get field by id",
+                "operationId": "2c79d6d7a2b1f3b99b7b42428260bcff",
+                "parameters": [
+                    {
+                        "name": "field",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "fields"
+                ],
+                "summary": "delete field by id",
+                "description": "delete field by id",
+                "operationId": "dce6468c0e3ea2b0e6746e6bbae9883a",
+                "parameters": [
+                    {
+                        "name": "field",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "fields"
+                ],
+                "summary": "update field",
+                "description": "update field",
+                "operationId": "e90f213d2f84071f95b4b5a0bfeefe5b",
+                "parameters": [
+                    {
+                        "name": "field",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "font": {
+                                        "type": "string"
+                                    },
+                                    "unique": {
+                                        "type": "integer"
+                                    },
+                                    "separator": {
+                                        "type": "string"
+                                    },
+                                    "length": {
+                                        "type": "string"
+                                    },
+                                    "evaluated_field": {
+                                        "type": "string"
+                                    },
+                                    "is_draft": {
+                                        "type": "integer"
+                                    },
+                                    "visible": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/insurance-companies": {
+            "get": {
+                "tags": [
+                    "insurance-companies"
+                ],
+                "summary": "get all insurance companies",
+                "description": "get all insurance companies",
+                "operationId": "bd372e7d07a138658c71d11f3b122a33",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/insurances": {
+            "get": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "get all insurances",
+                "description": "get all insurnces",
+                "operationId": "626fa6b9aa7f9909037c97453fb85cc4",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "update insurance",
+                "description": "update insurance",
+                "operationId": "871d6ce5b21f1dedfba248a3ffc4f105",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_company_code": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_company_title": {
+                                        "type": "string"
+                                    },
+                                    "insurance_policy_number": {
+                                        "type": "string"
+                                    },
+                                    "start_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "integer",
+                                        "default": "0"
+                                    },
+                                    "default": {
+                                        "type": "integer",
+                                        "default": "0"
+                                    },
+                                    "type_code": {
+                                        "type": "integer"
+                                    },
+                                    "type_title": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_national_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_phone": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_province": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_city": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_site": {
+                                        "type": "string"
+                                    },
+                                    "agent_name": {
+                                        "type": "string"
+                                    },
+                                    "agent_mobile": {
+                                        "type": "string"
+                                    },
+                                    "agent_phone": {
+                                        "type": "string"
+                                    },
+                                    "agent_address": {
+                                        "type": "string"
+                                    },
+                                    "agent_fax": {
+                                        "type": "string"
+                                    },
+                                    "agent_email": {
+                                        "type": "string"
+                                    },
+                                    "query_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "issue_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/insurances/active": {
+            "get": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "get all ative insurances",
+                "description": "get all active insurnces",
+                "operationId": "df280090009d02a70da2fee7e02dcf2b",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/insurances/{insurance}": {
+            "get": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "get insurance by id",
+                "description": "get insurance by id",
+                "operationId": "cfaa8e78c6dd80c3d30269842c877ac2",
+                "parameters": [
+                    {
+                        "name": "insurance",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "delete insurance by id",
+                "description": "delete insurance by id",
+                "operationId": "6622f4f0a91631ad35b6d9433ba3f469",
+                "parameters": [
+                    {
+                        "name": "insurance",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "insurances"
+                ],
+                "summary": "update insurance",
+                "description": "update insurance",
+                "operationId": "d01ecb799582caaf2423bf6e4ecd2c04",
+                "parameters": [
+                    {
+                        "name": "insurance",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_company_code": {
+                                        "type": "integer"
+                                    },
+                                    "insurance_company_title": {
+                                        "type": "string"
+                                    },
+                                    "insurance_policy_number": {
+                                        "type": "string"
+                                    },
+                                    "start_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "active": {
+                                        "type": "integer",
+                                        "default": "0"
+                                    },
+                                    "default": {
+                                        "type": "integer",
+                                        "default": "0"
+                                    },
+                                    "type_code": {
+                                        "type": "integer"
+                                    },
+                                    "type_title": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_national_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_phone": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_province": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_city": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_economic_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "insurance_company_site": {
+                                        "type": "string"
+                                    },
+                                    "agent_name": {
+                                        "type": "string"
+                                    },
+                                    "agent_mobile": {
+                                        "type": "string"
+                                    },
+                                    "agent_phone": {
+                                        "type": "string"
+                                    },
+                                    "agent_address": {
+                                        "type": "string"
+                                    },
+                                    "agent_fax": {
+                                        "type": "string"
+                                    },
+                                    "agent_email": {
+                                        "type": "string"
+                                    },
+                                    "query_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "issue_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/senders-receivers": {
+            "get": {
+                "tags": [
+                    "senders-receivers"
+                ],
+                "summary": "get all senders and receivers",
+                "description": "get all senders and receivers",
+                "operationId": "62251016cd285c5347c66ce438759ba8",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/senders-receivers/{sender_receiver}": {
+            "post": {
+                "tags": [
+                    "senders-receivers"
+                ],
+                "summary": "update sender receiver",
+                "description": "update sender receiver",
+                "operationId": "393ceb06ad4d75bcfc3c3a4c076b112c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "national_code": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "economic_code": {
+                                        "type": "string"
+                                    },
+                                    "postal_code": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "mobile": {
+                                        "type": "string"
+                                    },
+                                    "fax": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "senders-receivers"
+                ],
+                "summary": "update sender receiver",
+                "description": "update sender receiver",
+                "operationId": "3c67e20c8a175e08edee322163063ee4",
+                "parameters": [
+                    {
+                        "name": "sender_receiver",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "national_code": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "economic_code": {
+                                        "type": "string"
+                                    },
+                                    "postal_code": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "mobile": {
+                                        "type": "string"
+                                    },
+                                    "fax": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/senders-receivers/{sender-receiver}": {
+            "delete": {
+                "tags": [
+                    "senders-receivers"
+                ],
+                "summary": "delete senders or receivers",
+                "description": "delete senders or receivers",
+                "operationId": "de11b0979a51c36ad779678daeb56261",
+                "parameters": [
+                    {
+                        "name": "sender-receiver",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/tariffs": {
+            "get": {
+                "tags": [
+                    "tariffs"
+                ],
+                "summary": "get all tariffs",
+                "description": "get all insurnces",
+                "operationId": "afe39dc02822113a9160aef580fb6f08",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/tariffs/{tariff}": {
+            "get": {
+                "tags": [
+                    "tariffs"
+                ],
+                "summary": "get tariff by id",
+                "description": "get tariff by id",
+                "operationId": "f35da6390c6bf17d77bf56c385beff79",
+                "parameters": [
+                    {
+                        "name": "tariff",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "tariffs"
+                ],
+                "summary": "update tariff",
+                "description": "update tariff",
+                "operationId": "30a7be1b2e20116e8fa02fb2a530964e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "insurance_id": {
+                                        "type": "integer"
+                                    },
+                                    "min_value": {
+                                        "type": "integer"
+                                    },
+                                    "max_value": {
+                                        "type": "string"
+                                    },
+                                    "cargo_group_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_group_title": {
+                                        "type": "integer"
+                                    },
+                                    "variable_value": {
+                                        "type": "integer"
+                                    },
+                                    "value_bigger_than": {
+                                        "type": "integer"
+                                    },
+                                    "constant_value": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "tariffs"
+                ],
+                "summary": "delete tariff by id",
+                "description": "delete tariff by id",
+                "operationId": "77395c4622b93184df8d5fffc8f65f5b",
+                "parameters": [
+                    {
+                        "name": "tariff",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "tariffs"
+                ],
+                "summary": "update tariff",
+                "description": "update tariff",
+                "operationId": "fce3ee3ca5ba13d8ce947aa0051608e0",
+                "parameters": [
+                    {
+                        "name": "tariff",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "insurance_id": {
+                                        "type": "integer"
+                                    },
+                                    "min_value": {
+                                        "type": "integer"
+                                    },
+                                    "max_value": {
+                                        "type": "string"
+                                    },
+                                    "cargo_group_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_group_title": {
+                                        "type": "integer"
+                                    },
+                                    "variable_value": {
+                                        "type": "integer"
+                                    },
+                                    "value_bigger_than": {
+                                        "type": "integer"
+                                    },
+                                    "constant_value": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/transport-contracts": {
+            "get": {
+                "tags": [
+                    "transport-contracts"
+                ],
+                "summary": "get all transport contracts",
+                "description": "get all transport contracts",
+                "operationId": "756480a2dc6137d53a7f72fc134a01af",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/transport-contracts/{transport_contract}": {
+            "get": {
+                "tags": [
+                    "transport-contracts"
+                ],
+                "summary": "get transport contract by id",
+                "description": "get transport contract by id",
+                "operationId": "4105e2c5150d3ced235d884de06b3335",
+                "parameters": [
+                    {
+                        "name": "transport_contract",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "transport-contracts"
+                ],
+                "summary": "delete transport contract by id",
+                "description": "delete transpornt contract by id",
+                "operationId": "aff58ac0f0cf9096ed2170314a4cf5cc",
+                "parameters": [
+                    {
+                        "name": "transport_contract",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "get all users",
+                "description": "get all users",
+                "operationId": "566aed8efb436ca506e0ef51a032ecd9",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "create user",
+                "description": "create user",
+                "operationId": "be551c1d694a01c164966f58bfa77013",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "national_code": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "username_maha": {
+                                        "type": "string"
+                                    },
+                                    "password_maha": {
+                                        "type": "string"
+                                    },
+                                    "personal_code": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "moblie": {
+                                        "type": "string"
+                                    },
+                                    "permissions": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/users/{user}": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "get user by id",
+                "description": "get user by id",
+                "operationId": "f310aa35b9243239c65dbc8b8f4b135e",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "delete user by id",
+                "description": "delete user by id",
+                "operationId": "cf641f0b739211ff3a1c21b1ef310591",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "update user",
+                "description": "update user",
+                "operationId": "4ca690f1a83780f0363b175d06b5a54e",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "national_code": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "username_maha": {
+                                        "type": "string"
+                                    },
+                                    "password_maha": {
+                                        "type": "string"
+                                    },
+                                    "personal_code": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "moblie": {
+                                        "type": "string"
+                                    },
+                                    "permission": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/vehicles": {
+            "get": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "get all vehicles",
+                "description": "get all vehicles",
+                "operationId": "043b3ce51f006f946511103cfe1c2ca1",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "create vehicle",
+                "description": "create vehicle",
+                "operationId": "74e9ae3e5f1ee2f69f3a177820d204b9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "number_plate": {
+                                        "type": "string"
+                                    },
+                                    "number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "number_plate_type": {
+                                        "type": "integer"
+                                    },
+                                    "numbering_location_code": {
+                                        "type": "integer"
+                                    },
+                                    "numbering_location": {
+                                        "type": "string"
+                                    },
+                                    "VIN": {
+                                        "type": "string"
+                                    },
+                                    "allowed_driver_licence": {
+                                        "type": "integer"
+                                    },
+                                    "vehicle_type": {
+                                        "type": "string"
+                                    },
+                                    "owner_mobile": {
+                                        "type": "string"
+                                    },
+                                    "production": {
+                                        "type": "integer"
+                                    },
+                                    "loading_type": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "integer"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "inspection_number": {
+                                        "type": "string"
+                                    },
+                                    "inspection_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "insurance_number": {
+                                        "type": "string"
+                                    },
+                                    "insurance_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "brand_code": {
+                                        "type": "integer"
+                                    },
+                                    "brand_title": {
+                                        "type": "string"
+                                    },
+                                    "number_of_allowed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "day_of_allowed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_allowed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "day_of_allowed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_unconfirmed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_unconfirmed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "capacity": {
+                                        "type": "integer"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "loading_length": {
+                                        "type": "integer"
+                                    },
+                                    "loading_width": {
+                                        "type": "integer"
+                                    },
+                                    "has_roll": {
+                                        "type": "integer"
+                                    },
+                                    "chassis_number": {
+                                        "type": "string"
+                                    },
+                                    "document_number": {
+                                        "type": "string"
+                                    },
+                                    "violation": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "engine_number": {
+                                        "type": "string"
+                                    },
+                                    "document_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "owner_status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/vehicles/{vehicle}": {
+            "get": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "get vehicle by id",
+                "description": "get vehicle by id",
+                "operationId": "2d7291bedeeb73a49905966effb2dee4",
+                "parameters": [
+                    {
+                        "name": "vehicle",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "delete vehicle by id",
+                "description": "delete vehicles by id",
+                "operationId": "495952c6402028fab9f82c080af676ad",
+                "parameters": [
+                    {
+                        "name": "vehicle",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "update vehicle",
+                "description": "update vehicle",
+                "operationId": "9c7aafc4210556edec2446bd5951c1fd",
+                "parameters": [
+                    {
+                        "name": "vehicle",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "number_plate": {
+                                        "type": "string"
+                                    },
+                                    "number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "number_plate_type": {
+                                        "type": "integer"
+                                    },
+                                    "numbering_location_code": {
+                                        "type": "integer"
+                                    },
+                                    "numbering_location": {
+                                        "type": "string"
+                                    },
+                                    "VIN": {
+                                        "type": "string"
+                                    },
+                                    "allowed_driver_licence": {
+                                        "type": "integer"
+                                    },
+                                    "vehicle_type": {
+                                        "type": "string"
+                                    },
+                                    "owner_mobile": {
+                                        "type": "string"
+                                    },
+                                    "production": {
+                                        "type": "integer"
+                                    },
+                                    "loading_type": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "integer"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "inspection_number": {
+                                        "type": "string"
+                                    },
+                                    "inspection_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "insurance_number": {
+                                        "type": "string"
+                                    },
+                                    "insurance_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "brand_code": {
+                                        "type": "integer"
+                                    },
+                                    "brand_title": {
+                                        "type": "string"
+                                    },
+                                    "number_of_allowed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "day_of_allowed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_allowed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "day_of_allowed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_unconfirmed_draft": {
+                                        "type": "integer"
+                                    },
+                                    "number_of_unconfirmed_bill_of_lading": {
+                                        "type": "integer"
+                                    },
+                                    "capacity": {
+                                        "type": "integer"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "loading_length": {
+                                        "type": "integer"
+                                    },
+                                    "loading_width": {
+                                        "type": "integer"
+                                    },
+                                    "has_roll": {
+                                        "type": "integer"
+                                    },
+                                    "chassis_number": {
+                                        "type": "string"
+                                    },
+                                    "document_number": {
+                                        "type": "string"
+                                    },
+                                    "violation": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "engine_number": {
+                                        "type": "string"
+                                    },
+                                    "document_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "owner_status": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        }
+    }
+}

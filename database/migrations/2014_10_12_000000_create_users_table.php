@@ -13,11 +13,32 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+
+
+
+        Schema::create('users', function (Blueprint $table){
+            $permissions = '';
+            for ($i=0; $i < 70; $i++) {
+                $permissions.='0';
+            }
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('username')->unique();
+            $table->string('national_code')->nullable();
+            $table->string('username_maha')->unique()->nullable();
+            $table->string('password_maha')->nullable();
+            $table->string('personal_code',20)->nullable();
+            $table->text('address')->nullable();
+            $table->text('description')->nullable();
+            $table->string('phone',20)->nullable();
+            $table->string('mobile',20)->nullable();
+            $table->unsignedSmallInteger('role_code')->nullable();
+            $table->string('role_title',255)->nullable();
+            $table->string('permissions',70)->default($permissions);
+            $table->boolean('is_active')->default(false);
+            // $table->string('email')->unique();
+            // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
