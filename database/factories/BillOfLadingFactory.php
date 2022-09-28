@@ -4,7 +4,9 @@ namespace Database\Factories;
 
 use App\Models\Company;
 use App\Models\Driver;
+use App\Models\Insurance;
 use App\Models\SenderReceiver;
+use App\Models\TransportContract;
 use App\Models\Vehicle;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Ybazli\Faker\Facades\Faker;
@@ -26,6 +28,8 @@ class BillOfLadingFactory extends Factory
         $first_driver = fake()->randomElement(Driver::all());
         $second_driver = fake()->randomElement(Driver::all());
         $vehicle = fake()->randomElement(Vehicle::all());
+        $insurance = Insurance::inRandomOrder()->first();
+        $transport_contract = TransportContract::inRandomOrder()->first();
         return [
             'panel_code'=>Company::inRandomOrder()->first()->panel_code,
             'bill_of_lading_number'=>fake()->numerify('########'),
@@ -102,6 +106,7 @@ class BillOfLadingFactory extends Factory
             'first_driver_health_card_expire'=>$first_driver->health_card_expire,
             'first_driver_phones'=>$first_driver->phones,
             'first_driver_address'=>$first_driver->address,
+            'first_driver_one_time_password'=>fake()->numerify('##############'),
             'second_driver_name'=>$second_driver->name,
             'second_driver_last_name'=>$second_driver->last_name,
             'second_driver_personal_code'=>$second_driver->personal_code,
@@ -118,6 +123,11 @@ class BillOfLadingFactory extends Factory
             'vehicle_brand_title'=>$vehicle->brand_title,
             'vehicle_loading_type'=>$vehicle->loading_type,
             'vehicle_status'=>$vehicle->status,
+            'vehicle_one_time_password'=>fake()->numerify('############'),
+            'insurance_id'=>$insurance->id,
+            'insurance_title'=>$insurance->insurance_company_title,
+            'transport_contract_id'=>$transport_contract->id,
+            'transport_contract_title'=>$transport_contract->contract_title
 
 
 
