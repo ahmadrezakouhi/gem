@@ -5,14 +5,11 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Address;
-use App\Models\BillOfLading;
 use App\Models\Company;
 use App\Models\Draft;
-use App\Models\DraftBillOfLading;
 use App\Models\Driver;
 use App\Models\Field;
 use App\Models\SenderReceiver;
-use App\Models\Tariff;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
@@ -28,21 +25,25 @@ class DatabaseSeeder extends Seeder
     {
 
         Company::factory(20)->create();
-
+        $this->call([
+            CompanySeeder::class
+        ]);
         Driver::factory(20)->create();
         SenderReceiver::factory(20)->create();
         Address::factory(20)->create();
         Vehicle::factory(20)->create();
         Draft::factory(20)->create();
         Field::factory(20)->create();
-        BillOfLading::factory(20)->create();
+
 
         $this->call([
             InsuranceSeeder::class,
             TariffSeeder::class,
             InsuranceCompanySeeder::class,
+            DraftBillOfLadingSeeder::class,
+            TransportContractSeeder::class,
+            BillOfLadingSeeder::class,
             CargoSeeder::class,
-            DraftBillOfLadingSeeder::class
         ]);
         User::factory(20)->create();
         // \App\Models\User::factory()->create([
