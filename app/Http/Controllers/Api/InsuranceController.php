@@ -33,6 +33,33 @@ class InsuranceController extends Controller
         return Insurance::orderBy('id','desc')->paginate();
     }
 
+
+/**
+     * @OA\Get(
+     *   path="/api/insurances/active",
+     *   tags={"insurances"},
+     *   summary="get all ative insurances",
+     *       description="get all active insurnces",
+     *   @OA\Response(
+     *      response=200,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
+
+    public function getInsurancesActive(){
+
+        return  Insurance::Active()->orderBy('id','desc')->get();
+
+    }
+
     /**
      * @OA\Post(
      *   path="/api/insurances",
@@ -82,7 +109,12 @@ class InsuranceController extends Controller
      *           default="0"
      *         ),
      * *          @OA\Property(
-     *           property="type",
+     *           property="type_code",
+     *           type="integer",
+     *
+     *         ),
+     * *          @OA\Property(
+     *           property="type_title",
      *           type="string",
      *
      *         ),
@@ -271,7 +303,12 @@ class InsuranceController extends Controller
      *           default="0"
      *         ),
      * *          @OA\Property(
-     *           property="type",
+     *           property="type_code",
+     *           type="integer",
+     *
+     *         ),
+     * *          @OA\Property(
+     *           property="type_title",
      *           type="string",
      *
      *         ),
