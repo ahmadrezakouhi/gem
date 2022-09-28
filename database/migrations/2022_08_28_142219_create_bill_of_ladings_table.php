@@ -89,6 +89,7 @@ return new class extends Migration
             $table->timestamp('first_driver_health_card_expire')->nullable();
             $table->string('first_driver_phones',255)->nullable();
             $table->text('first_driver_address')->nullable();
+            $table->string('first_driver_one_time_password')->nullable();
             $table->string('second_driver_name',255)->nullable();
             $table->string('second_driver_last_name',255)->nullable();
             $table->string('second_driver_personal_code',20)->nullable();
@@ -105,10 +106,15 @@ return new class extends Migration
             $table->string('vehicle_brand_title',50)->nullable();
             $table->string('vehicle_loading_type',50)->nullable();
             $table->boolean('vehicle_status')->default(false);
+            $table->string('vehicle_one_time_password')->nullable();
             $table->string('sc_cargo_title',255)->nullable();
             $table->unsignedInteger('sc_cargo_weight')->nullable();
             $table->unsignedInteger('sc_cargo_quantity')->nullable();
             $table->unsignedBigInteger('sc_cargo_value')->nullable();
+            $table->unsignedBigInteger('insurance_id')->nullable();
+            $table->string('insurance_title')->nullable();
+            $table->unsignedBigInteger('transport_contract_id')->nullable();
+            $table->string('transport_contract_title')->nullable();
             $table->string('sc_field_1',255)->nullable();
             $table->string('sc_field_2',255)->nullable();
             $table->string('sc_field_3',255)->nullable();
