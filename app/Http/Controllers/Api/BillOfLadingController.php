@@ -1057,6 +1057,7 @@ class BillOfLadingController extends Controller
      **/
     public function destroy(BillOfLading $bill_of_lading)
     {
+        $bill_of_lading->cargoes()->delete();
         $bill_of_lading->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
