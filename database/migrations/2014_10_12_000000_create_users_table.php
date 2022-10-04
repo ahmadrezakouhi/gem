@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\Crypt;
 return new class extends Migration
 {
     /**
@@ -17,10 +17,10 @@ return new class extends Migration
 
 
         Schema::create('users', function (Blueprint $table){
-            $permissions = '';
-            for ($i=0; $i < 70; $i++) {
-                $permissions.='0';
-            }
+            // $permissions = '';
+            // for ($i=0; $i < 70; $i++) {
+            //     $permissions.='0';
+            // }
             $table->id();
             $table->string('name')->nullable();
             $table->string('last_name')->nullable();
@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('mobile',20)->nullable();
             $table->unsignedSmallInteger('role_code')->nullable();
             $table->string('role_title',255)->nullable();
-            $table->string('permissions',70)->default($permissions);
+            $table->string('permissions')->nullable();
             $table->boolean('is_active')->default(false);
             // $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
