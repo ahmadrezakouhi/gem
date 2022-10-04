@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cargo extends Model
 {
     use HasFactory;
+    protected $table = 'cargoes';
     protected $guarded = ['id'];
     protected $casts = [
             'traffic'=>'boolean',
@@ -17,7 +18,7 @@ class Cargo extends Model
 
 
 
-    
+
 
 
     public function billOfLading(){
