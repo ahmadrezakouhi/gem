@@ -138,7 +138,8 @@ class SenderReceiverController extends Controller
      **/
     public function store(Request $request)
     {
-        $sender_receiver = SenderReceiver::create($request->all());
+        $sender_receiver = SenderReceiver::create($request->all()+['panel_code'=>'123456789']);
+        $this->createAddressesForSenderReceiver($sender_receiver,$request->addresses);
         return response($sender_receiver , Response::HTTP_CREATED);
     }
 
@@ -265,6 +266,8 @@ class SenderReceiverController extends Controller
      **/
     public function update(Request $request, SenderReceiver $sender_receiver)
     {
+        $sender_receiver->addresses()->delete();
+        $this->createAddressesForSenderReceiver($sender_receiver,$request->addresses);
         $sender_receiver->update($request->all());
         return response($sender_receiver,Response::HTTP_ACCEPTED);
     }
@@ -302,5 +305,16 @@ class SenderReceiverController extends Controller
     {
         $sender_receiver->delete();
         return response(null,Response::HTTP_NO_CONTENT);
+    }
+
+
+
+
+
+
+    private function createAddressesForSenderReceiver(SenderReceiver $sender_receiver, array $addresses){
+        foreach ($addresses as $address) {
+            $sender_receiver->addresses()->create($address);
+        }
     }
 }
