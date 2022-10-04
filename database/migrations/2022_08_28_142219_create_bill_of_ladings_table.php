@@ -103,8 +103,9 @@ return new class extends Migration
             $table->string('vehicle_number_plate_zone',2)->nullable();
             $table->timestamp('vehicle_insurance_expire')->nullable();
             $table->timestamp('vehicle_inspection_expire')->nullable();
-            $table->string('vehicle_brand_title',50)->nullable();
-            $table->string('vehicle_loading_type',50)->nullable();
+            $table->string('vehicle_brand_title')->nullable();
+            $table->unsignedBigInteger('vehicle_loading_type_code')->nullable();
+            $table->string('vehicle_loading_type_title')->nullable();
             $table->boolean('vehicle_status')->default(false);
             $table->string('vehicle_one_time_password')->nullable();
             $table->string('sc_cargo_title',255)->nullable();
