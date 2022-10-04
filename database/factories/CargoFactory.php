@@ -36,7 +36,9 @@ class CargoFactory extends Factory
             'location_loading'=>Faker::city(),
             'traffic'=>fake()->boolean(),
             'incendiary'=>fake()->boolean(),
-            'traffic_zone'=>fake()->boolean()
+            'traffic_zone'=>fake()->boolean(),
+            'logistic_code'=>fake()->numerify('########'),
+            'logistic_title'=>Faker::word()
         ];
     }
 
