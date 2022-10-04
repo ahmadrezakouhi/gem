@@ -121,13 +121,14 @@ class BillOfLadingFactory extends Factory
             'vehicle_insurance_expire'=>$vehicle->insurance_expire,
             'vehicle_inspection_expire'=>$vehicle->inspection_expire,
             'vehicle_brand_title'=>$vehicle->brand_title,
-            'vehicle_loading_type'=>$vehicle->loading_type,
+            'vehicle_loading_type_code'=>$vehicle->loading_type_code,
+            'vehicle_loading_type_title'=>$vehicle->loading_type_title,
             'vehicle_status'=>$vehicle->status,
             'vehicle_one_time_password'=>fake()->numerify('############'),
             'insurance_id'=>$insurance->id,
             'insurance_title'=>$insurance->insurance_company_title,
             'transport_contract_id'=>$transport_contract->id,
-            'transport_contract_title'=>$transport_contract->contract_title
+            'transport_contract_title'=>$transport_contract->contract_title,
 
 
 
