@@ -24,7 +24,10 @@ return new class extends Migration
             $table->string('economic_code',20)->nullable();
             $table->string('postal_code',20)->nullable();
             $table->text('description')->nullable();
-            $table->text('address')->nullable();
+            $table->string('province_code',20)->nullable();
+            $table->string('province_title')->nullable();
+            $table->string('city_code',20)->nullable();
+            $table->string('city_title')->nullable();
             $table->string('tel',50)->nullable();
             $table->string('mobile',50)->nullable();
             $table->string('fax',50)->nullable();
