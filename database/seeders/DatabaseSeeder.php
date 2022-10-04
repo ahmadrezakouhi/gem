@@ -43,8 +43,9 @@ class DatabaseSeeder extends Seeder
             DraftBillOfLadingSeeder::class,
             TransportContractSeeder::class,
             BillOfLadingSeeder::class,
-            CargoSeeder::class,
             OrderSeeder::class,
+            CargoSeeder::class,
+
         ]);
         User::factory(20)->create();
         // \App\Models\User::factory()->create([
