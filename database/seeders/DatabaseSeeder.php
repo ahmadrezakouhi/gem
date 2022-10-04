@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
             TransportContractSeeder::class,
             BillOfLadingSeeder::class,
             CargoSeeder::class,
+            OrderSeeder::class,
         ]);
         User::factory(20)->create();
         // \App\Models\User::factory()->create([
