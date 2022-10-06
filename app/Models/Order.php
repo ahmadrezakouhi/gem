@@ -16,4 +16,8 @@ class Order extends Model
         'transaction_date'=>'datetime',
         'request_date'=>'datetime'
     ];
+
+    public function cargoes(){
+        return $this->hasMany(Cargo::class);
+    }
 }
