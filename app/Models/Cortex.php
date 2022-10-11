@@ -9,4 +9,7 @@ class Cortex extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $casts = [
+        'cortex_date'=>'datetime',
+    ];
 }
