@@ -24,7 +24,9 @@ class AddressFactory extends Factory
             'city_code'=>fake()->numerify('######'),
             'city_title'=>Faker::city(),
             'postal_code'=>fake()->numerify('########'),
+            'warehouse_code'=>fake()->numerify('###########'),
             'address'=>Faker::address(),
+            'description'=>Faker::paragraph(),
             'status'=>fake()->numberBetween(0,2)
         ];
     }

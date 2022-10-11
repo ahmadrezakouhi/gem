@@ -502,7 +502,8 @@ class BillOfLadingController extends Controller
      **/
     public function store(Request $request)
     {
-        $bill_of_lading = BillOfLading::create($request->all());
+
+        $bill_of_lading = BillOfLading::create($request->all()+['panel_code'=>'123456789']);
         $this->createCargoesForBillOfLading($bill_of_lading,$request->cargoes);
         return response()->json($bill_of_lading, Response::HTTP_CREATED);
     }
@@ -1057,6 +1058,7 @@ class BillOfLadingController extends Controller
      **/
     public function destroy(BillOfLading $bill_of_lading)
     {
+        $bill_of_lading->cargoes()->delete();
         $bill_of_lading->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }

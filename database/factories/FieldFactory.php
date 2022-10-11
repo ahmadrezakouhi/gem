@@ -26,7 +26,7 @@ class FieldFactory extends Factory
             'unique'=>fake()->boolean(),
             'separator'=>',',
             'length'=>fake()->randomDigitNot(0)*10,
-            'evaluated_field'=>'field_'.fake()->numberBetween(1,12),
+            'evaluated_field'=>'sc_field_'.fake()->numberBetween(1,12),
             'is_draft'=>fake()->boolean(),
             'visible'=>fake()->boolean()
 
