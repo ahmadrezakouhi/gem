@@ -28,7 +28,7 @@ class CortexFactory extends Factory
             'cortex_date'=>fake()->iso8601(),
             'order_number'=>$order->order_number,
             'order_item'=>fake()->numerify('#######'),
-            'title'=>$cargo->title,
+            'title'=>$cargo->cargo_title,
             'explanation'=>$cargo->description,
             'package_code'=>$cargo->package_code,
             'package_title'=>$cargo->package_title,
