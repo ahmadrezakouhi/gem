@@ -53,6 +53,7 @@ class DriverFactory extends Factory
             'province'=>Faker::state(),
             'city'=>Faker::city(),
             'address'=>Faker::address(),
+            'last_inquiry_date'=>fake()->iso8601(),
             'description'=>Faker::sentence()
 
 

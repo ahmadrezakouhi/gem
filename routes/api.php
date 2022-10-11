@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\BillOfLadingController;
 use App\Http\Controllers\Api\CargoController;
 use App\Http\Controllers\Api\DriverController;
 use App\Http\Controllers\Api\CompanyController;
+use App\Http\Controllers\Api\CortexController;
 use App\Http\Controllers\Api\DraftBillOfLadingController;
 use App\Http\Controllers\Api\SenderReceiverController;
 use App\Http\Controllers\Api\VehicleController;
@@ -12,10 +13,11 @@ use App\Http\Controllers\Api\DraftController;
 use App\Http\Controllers\Api\FieldController;
 use App\Http\Controllers\Api\InsuranceCompanyController;
 use App\Http\Controllers\Api\InsuranceController;
+use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\OwnerController;
 use App\Http\Controllers\Api\TariffController;
 use App\Http\Controllers\Api\TransportCotractController;
 use App\Http\Controllers\Api\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,3 +77,10 @@ Route::apiResource('drafts-bill-of-ladings',DraftBillOfLadingController::class,
 Route::apiResource('transport-contracts',TransportCotractController::class);
 
 Route::apiResource('users',UserController::class);
+
+Route::apiResource('orders',OrderController::class);
+
+Route::apiResource('cortexes',CortexController::class);
+
+Route::apiResource('owners',OwnerController::class);
+

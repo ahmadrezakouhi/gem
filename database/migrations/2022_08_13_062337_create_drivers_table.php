@@ -49,6 +49,7 @@ return new class extends Migration
             $table->string('city',50)->nullable();
             $table->string('education',50)->nullable();
             $table->string('IBAN',50)->nullable();
+            $table->timestamp('last_inquiry_date')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\BillOfLading;
 use App\Models\Cargo;
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Ybazli\Faker\Facades\Faker;
 
@@ -24,11 +25,12 @@ class CargoFactory extends Factory
 
         return [
             'bill_of_lading_id'=>fake()->unique($maxRetries = 1000000)->randomElement(BillOfLading::all())->id,
+            'order_id'=>fake()->unique($maxRetries = 1000000)->randomElement(Order::all())->id,
             'cargo_code'=>fake()->numerify('########'),
             'cargo_title'=>Faker::word(),
             'package_code'=>fake()->numerify('##########'),
             'package_title'=>Faker::word(),
-            'description'=>Faker::paragraph(),
+            'explanation'=>Faker::paragraph(),
             'weight'=>fake()->numberBetween(1000,3000),
             'quantity'=>fake()->numberBetween(),
             'value'=>getRandomCost(9),
@@ -36,7 +38,9 @@ class CargoFactory extends Factory
             'location_loading'=>Faker::city(),
             'traffic'=>fake()->boolean(),
             'incendiary'=>fake()->boolean(),
-            'traffic_zone'=>fake()->boolean()
+            'traffic_zone'=>fake()->boolean(),
+            'logistic_code'=>fake()->numerify('########'),
+            'logistic_title'=>Faker::word()
         ];
     }
 

@@ -3497,6 +3497,327 @@
                 }
             }
         },
+        "/api/orders": {
+            "get": {
+                "tags": [
+                    "orders"
+                ],
+                "summary": "get all orders",
+                "description": "get all orders",
+                "operationId": "955bb77a45ae173a485fadb8befed93f",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "orders"
+                ],
+                "summary": "create order",
+                "description": "create order",
+                "operationId": "2123ba58dadb22bd6f2c8081af562230",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "order_number": {
+                                        "type": "integer"
+                                    },
+                                    "order_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "transaction_number": {
+                                        "type": "integer"
+                                    },
+                                    "transaction_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "request_number": {
+                                        "type": "integer"
+                                    },
+                                    "request_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "buyer_agent_name": {
+                                        "type": "string"
+                                    },
+                                    "buyer_agent_last_name": {
+                                        "type": "string"
+                                    },
+                                    "seller_agent_name": {
+                                        "type": "string"
+                                    },
+                                    "seller_agent_last_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_last_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_city": {
+                                        "type": "string"
+                                    },
+                                    "sender_address": {
+                                        "type": "string"
+                                    },
+                                    "sender_national_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_phones": {
+                                        "type": "string"
+                                    },
+                                    "receiver_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city": {
+                                        "type": "string"
+                                    },
+                                    "receiver_address": {
+                                        "type": "string"
+                                    },
+                                    "receiver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_phones": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/orders/{order}": {
+            "get": {
+                "tags": [
+                    "orders"
+                ],
+                "summary": "get order by id",
+                "description": "get order by id",
+                "operationId": "8114ac185cc1bf301d8862617e497098",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "orders"
+                ],
+                "summary": "delete order by id",
+                "description": "delete order by id",
+                "operationId": "983c7813fdcb0d66fd5d1386fa8f6f22",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "orders"
+                ],
+                "summary": "update order",
+                "description": "update order",
+                "operationId": "96680904d8267d98b8af8b8b1f2f914f",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "order_number": {
+                                        "type": "integer"
+                                    },
+                                    "order_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "transaction_number": {
+                                        "type": "integer"
+                                    },
+                                    "transaction_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "request_number": {
+                                        "type": "integer"
+                                    },
+                                    "request_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "buyer_agent_name": {
+                                        "type": "string"
+                                    },
+                                    "buyer_agent_last_name": {
+                                        "type": "string"
+                                    },
+                                    "seller_agent_name": {
+                                        "type": "string"
+                                    },
+                                    "seller_agent_last_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_last_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_city": {
+                                        "type": "string"
+                                    },
+                                    "sender_address": {
+                                        "type": "string"
+                                    },
+                                    "sender_national_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_phones": {
+                                        "type": "string"
+                                    },
+                                    "receiver_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city": {
+                                        "type": "string"
+                                    },
+                                    "receiver_address": {
+                                        "type": "string"
+                                    },
+                                    "receiver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_phones": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
         "/api/senders-receivers": {
             "get": {
                 "tags": [
