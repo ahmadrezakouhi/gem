@@ -27,7 +27,7 @@ class CargoFactory extends Factory
             'bill_of_lading_id'=>fake()->unique($maxRetries = 1000000)->randomElement(BillOfLading::all())->id,
             'order_id'=>fake()->unique($maxRetries = 1000000)->randomElement(Order::all())->id,
             'cargo_code'=>fake()->numerify('########'),
-            'title'=>Faker::word(),
+            'cargo_title'=>Faker::word(),
             'package_code'=>fake()->numerify('##########'),
             'package_title'=>Faker::word(),
             'explanation'=>Faker::paragraph(),
