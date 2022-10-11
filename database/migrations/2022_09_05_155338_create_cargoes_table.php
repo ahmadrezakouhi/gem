@@ -18,15 +18,15 @@ return new class extends Migration
             $table->unsignedBigInteger('bill_of_lading_id');
             $table->foreign('bill_of_lading_id')->references('id')->on('bill_of_ladings');
             $table->unsignedBigInteger('cargo_code')->nullable();
-            $table->string('cargo_title',100)->nullable();
+            $table->string('title')->nullable();
             $table->unsignedBigInteger('package_code')->nullable();
-            $table->string('package_title',100)->nullable();
-            $table->text('description')->nullable();
+            $table->string('package_title')->nullable();
+            $table->text('explanation')->nullable();
             $table->unsignedInteger('weight')->nullable();
             $table->unsignedInteger('quantity')->nullable();
             $table->unsignedBigInteger('value')->nullable();
-            $table->string('owner',100)->nullable();
-            $table->string('location_loading',100)->nullable();
+            $table->string('owner')->nullable();
+            $table->string('location_loading')->nullable();
             $table->boolean('traffic')->default(false);
             $table->boolean('incendiary')->default(false);
             $table->boolean('traffic_zone')->default(false);
@@ -58,6 +58,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cargos');
+        Schema::dropIfExists('cargoes');
     }
 };
