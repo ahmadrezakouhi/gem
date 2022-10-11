@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('cargoes', function (Blueprint $table) {
-            $table->unsignedBigInteger('order_id')->after('bill_of_lading_id')->index();
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->unsignedBigInteger('order_id')->after('bill_of_lading_id')->nullable()->index();
+
         });
     }
 
@@ -27,7 +27,6 @@ return new class extends Migration
     public function down()
     {
         Schema::table('cargoes', function (Blueprint $table) {
-            $table->dropForeign('cargoes_order_id_foreign');
             $table->dropColumn('order_id');
         });
     }
