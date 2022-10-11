@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Address;
 use App\Models\Company;
+use App\Models\Cortex;
 use App\Models\Draft;
 use App\Models\Driver;
 use App\Models\Field;
@@ -45,6 +46,7 @@ class DatabaseSeeder extends Seeder
             BillOfLadingSeeder::class,
             OrderSeeder::class,
             CargoSeeder::class,
+            CortexSeeder::class
 
         ]);
         User::factory(20)->create();
