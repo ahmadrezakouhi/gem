@@ -22,7 +22,9 @@ return new class extends Migration
             $table->unsignedInteger('city_code')->nullable();
             $table->string('city_title',255)->nullable();
             $table->string('postal_code',20)->nullable();
+            $table->unsignedBigInteger('warehouse_code')->nullable();
             $table->text('address')->nullable();
+            $table->text('description')->nullable();
             $table->tinyInteger('status')->unsigned()->nullable();
             $table->timestamps();
         });
