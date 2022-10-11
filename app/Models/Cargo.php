@@ -24,4 +24,10 @@ class Cargo extends Model
     public function billOfLading(){
         return $this->belongsTo(BillOfLading::class);
     }
+
+
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
+
 }
