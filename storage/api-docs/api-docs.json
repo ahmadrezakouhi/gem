@@ -2360,232 +2360,129 @@
                 "summary": "create driver",
                 "description": "create driver",
                 "operationId": "829ed7a657b54c9727b94e7b814c2497",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "last_name",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "father_name",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "national_code",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "birth_certificate_code",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "driver_licence_number",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "driver_licence_expire",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "health_card_number",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "health_card_expire",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "insurance_number",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "smart_number",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "smart_number_expire",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "vehicle_smart_number",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "city_of_birth",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "city_of_driver_licence",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "allowed_vehicle_type",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "tiny integer"
-                        }
-                    },
-                    {
-                        "name": "status",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "tiny integer"
-                        }
-                    },
-                    {
-                        "name": "organization_phone",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "phones",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "postal_code",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "start_of_activity",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "country",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "country_code",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "big integer"
-                        }
-                    },
-                    {
-                        "name": "education",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "IBAN",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "province",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "city",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "address",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "perosnal_code": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "father_name": {
+                                        "type": "integer"
+                                    },
+                                    "national_code": {
+                                        "type": "string"
+                                    },
+                                    "birth_certificate_code": {
+                                        "type": "string"
+                                    },
+                                    "driver_licence_number": {
+                                        "type": "string"
+                                    },
+                                    "driver_licence_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "driver_licence_type": {
+                                        "type": "integer"
+                                    },
+                                    "health_card_number": {
+                                        "type": "string"
+                                    },
+                                    "health_card_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "insurance_number": {
+                                        "type": "string"
+                                    },
+                                    "smart_number": {
+                                        "type": "string"
+                                    },
+                                    "smart_number_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "vehicle_smart_number": {
+                                        "type": "integer"
+                                    },
+                                    "birth_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "city_of_birhth": {
+                                        "type": "string"
+                                    },
+                                    "city_of_driver_licence": {
+                                        "type": "string"
+                                    },
+                                    "allowed_vehicle_type": {
+                                        "type": "integer"
+                                    },
+                                    "status": {
+                                        "type": "boolean"
+                                    },
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "country_code": {
+                                        "type": "integer"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "organization_phone": {
+                                        "type": "string"
+                                    },
+                                    "phones": {
+                                        "type": "string"
+                                    },
+                                    "postal_code": {
+                                        "type": "string"
+                                    },
+                                    "start_activity": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "province": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "education": {
+                                        "type": "string"
+                                    },
+                                    "IBAN": {
+                                        "type": "string"
+                                    },
+                                    "last_inquiry_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "202": {
                         "description": "Success accept",
@@ -2673,232 +2570,131 @@
                         "schema": {
                             "type": "integer"
                         }
-                    },
-                    {
-                        "name": "name",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "last_name",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "father_name",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "national_code",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "birth_certificate_code",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "driver_licence_number",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "driver_licence_expire",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "health_card_number",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "health_card_expire",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "insurance_number",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "smart_number",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "smart_number_expire",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "vehicle_smart_number",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "city_of_birth",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "city_of_driver_licence",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "allowed_vehicle_type",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "tiny integer"
-                        }
-                    },
-                    {
-                        "name": "status",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "tiny integer"
-                        }
-                    },
-                    {
-                        "name": "organization_phone",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "phones",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "postal_code",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "start_of_activity",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "country",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "country_code",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "big integer"
-                        }
-                    },
-                    {
-                        "name": "education",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "IBAN",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "province",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "city",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "address",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "perosnal_code": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "father_name": {
+                                        "type": "integer"
+                                    },
+                                    "national_code": {
+                                        "type": "string"
+                                    },
+                                    "birth_certificate_code": {
+                                        "type": "string"
+                                    },
+                                    "driver_licence_number": {
+                                        "type": "string"
+                                    },
+                                    "driver_licence_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "driver_licence_type": {
+                                        "type": "integer"
+                                    },
+                                    "health_card_number": {
+                                        "type": "string"
+                                    },
+                                    "health_card_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "insurance_number": {
+                                        "type": "string"
+                                    },
+                                    "smart_number": {
+                                        "type": "string"
+                                    },
+                                    "smart_number_expire": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "vehicle_smart_number": {
+                                        "type": "integer"
+                                    },
+                                    "birth_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "city_of_birhth": {
+                                        "type": "string"
+                                    },
+                                    "city_of_driver_licence": {
+                                        "type": "string"
+                                    },
+                                    "allowed_vehicle_type": {
+                                        "type": "integer"
+                                    },
+                                    "status": {
+                                        "type": "boolean"
+                                    },
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "country_code": {
+                                        "type": "integer"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "organization_phone": {
+                                        "type": "string"
+                                    },
+                                    "phones": {
+                                        "type": "string"
+                                    },
+                                    "postal_code": {
+                                        "type": "string"
+                                    },
+                                    "start_activity": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "province": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "education": {
+                                        "type": "string"
+                                    },
+                                    "IBAN": {
+                                        "type": "string"
+                                    },
+                                    "last_inquiry_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "202": {
                         "description": "Success accept",

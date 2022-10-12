@@ -16,7 +16,8 @@ class Driver extends Model
         'birth_date'=>'datetime',
         'status'=>'boolean',
         'active'=>'boolean',
-        'start_activity'=>'datetime'
+        'start_activity'=>'datetime',
+        'last_inquiry_date'=>'datetime',
     ];
 
 

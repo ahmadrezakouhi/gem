@@ -46,379 +46,155 @@ class DriverController extends Controller
      *
      *
      *
-     *
-     * @OA\Parameter(
-     *      name="name",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *     @OA\Parameter(
-     *      name="last_name",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *  *   @OA\Parameter(
-     *      name="father_name",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     * *  *   @OA\Parameter(
-     *      name="national_code",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="birth_certificate_code",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="driver_licence_number",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="driver_licence_expire",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="date"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="health_card_number",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     * *  *   @OA\Parameter(
-     *      name="health_card_expire",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="date"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="insurance_number",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="smart_number",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="smart_number_expire",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="date"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *  * *  *   @OA\Parameter(
-     *      name="vehicle_smart_number",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *  * *  *   @OA\Parameter(
-     *      name="city_of_birth",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *  * *  *   @OA\Parameter(
-     *      name="city_of_driver_licence",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *  * *  *   @OA\Parameter(
-     *      name="allowed_vehicle_type",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="tiny integer"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *    @OA\Parameter(
-     *      name="status",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="tiny integer"
-     * ),
-     *
-     *
-     * ),
-     *
-     *  *    @OA\Parameter(
-     *      name="organization_phone",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *  *    @OA\Parameter(
-     *      name="phones",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *  *    @OA\Parameter(
-     *      name="postal_code",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *  *    @OA\Parameter(
-     *      name="start_of_activity",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="date"
-     * ),
-     *
-     *
-     * ),
-     *
-     * *  *    @OA\Parameter(
-     *      name="country",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     * *  *    @OA\Parameter(
-     *      name="country_code",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="big integer"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *    @OA\Parameter(
-     *      name="education",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *
-     * *  *    @OA\Parameter(
-     *      name="IBAN",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *
-     * *  *    @OA\Parameter(
-     *      name="province",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *
-     * * *  *    @OA\Parameter(
-     *      name="city",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * * *  *    @OA\Parameter(
-     *      name="address",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
+     * *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="panel_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="perosnal_code",
+     *           type="string",
+     *         ),
+     *           @OA\Property(
+     *           property="name",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="last_name",
+     *           type="string",
+     *         ),
+     *           @OA\Property(
+     *           property="father_name",
+     *           type="integer",
+     *         ),
+     *
+     *           @OA\Property(
+     *           property="national_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="birth_certificate_code",
+     *           type="string",
+     *         ),
+     *           @OA\Property(
+     *           property="driver_licence_number",
+     *           type="string",
+     *         ),
+     * *          @OA\Property(
+     *           property="driver_licence_expire",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="driver_licence_type",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="health_card_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="health_card_expire",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="insurance_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="smart_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="smart_number_expire",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="vehicle_smart_number",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="birth_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="city_of_birhth",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="city_of_driver_licence",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="allowed_vehicle_type",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="status",
+     *           type="boolean",
+     *         ),
+     *          @OA\Property(
+     *           property="active",
+     *           type="boolean",
+     *         ),
+     *          @OA\Property(
+     *           property="country_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="country",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="organization_phone",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="phones",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="postal_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="start_activity",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="address",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="province",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="city",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="education",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="IBAN",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="last_inquiry_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="description",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
      *
      *
      *
@@ -497,378 +273,155 @@ class DriverController extends Controller
      *
      *
      *
-     * @OA\Parameter(
-     *      name="name",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *     @OA\Parameter(
-     *      name="last_name",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *  *   @OA\Parameter(
-     *      name="father_name",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     * *  *   @OA\Parameter(
-     *      name="national_code",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="birth_certificate_code",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="driver_licence_number",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="driver_licence_expire",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="date"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="health_card_number",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     * *  *   @OA\Parameter(
-     *      name="health_card_expire",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="date"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="insurance_number",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="smart_number",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *   @OA\Parameter(
-     *      name="smart_number_expire",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="date"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *  * *  *   @OA\Parameter(
-     *      name="vehicle_smart_number",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *  * *  *   @OA\Parameter(
-     *      name="city_of_birth",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *  * *  *   @OA\Parameter(
-     *      name="city_of_driver_licence",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *  * *  *   @OA\Parameter(
-     *      name="allowed_vehicle_type",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="tiny integer"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *    @OA\Parameter(
-     *      name="status",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="tiny integer"
-     * ),
-     *
-     *
-     * ),
-     *
-     *  *    @OA\Parameter(
-     *      name="organization_phone",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *  *    @OA\Parameter(
-     *      name="phones",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *  *    @OA\Parameter(
-     *      name="postal_code",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *  *    @OA\Parameter(
-     *      name="start_of_activity",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="date"
-     * ),
-     *
-     *
-     * ),
-     *
-     * *  *    @OA\Parameter(
-     *      name="country",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     * *  *    @OA\Parameter(
-     *      name="country_code",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="big integer"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * *  *    @OA\Parameter(
-     *      name="education",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *
-     * *  *    @OA\Parameter(
-     *      name="IBAN",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *
-     * *  *    @OA\Parameter(
-     *      name="province",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     *
-     * * *  *    @OA\Parameter(
-     *      name="city",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
-     *
-     *
-     *
-     * * *  *    @OA\Parameter(
-     *      name="address",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *
-     *          type="string"
-     * ),
-     *
-     *
-     * ),
+     *@OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="panel_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="perosnal_code",
+     *           type="string",
+     *         ),
+     *           @OA\Property(
+     *           property="name",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="last_name",
+     *           type="string",
+     *         ),
+     *           @OA\Property(
+     *           property="father_name",
+     *           type="integer",
+     *         ),
+     *
+     *           @OA\Property(
+     *           property="national_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="birth_certificate_code",
+     *           type="string",
+     *         ),
+     *           @OA\Property(
+     *           property="driver_licence_number",
+     *           type="string",
+     *         ),
+     * *          @OA\Property(
+     *           property="driver_licence_expire",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="driver_licence_type",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="health_card_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="health_card_expire",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="insurance_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="smart_number",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="smart_number_expire",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="vehicle_smart_number",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="birth_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="city_of_birhth",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="city_of_driver_licence",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="allowed_vehicle_type",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="status",
+     *           type="boolean",
+     *         ),
+     *          @OA\Property(
+     *           property="active",
+     *           type="boolean",
+     *         ),
+     *          @OA\Property(
+     *           property="country_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="country",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="organization_phone",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="phones",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="postal_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="start_activity",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="address",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="province",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="city",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="education",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="IBAN",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="last_inquiry_date",
+     *           type="date",
+     *         ),
+     *          @OA\Property(
+     *           property="description",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
      *
      *
      *
