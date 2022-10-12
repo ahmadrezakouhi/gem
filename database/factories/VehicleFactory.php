@@ -67,7 +67,7 @@ class VehicleFactory extends Factory
             'description'=>Faker::paragraph(),
             'engine_number'=>fake()->numerify('###########'),
             'document_date'=>fake()->iso8601(),
-            'owner_status'=>fake()->numberBetween(0,1)
+            'owner_status'=>fake()->numberBetween(1,4)
 
 
 
