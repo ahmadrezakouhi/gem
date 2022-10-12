@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('mobile',20)->nullable();
             $table->unsignedSmallInteger('role_code')->nullable();
             $table->string('role_title',255)->nullable();
-            $table->string('permissions')->nullable();
+            $table->string('permissions')->nullable()->unique();
             $table->boolean('is_active')->default(false);
             // $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
