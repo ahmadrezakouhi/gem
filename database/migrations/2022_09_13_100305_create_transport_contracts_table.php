@@ -80,6 +80,7 @@ return new class extends Migration
             $table->unsignedBigInteger('insurance_tax')->nullable();
             $table->set('insurance_tax_for_driver',$set_values)->nullable();
             $table->boolean('is_insurance_tax_for_receiver')->default(false);
+            $table->boolean('is_default')->default(false);
             $table->timestamps();
         });
     }

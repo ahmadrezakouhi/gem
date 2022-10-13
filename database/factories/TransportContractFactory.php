@@ -82,7 +82,8 @@ class TransportContractFactory extends Factory
             'is_tax_for_receiver'=>fake()->boolean(),
             'insurance_tax'=>getRandomCost(5),
             'insurance_tax_for_driver'=>fake()->randomElements($set_values,$count=fake()->numberBetween(0,4)),
-            'is_insurance_tax_for_receiver'=>fake()->boolean()
+            'is_insurance_tax_for_receiver'=>fake()->boolean(),
+            'is_default'=>fake()->boolean()
 
 
 
