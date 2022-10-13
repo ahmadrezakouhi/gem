@@ -48,6 +48,9 @@ return new class extends Migration
             $table->unsignedBigInteger('stamp_cost')->nullable();
             $table->unsignedBigInteger('tax')->nullable();
             $table->unsignedBigInteger('disinfectant_cost')->nullable();
+            $table->unsignedBigInteger('payment')->nullable();
+            $table->unsignedBigInteger('driver_amount_received')->nullable();
+            $table->unsignedBigInteger('cargo_manifest_cost')->nullable();
             $table->text('description')->nullable();
             $table->timestamp('register_date')->nullable();
             $table->boolean('receipt')->default(false);
