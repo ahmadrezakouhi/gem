@@ -55,5 +55,6 @@ class TransportContract extends Model
         'driver_insurance_cost_for_driver'=>Set::class,
         'tax_for_driver'=>Set::class,
         'insurance_tax_for_driver'=>Set::class,
+        'is_default'=>'boolean'
     ];
 }
