@@ -68,6 +68,7 @@ class BillOfLadingFactory extends Factory
             'tax'=>getRandomCost(5),
             'payment'=>getRandomCost(10),
             'driver_amount_received'=>getRandomCost(6),
+            'cargo_manifest_cost'=>getRandomCost(5),
             'disinfectant_cost'=>getRandomCost(6),
             'register_date'=>fake()->iso8601(),
             'receipt'=>fake()->boolean(),
