@@ -38,7 +38,7 @@ class UserFactory extends Factory
             'role_code'=> $number = fake()->numberBetween(1,2),
             'role_title'=> ['admin','user'][--$number],
             'is_active'=>fake()->boolean(),
-            'permissions'=>decbin(rand(2**52,1.8014e10)),
+            'permissions'=>$this->createPermissions(),
             'remember_token' => Str::random(10),
         ];
     }
@@ -56,4 +56,14 @@ class UserFactory extends Factory
             ];
         });
     }
+
+
+   public function createPermissions(){
+        $premissions = '';
+        for ($i=1; $i < 67; $i++) {
+            $premissions .= fake()->numberBetween(0,1);
+        }
+        return $premissions;
+    }
 }
+
