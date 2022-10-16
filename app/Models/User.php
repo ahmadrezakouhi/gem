@@ -67,13 +67,14 @@ class User extends Authenticatable
                 'rent_management', 'insurance_management', 'financial_coefficients_management', 'receipt_management',
                 'default_bill_of_lading_management', 'print_form_management', 'company_management', 'company_management', 'design_reports',
                 'backup', 'recovery', 'create_bill_of_lading_file', 'upload_bill_of_lading_file', 'acountant_file', 'report', 'report_tax',
-                'chart', 'edit_owner_vehicle', 'create_report', 'edit_report', 'delete_report'
+                'chart', 'edit_owner_vehicle', 'create_report', 'edit_report', 'delete_report', 'edit_report_design', 'access_confirmed_bill_of_lading',
+                'access_unconfirmed_bill_of_lading', 'edit_driver_amount_received', 'create_cortex', 'edit_cortex', 'delete_cortex',
+                'create_cargo announcement', 'edit_cargo announcement', 'delete_cargo announcement', 'review_bill_of_loading', 'recovery_information',
+                'number_of_unconfirmed_bill_of_lading',
 
             ];
             return array_combine($keys, str_split($decrypted));
         } catch (DecryptException $e) {
-
-            
         }
     }
 
