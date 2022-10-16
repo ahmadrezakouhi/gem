@@ -38,6 +38,7 @@ class UserFactory extends Factory
             'role_code'=> $number = fake()->numberBetween(1,2),
             'role_title'=> ['admin','user'][--$number],
             'is_active'=>fake()->boolean(),
+            'permissions'=>decbin(rand(2**52,1.8014e10)),
             'remember_token' => Str::random(10),
         ];
     }
