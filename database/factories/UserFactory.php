@@ -20,25 +20,25 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'panel_code'=>Company::inRandomOrder()->first()->panel_code,
+            'panel_code' => Company::inRandomOrder()->first()->panel_code,
             'name' => Faker::firstName(),
             // 'email' => fake()->safeEmail(),
             // 'email_verified_at' => now(),
-            'last_name'=>Faker::lastName(),
-            'username'=>fake()->userName(),
-            'national_code'=>Faker::melliCode(),
-            'personal_code'=>fake()->numerify('#########'),
+            'last_name' => Faker::lastName(),
+            'username' => fake()->userName(),
+            'national_code' => Faker::melliCode(),
+            'personal_code' => fake()->numerify('#########'),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'username_maha' =>fake()->userName(),
+            'username_maha' => fake()->userName(),
             'password_maha' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'address'=>Faker::address(),
-            'description'=>Faker::paragraph(),
-            'phone'=> fake()->phoneNumber(),
+            'address' => Faker::address(),
+            'description' => Faker::paragraph(),
+            'phone' => fake()->phoneNumber(),
             'mobile' => Faker::mobile(),
-            'role_code'=> $number = fake()->numberBetween(1,2),
-            'role_title'=> ['admin','user'][--$number],
-            'is_active'=>fake()->boolean(),
-            'permissions'=>$this->createPermissions(),
+            'role_code' => $number = fake()->numberBetween(1, 2),
+            'role_title' => ['admin', 'user'][--$number],
+            'is_active' => fake()->boolean(),
+            'permissions' => $this->createPermissions(),
             'remember_token' => Str::random(10),
         ];
     }
@@ -58,12 +58,12 @@ class UserFactory extends Factory
     }
 
 
-   public function createPermissions(){
+    public function createPermissions()
+    {
         $premissions = '';
-        for ($i=1; $i < 67; $i++) {
-            $premissions .= fake()->numberBetween(0,1);
+        for ($i = 1; $i < 67; $i++) {
+            $premissions .= fake()->numberBetween(0, 1);
         }
         return $premissions;
     }
 }
-
