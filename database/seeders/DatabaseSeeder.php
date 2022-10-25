@@ -6,7 +6,6 @@ namespace Database\Seeders;
 
 use App\Models\Address;
 use App\Models\Company;
-use App\Models\Cortex;
 use App\Models\Draft;
 use App\Models\Driver;
 use App\Models\Field;
@@ -31,13 +30,14 @@ class DatabaseSeeder extends Seeder
         ]);
         Driver::factory(20)->create();
         SenderReceiver::factory(20)->create();
-        Address::factory(20)->create();
+        Address::factory(60)->create();
         Vehicle::factory(20)->create();
         Draft::factory(20)->create();
         Field::factory(20)->create();
 
 
         $this->call([
+            UserSeeder::class,
             InsuranceSeeder::class,
             TariffSeeder::class,
             InsuranceCompanySeeder::class,
@@ -46,7 +46,9 @@ class DatabaseSeeder extends Seeder
             BillOfLadingSeeder::class,
             OrderSeeder::class,
             CargoSeeder::class,
-            CortexSeeder::class
+            CortexSeeder::class,
+            OwnerSeeder::class,
+            ShortcutSeeder::class,
 
         ]);
         User::factory(20)->create();
