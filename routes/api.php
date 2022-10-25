@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\InsuranceCompanyController;
 use App\Http\Controllers\Api\InsuranceController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\OwnerController;
+use App\Http\Controllers\Api\ShortcutController;
 use App\Http\Controllers\Api\TariffController;
 use App\Http\Controllers\Api\TransportCotractController;
 use App\Http\Controllers\Api\UserController;
@@ -84,3 +85,4 @@ Route::apiResource('cortexes',CortexController::class);
 
 Route::apiResource('owners',OwnerController::class);
 
+Route::apiResource('shortcuts',ShortcutController::class);
