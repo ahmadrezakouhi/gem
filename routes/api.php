@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AddressController;
 use App\Http\Controllers\Api\BillOfLadingController;
+use App\Http\Controllers\Api\BillPayController;
 use App\Http\Controllers\Api\CargoController;
 use App\Http\Controllers\Api\DriverController;
 use App\Http\Controllers\Api\CompanyController;
@@ -86,3 +87,5 @@ Route::apiResource('cortexes',CortexController::class);
 Route::apiResource('owners',OwnerController::class);
 
 Route::apiResource('shortcuts',ShortcutController::class);
+
+Route::apiResource('bill-pays',BillPayController::class);
