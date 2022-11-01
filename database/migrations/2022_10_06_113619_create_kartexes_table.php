@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cortexes', function (Blueprint $table) {
+        Schema::create('kartexes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('panel_code')->index();
             $table->foreign('panel_code')->references('panel_code')->on('companies');
-            $table->unsignedBigInteger('cortex_number')->nullable();
-            $table->timestamp('cortex_date')->nullable();
+            $table->unsignedBigInteger('kartex_number')->nullable();
+            $table->timestamp('kartex_date')->nullable();
             $table->unsignedBigInteger('order_number')->nullable();
             $table->unsignedBigInteger('order_item')->nullable();
             $table->string('title')->nullable();
@@ -60,6 +60,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cortexes');
+        Schema::dropIfExists('kartexes');
     }
 };
