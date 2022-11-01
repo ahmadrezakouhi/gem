@@ -11,9 +11,10 @@ class BillItem extends Model
     // protected $table = 'bill_item';
     protected $guarded = ['id'];
     protected $casts = [
-            'traffic'=>'boolean',
-            'incendiary'=>'boolean',
-            'traffic_zone'=>'boolean'
+            'M_TraficStatus'=>'boolean',
+            'M_FireStatus'=>'boolean',
+            'M_PlanStatus'=>'boolean',
+            'BI_DeliveredTime'=>'datetime'
     ];
 
 
