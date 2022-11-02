@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\BillItem;
 use App\Models\Company;
 use App\Models\SenderReceiver;
-use App\Models\Cargo;
 use App\Models\Owner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,14 +20,14 @@ class ShortcutFactory extends Factory
      */
     public function definition()
     {
-        $cargo = Cargo::inRandomOrder()->first();
+        $bill_item = BillItem::inRandomOrder()->first();
         return [
             'panel_code' => Company::inRandomOrder()->first()->panel_code,
             'short_cut' => 'ctrl ' . fake()->randomAscii(),
             'sender_code' => SenderReceiver::inRandomOrder()->first()->id,
             'receiver_code' => SenderReceiver::inRandomOrder()->first()->id,
-            'cargo_code' => $cargo->id,
-            'cargo_description' => $cargo->description,
+            'cargo_code' => $bill_item->id,
+            'cargo_description' => $bill_item->M_Description,
             'package_code' => fake()->numerify('######'),
             'owner_code' => fake()->randomElement(Owner::all())->id,
             'location_loading_code' => fake()->numerify('######'),
