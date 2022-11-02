@@ -209,6 +209,397 @@
                 }
             }
         },
+        "/api/bill-items": {
+            "get": {
+                "tags": [
+                    "bill items"
+                ],
+                "summary": "get all bill items",
+                "description": "get all bill items",
+                "operationId": "af2939510a7cbb3a7299049ad6e24f65",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill_items": {
+            "post": {
+                "tags": [
+                    "bill items"
+                ],
+                "summary": "create bill item",
+                "description": "create bill item",
+                "operationId": "995d7afda2615767adbec7739dc698ed",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "Bill_Id": {
+                                        "type": "integer"
+                                    },
+                                    "Draft_Number": {
+                                        "type": "integer"
+                                    },
+                                    "Draft_Serial": {
+                                        "type": "string"
+                                    },
+                                    "Order_Number": {
+                                        "type": "integer"
+                                    },
+                                    "Kartex_Number": {
+                                        "type": "integer"
+                                    },
+                                    "M_Name": {
+                                        "type": "string"
+                                    },
+                                    "M_NameCode": {
+                                        "type": "integer"
+                                    },
+                                    "M_OriginWeigth": {
+                                        "type": "integer"
+                                    },
+                                    "M_PackCount": {
+                                        "type": "integer"
+                                    },
+                                    "M_LoadLocation": {
+                                        "type": "string"
+                                    },
+                                    "M_LoadLocationCode": {
+                                        "type": "integer"
+                                    },
+                                    "M_Value": {
+                                        "type": "integer"
+                                    },
+                                    "M_Description": {
+                                        "type": "string"
+                                    },
+                                    "M_TrafficStatus": {
+                                        "type": "boolean"
+                                    },
+                                    "M_FireStatus": {
+                                        "type": "boolean"
+                                    },
+                                    "M_PlanStatus": {
+                                        "type": "boolean"
+                                    },
+                                    "M_PacketType": {
+                                        "type": "string"
+                                    },
+                                    "M_PacketTypeCode": {
+                                        "type": "integer"
+                                    },
+                                    "M_LoadOwner": {
+                                        "type": "string"
+                                    },
+                                    "M_LoadingOwnerCode": {
+                                        "type": "integer"
+                                    },
+                                    "M_IranCode": {
+                                        "type": "string"
+                                    },
+                                    "M_DestinationWeigth": {
+                                        "type": "integer"
+                                    },
+                                    "BI_Field1": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field2": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field3": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field4": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field5": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field6": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field7": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field8": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field9": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field10": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field11": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field12": {
+                                        "type": "string"
+                                    },
+                                    "BI_ItemNumber": {
+                                        "type": "integer"
+                                    },
+                                    "BI_Delivered": {
+                                        "type": "boolean"
+                                    },
+                                    "BI_DeliveredTime": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "BI_DeliverUserId": {
+                                        "type": "integer"
+                                    },
+                                    "BI_DeliverUserName": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-items/{bill_item}": {
+            "get": {
+                "tags": [
+                    "bill items"
+                ],
+                "summary": "get bill item by id",
+                "description": "get bill item by id",
+                "operationId": "bee67b44262f313ea205e229e20e66e3",
+                "parameters": [
+                    {
+                        "name": "bill_item",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "bill items"
+                ],
+                "summary": "delete bill item by id",
+                "description": "delete bill item by id",
+                "operationId": "d526c95e0fba4631557b492b3121dc81",
+                "parameters": [
+                    {
+                        "name": "bill_item",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "bill items"
+                ],
+                "summary": "update bill item",
+                "description": "update bill item",
+                "operationId": "910475be1622fee5ede385feccadce1e",
+                "parameters": [
+                    {
+                        "name": "bill_item",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "Bill_Id": {
+                                        "type": "integer"
+                                    },
+                                    "Draft_Number": {
+                                        "type": "integer"
+                                    },
+                                    "Draft_Serial": {
+                                        "type": "string"
+                                    },
+                                    "Order_Number": {
+                                        "type": "integer"
+                                    },
+                                    "Kartex_Number": {
+                                        "type": "integer"
+                                    },
+                                    "M_Name": {
+                                        "type": "string"
+                                    },
+                                    "M_NameCode": {
+                                        "type": "integer"
+                                    },
+                                    "M_OriginWeigth": {
+                                        "type": "integer"
+                                    },
+                                    "M_PackCount": {
+                                        "type": "integer"
+                                    },
+                                    "M_LoadLocation": {
+                                        "type": "string"
+                                    },
+                                    "M_LoadLocationCode": {
+                                        "type": "integer"
+                                    },
+                                    "M_Value": {
+                                        "type": "integer"
+                                    },
+                                    "M_Description": {
+                                        "type": "string"
+                                    },
+                                    "M_TrafficStatus": {
+                                        "type": "boolean"
+                                    },
+                                    "M_FireStatus": {
+                                        "type": "boolean"
+                                    },
+                                    "M_PlanStatus": {
+                                        "type": "boolean"
+                                    },
+                                    "M_PacketType": {
+                                        "type": "string"
+                                    },
+                                    "M_PacketTypeCode": {
+                                        "type": "integer"
+                                    },
+                                    "M_LoadOwner": {
+                                        "type": "string"
+                                    },
+                                    "M_LoadingOwnerCode": {
+                                        "type": "integer"
+                                    },
+                                    "M_IranCode": {
+                                        "type": "string"
+                                    },
+                                    "M_DestinationWeigth": {
+                                        "type": "integer"
+                                    },
+                                    "BI_Field1": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field2": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field3": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field4": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field5": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field6": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field7": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field8": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field9": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field10": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field11": {
+                                        "type": "string"
+                                    },
+                                    "BI_Field12": {
+                                        "type": "string"
+                                    },
+                                    "BI_ItemNumber": {
+                                        "type": "integer"
+                                    },
+                                    "BI_Delivered": {
+                                        "type": "boolean"
+                                    },
+                                    "BI_DeliveredTime": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "BI_DeliverUserId": {
+                                        "type": "integer"
+                                    },
+                                    "BI_DeliverUserName": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
         "/api/bill-of-ladings": {
             "get": {
                 "tags": [
@@ -983,243 +1374,6 @@
                                     },
                                     "sc_field_12": {
                                         "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "404": {
-                        "description": "not found"
-                    }
-                }
-            }
-        },
-        "/api/cargoes": {
-            "get": {
-                "tags": [
-                    "cargoes"
-                ],
-                "summary": "get all cargoes",
-                "description": "get all cargoes",
-                "operationId": "8a5c4900e9af84fa5575586eb3a179a3",
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "404": {
-                        "description": "not found"
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "cargoes"
-                ],
-                "summary": "create cargo",
-                "description": "create cargo",
-                "operationId": "5d51a0b5c8d7cf0ec921e9cce1c0e536",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "bill_of_lading_id": {
-                                        "type": "integer"
-                                    },
-                                    "cargo_code": {
-                                        "type": "integer"
-                                    },
-                                    "cargo_title": {
-                                        "type": "string"
-                                    },
-                                    "packing_code": {
-                                        "type": "integer"
-                                    },
-                                    "packing_title": {
-                                        "type": "string"
-                                    },
-                                    "description": {
-                                        "type": "string"
-                                    },
-                                    "weight": {
-                                        "type": "integer"
-                                    },
-                                    "quantity": {
-                                        "type": "integer"
-                                    },
-                                    "value": {
-                                        "type": "integer"
-                                    },
-                                    "owner": {
-                                        "type": "string"
-                                    },
-                                    "location_loading": {
-                                        "type": "string"
-                                    },
-                                    "traffic": {
-                                        "type": "boolean"
-                                    },
-                                    "incendiary": {
-                                        "type": "boolean"
-                                    },
-                                    "traffic_zone": {
-                                        "type": "boolean"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "404": {
-                        "description": "not found"
-                    }
-                }
-            }
-        },
-        "/api/cargoes/{cargo}": {
-            "get": {
-                "tags": [
-                    "cargoes"
-                ],
-                "summary": "get cargo by id",
-                "description": "get cargo by id",
-                "operationId": "56de61f1a65a10a28d3b8280d3b27737",
-                "parameters": [
-                    {
-                        "name": "cargo",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "202": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "404": {
-                        "description": "not found"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "cargoes"
-                ],
-                "summary": "delete cargo by id",
-                "description": "delete cargo by id",
-                "operationId": "b6be4fc601dc1174b4f5766186e0eb82",
-                "parameters": [
-                    {
-                        "name": "cargo",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Success (without content)",
-                        "content": {
-                            "application/json": {}
-                        }
-                    },
-                    "404": {
-                        "description": "not found"
-                    }
-                }
-            },
-            "patch": {
-                "tags": [
-                    "cargoes"
-                ],
-                "summary": "update cargo",
-                "description": "update cargo",
-                "operationId": "9302e990b1cc6cb7b8de1d7cc96c9526",
-                "parameters": [
-                    {
-                        "name": "cargo",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "bill_of_lading_id": {
-                                        "type": "integer"
-                                    },
-                                    "cargo_code": {
-                                        "type": "integer"
-                                    },
-                                    "cargo_title": {
-                                        "type": "string"
-                                    },
-                                    "package_code": {
-                                        "type": "integer"
-                                    },
-                                    "package_title": {
-                                        "type": "string"
-                                    },
-                                    "description": {
-                                        "type": "string"
-                                    },
-                                    "weight": {
-                                        "type": "integer"
-                                    },
-                                    "quantity": {
-                                        "type": "integer"
-                                    },
-                                    "value": {
-                                        "type": "integer"
-                                    },
-                                    "owner": {
-                                        "type": "string"
-                                    },
-                                    "location_loading": {
-                                        "type": "string"
-                                    },
-                                    "traffic": {
-                                        "type": "boolean"
-                                    },
-                                    "incendiary": {
-                                        "type": "boolean"
-                                    },
-                                    "traffic_zone": {
-                                        "type": "boolean"
                                     }
                                 },
                                 "type": "object"
@@ -3614,6 +3768,189 @@
                 }
             }
         },
+        "/api/owners": {
+            "get": {
+                "tags": [
+                    "owners"
+                ],
+                "summary": "get all owners",
+                "description": "get all owners",
+                "operationId": "44d28782c206624819269395b7f4cd82",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "owners"
+                ],
+                "summary": "create owner",
+                "description": "create owner",
+                "operationId": "c7eb4ec9f7e6a1b9d7fbe0090cfbb7da",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "code": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "integer"
+                                    },
+                                    "phones": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/owners/{owner}": {
+            "get": {
+                "tags": [
+                    "owners"
+                ],
+                "summary": "get owner by id",
+                "description": "get owner by id",
+                "operationId": "1e067d5e80cd30b6991fdbb5acba0f90",
+                "parameters": [
+                    {
+                        "name": "owner",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "owners"
+                ],
+                "summary": "delete owner by id",
+                "description": "delete owner by id",
+                "operationId": "d228c5126aa303da0ed2ced34dc08c7a",
+                "parameters": [
+                    {
+                        "name": "owner",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "owners"
+                ],
+                "summary": "update owner",
+                "description": "update owner",
+                "operationId": "bb395df8ee31cfee3f99dd4fe8845a8d",
+                "parameters": [
+                    {
+                        "name": "owner",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "code": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "integer"
+                                    },
+                                    "phones": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
         "/api/senders-receivers": {
             "get": {
                 "tags": [
@@ -3813,6 +4150,231 @@
                 ],
                 "responses": {
                     "204": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/shortcuts": {
+            "get": {
+                "tags": [
+                    "shortcuts"
+                ],
+                "summary": "get all shortcuts",
+                "description": "get all shortcuts",
+                "operationId": "45f3c9700b1daf6c8d4eeb514ae20422",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "shortcuts"
+                ],
+                "summary": "create shortcut",
+                "description": "create shortcut",
+                "operationId": "fb1bfb26d676516b51f9a40263502749",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "short_cut": {
+                                        "type": "string"
+                                    },
+                                    "sender_code": {
+                                        "type": "integer"
+                                    },
+                                    "receiver_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_description": {
+                                        "type": "string"
+                                    },
+                                    "package_code": {
+                                        "type": "integer"
+                                    },
+                                    "owner_code": {
+                                        "type": "integer"
+                                    },
+                                    "location_loading_code": {
+                                        "type": "integer"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "value": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/shortcuts/{shortcut}": {
+            "get": {
+                "tags": [
+                    "shortcuts"
+                ],
+                "summary": "get shortcut by id",
+                "description": "get shortcut by id",
+                "operationId": "605231a511122ef3eaa2d3b1c002b87b",
+                "parameters": [
+                    {
+                        "name": "shortcut",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "shortcuts"
+                ],
+                "summary": "delete shortcut by id",
+                "description": "delete shortcut by id",
+                "operationId": "c11c2970f12b77c83c68e5caea7b5de0",
+                "parameters": [
+                    {
+                        "name": "shortcut",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "shortcuts"
+                ],
+                "summary": "update shortcut",
+                "description": "update shortcut",
+                "operationId": "fca33df9b62ae9a1d8875cdf839f09bd",
+                "parameters": [
+                    {
+                        "name": "shortcut",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "short_cut": {
+                                        "type": "string"
+                                    },
+                                    "sender_code": {
+                                        "type": "integer"
+                                    },
+                                    "receiver_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_code": {
+                                        "type": "integer"
+                                    },
+                                    "cargo_description": {
+                                        "type": "string"
+                                    },
+                                    "package_code": {
+                                        "type": "integer"
+                                    },
+                                    "owner_code": {
+                                        "type": "integer"
+                                    },
+                                    "location_loading_code": {
+                                        "type": "integer"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "value": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
                         "description": "Success",
                         "content": {
                             "application/json": {}
