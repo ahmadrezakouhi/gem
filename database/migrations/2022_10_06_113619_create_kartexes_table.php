@@ -30,9 +30,9 @@ return new class extends Migration
             $table->unsignedBigInteger('value')->nullable();
             $table->string('owner')->nullable();
             $table->string('loading_location')->nullable();
-            $table->boolean('traffic')->default(false);
-            $table->boolean('incendiary')->default(false);
-            $table->boolean('traffic_zone')->default(false);
+            $table->boolean('traffic_status')->default(false);
+            $table->boolean('fire_status')->default(false);
+            $table->boolean('plan_status')->default(false);
             $table->unsignedInteger('remainder_order')->nullable();
             $table->unsignedBigInteger('sender_code')->nullable();
             $table->string('sender_name')->nullable();
