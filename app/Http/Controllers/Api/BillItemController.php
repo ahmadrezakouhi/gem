@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cargo;
+use App\Models\BillItem;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CargoController extends Controller
+class BillItemController extends Controller
 {
      /**
      * @OA\Get(
-     *   path="/api/cargoes",
-     *   tags={"cargoes"},
-     *   summary="get all cargoes",
-     *       description="get all cargoes",
+     *   path="/api/bill-items",
+     *   tags={"bill items"},
+     *   summary="get all bill items",
+     *       description="get all bill items",
      *   @OA\Response(
      *      response=200,
      *       description="Success",
@@ -30,15 +30,15 @@ class CargoController extends Controller
      **/
     public function index()
     {
-        return Cargo::orderBy('id','desc')->get();
+        return BillItem::orderBy('id','desc')->get();
     }
 
     /**
      * @OA\Post(
-     *   path="/api/cargoes",
-     *   tags={"cargoes"},
-     *   summary="create cargo",
-     *       description="create cargo",
+     *   path="/api/bill_items",
+     *   tags={"bill items"},
+     *   summary="create bill item",
+     *       description="create bill item",
      *
      *
      *   @OA\RequestBody(
@@ -47,61 +47,185 @@ class CargoController extends Controller
      *       mediaType="application/json",
      *       @OA\Schema(
      *          @OA\Property(
-     *           property="bill_of_lading_id",
+     *           property="Bill_Id",
      *           type="integer",
      *         ),
      *          @OA\Property(
-     *           property="cargo_code",
+     *           property="Draft_Number",
      *           type="integer",
      *         ),
      *           @OA\Property(
-     *           property="cargo_title",
+     *           property="Draft_Serial",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="packing_code",
+     *           property="Order_Number",
      *           type="integer",
      *         ),
      *           @OA\Property(
-     *           property="packing_title",
-     *           type="string",
+     *           property="Kartex_Number",
+     *           type="integer",
      *         ),
      *
      *           @OA\Property(
-     *           property="description",
+     *           property="M_Name",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="weight",
+     *           property="M_NameCode",
      *           type="integer",
      *         ),
      *           @OA\Property(
-     *           property="quantity",
+     *           property="M_OriginWeigth",
      *           type="integer",
      *         ),
      *          @OA\Property(
-     *           property="value",
+     *           property="M_PackCount",
      *           type="integer",
      *         ),
      *          @OA\Property(
-     *           property="owner",
+     *           property="M_LoadLocation",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="location_loading",
+     *           property="M_LoadLocationCode",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="M_Value",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="M_Description",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="traffic",
+     *           property="M_TrafficStatus",
      *           type="boolean",
      *         ),
+
      *          @OA\Property(
-     *           property="incendiary",
+     *           property="M_FireStatus",
      *           type="boolean",
      *         ),
+
      *          @OA\Property(
-     *           property="traffic_zone",
+     *           property="M_PlanStatus",
      *           type="boolean",
+     *         ),
+
+     *          @OA\Property(
+     *           property="M_PacketType",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="M_PacketTypeCode",
+     *           type="integer",
+     *         ),
+
+     *          @OA\Property(
+     *           property="M_LoadOwner",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="M_LoadingOwnerCode",
+     *           type="integer",
+     *         ),
+
+     *          @OA\Property(
+     *           property="M_IranCode",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="M_DestinationWeigth",
+     *           type="integer",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field1",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field2",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field3",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field4",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field5",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="BI_Field6",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field7",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field8",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field9",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field10",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field11",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Field12",
+     *           type="string",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_ItemNumber",
+     *           type="integer",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_Delivered",
+     *           type="boolean",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_DeliveredTime",
+     *           type="date",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_DeliverUserId",
+     *           type="integer",
+     *         ),
+
+     *          @OA\Property(
+     *           property="BI_DeliverUserName",
+     *           type="string",
      *         ),
      *
      *       ),
@@ -127,18 +251,18 @@ class CargoController extends Controller
      **/
     public function store(Request $request)
     {
-        $cargo = Cargo::create($request->all());
-        return response()->json($cargo,Response::HTTP_CREATED);
+        $bill_item = BillItem::create($request->all());
+        return response()->json($bill_item,Response::HTTP_CREATED);
     }
 
     /**
      * @OA\Get(
-     *   path="/api/cargoes/{cargo}",
-     *   tags={"cargoes"},
-     *   summary="get cargo by id",
-     *       description="get cargo by id",
+     *   path="/api/bill-items/{bill_item}",
+     *   tags={"bill items"},
+     *   summary="get bill item by id",
+     *       description="get bill item by id",
      *   @OA\Parameter(
-     *      name="cargo",
+     *      name="bill_item",
      *      in="path",
      *      required=true,
      *      @OA\Schema(
@@ -161,19 +285,19 @@ class CargoController extends Controller
      *   ),
      *)
      **/
-    public function show(Cargo $cargo)
+    public function show(BillItem $bill_item)
     {
-        return response()->json($cargo,Response::HTTP_ACCEPTED);
+        return response()->json($bill_item,Response::HTTP_ACCEPTED);
     }
 
      /**
      * @OA\Patch(
-     *   path="/api/cargoes/{cargo}",
-     *   tags={"cargoes"},
-     *   summary="update cargo",
-     *       description="update cargo",
+     *   path="/api/bill-items/{bill_item}",
+     *   tags={"bill items"},
+     *   summary="update bill item",
+     *       description="update bill item",
      *   *     @OA\Parameter(
-     *          name="cargo",
+     *          name="bill_item",
      *          in="path",
      *          required=true,
      *          @OA\Schema(
@@ -189,61 +313,186 @@ class CargoController extends Controller
      *       mediaType="application/json",
      *       @OA\Schema(
      *          @OA\Property(
-     *           property="bill_of_lading_id",
+     *           property="Bill_Id",
      *           type="integer",
      *         ),
      *          @OA\Property(
-     *           property="cargo_code",
+     *           property="Draft_Number",
      *           type="integer",
      *         ),
      *           @OA\Property(
-     *           property="cargo_title",
+     *           property="Draft_Serial",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="package_code",
+     *           property="Order_Number",
      *           type="integer",
      *         ),
      *           @OA\Property(
-     *           property="package_title",
-     *           type="string",
+     *           property="Kartex_Number",
+     *           type="integer",
      *         ),
      *
      *           @OA\Property(
-     *           property="description",
+     *           property="M_Name",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="weight",
+     *           property="M_NameCode",
      *           type="integer",
      *         ),
      *           @OA\Property(
-     *           property="quantity",
+     *           property="M_OriginWeigth",
      *           type="integer",
      *         ),
      *          @OA\Property(
-     *           property="value",
+     *           property="M_PackCount",
      *           type="integer",
      *         ),
      *          @OA\Property(
-     *           property="owner",
+     *           property="M_LoadLocation",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="location_loading",
+     *           property="M_LoadLocationCode",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="M_Value",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="M_Description",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="traffic",
+     *           property="M_TrafficStatus",
      *           type="boolean",
      *         ),
+     *
      *          @OA\Property(
-     *           property="incendiary",
+     *           property="M_FireStatus",
      *           type="boolean",
      *         ),
+     *
      *          @OA\Property(
-     *           property="traffic_zone",
+     *           property="M_PlanStatus",
      *           type="boolean",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="M_PacketType",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="M_PacketTypeCode",
+     *           type="integer",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="M_LoadOwner",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="M_LoadingOwnerCode",
+     *           type="integer",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="M_IranCode",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="M_DestinationWeigth",
+     *           type="integer",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field1",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field2",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field3",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field4",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field5",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field6",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field7",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field8",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field9",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field10",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field11",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Field12",
+     *           type="string",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_ItemNumber",
+     *           type="integer",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_Delivered",
+     *           type="boolean",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_DeliveredTime",
+     *           type="date",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_DeliverUserId",
+     *           type="integer",
+     *         ),
+     *
+     *          @OA\Property(
+     *           property="BI_DeliverUserName",
+     *           type="string",
      *         ),
      *
      *       ),
@@ -267,20 +516,20 @@ class CargoController extends Controller
      *   ),
      *)
      **/
-    public function update(Request $request, Cargo $cargo)
+    public function update(Request $request, BillItem $bill_item)
     {
-        $cargo->update($request->all());
-        return response()->json($cargo,Response::HTTP_ACCEPTED);
+        $bill_item->update($request->all());
+        return response()->json($bill_item,Response::HTTP_ACCEPTED);
     }
 
     /**
      * @OA\Delete(
-     *   path="/api/cargoes/{cargo}",
-     *   tags={"cargoes"},
-     *   summary="delete cargo by id",
-     *       description="delete cargo by id",
+     *   path="/api/bill-items/{bill_item}",
+     *   tags={"bill items"},
+     *   summary="delete bill item by id",
+     *       description="delete bill item by id",
      *   @OA\Parameter(
-     *      name="cargo",
+     *      name="bill_item",
      *      in="path",
      *      required=true,
      *      @OA\Schema(
@@ -303,9 +552,9 @@ class CargoController extends Controller
      *   ),
      *)
      **/
-    public function destroy(Cargo $cargo)
+    public function destroy(BillItem $bill_item)
     {
-        $cargo->delete();
+        $bill_item->delete();
         return response()->json(null , Response::HTTP_NO_CONTENT);
     }
 }
