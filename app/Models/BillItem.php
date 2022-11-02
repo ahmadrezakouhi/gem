@@ -11,10 +11,11 @@ class BillItem extends Model
     // protected $table = 'bill_item';
     protected $guarded = ['id'];
     protected $casts = [
-            'M_TraficStatus'=>'boolean',
-            'M_FireStatus'=>'boolean',
-            'M_PlanStatus'=>'boolean',
-            'BI_DeliveredTime'=>'datetime'
+        'M_TraficStatus' => 'boolean',
+        'M_FireStatus' => 'boolean',
+        'M_PlanStatus' => 'boolean',
+        'BI_Delivered' => 'boolean',
+        'BI_DeliveredTime' => 'datetime'
     ];
 
 
@@ -22,13 +23,14 @@ class BillItem extends Model
 
 
 
-    public function billOfLading(){
+    public function billOfLading()
+    {
         return $this->belongsTo(BillOfLading::class);
     }
 
 
-    public function order(){
+    public function order()
+    {
         return $this->belongsTo(Order::class);
     }
-
 }
