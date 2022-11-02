@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
             BillOfLadingSeeder::class,
             OrderSeeder::class,
             BillItemSeeder::class,
-            CortexSeeder::class,
+            KartexSeeder::class,
             OwnerSeeder::class,
             ShortcutSeeder::class,
 
