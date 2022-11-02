@@ -3447,6 +3447,359 @@
                 }
             }
         },
+        "/api/kartexes": {
+            "get": {
+                "tags": [
+                    "kartexes"
+                ],
+                "summary": "get all kartexes",
+                "description": "get all kartexes",
+                "operationId": "337c9accdd4667481a5027bafd7ae7de",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "kartexes"
+                ],
+                "summary": "create kartex",
+                "description": "create kartex",
+                "operationId": "216d06c58446f44968ac3e969e1276bf",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "kartex_number": {
+                                        "type": "integer"
+                                    },
+                                    "kartex_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "order_number": {
+                                        "type": "integer"
+                                    },
+                                    "order_item": {
+                                        "type": "integer"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "explanation": {
+                                        "type": "string"
+                                    },
+                                    "package_code": {
+                                        "type": "integer"
+                                    },
+                                    "package_title": {
+                                        "type": "string"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "value": {
+                                        "type": "integer"
+                                    },
+                                    "owner": {
+                                        "type": "string"
+                                    },
+                                    "loading_location": {
+                                        "type": "string"
+                                    },
+                                    "traffic_status": {
+                                        "type": "boolean"
+                                    },
+                                    "fire_status": {
+                                        "type": "boolean"
+                                    },
+                                    "plan_status": {
+                                        "type": "boolean"
+                                    },
+                                    "remainder_order": {
+                                        "type": "integer"
+                                    },
+                                    "sender_code": {
+                                        "type": "integer"
+                                    },
+                                    "sender_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_last_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_city": {
+                                        "type": "string"
+                                    },
+                                    "sender_national_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_storage_code": {
+                                        "type": "integer"
+                                    },
+                                    "sender_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_code": {
+                                        "type": "integer"
+                                    },
+                                    "receiver_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city": {
+                                        "type": "string"
+                                    },
+                                    "receiver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_storage_code": {
+                                        "type": "integer"
+                                    },
+                                    "receiver_postal_code": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/kartexes/{kartex}": {
+            "get": {
+                "tags": [
+                    "kartexes"
+                ],
+                "summary": "get kartex by id",
+                "description": "get kartex by id",
+                "operationId": "b8d8bdc719e3254e618c619f5acfe696",
+                "parameters": [
+                    {
+                        "name": "kartex",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "kartexes"
+                ],
+                "summary": "delete kartex by id",
+                "description": "delete kartex by id",
+                "operationId": "c280005abffc6ac1f0e0225531f64988",
+                "parameters": [
+                    {
+                        "name": "kartex",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success (without content)",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "kartexes"
+                ],
+                "summary": "update kartex",
+                "description": "update kartex",
+                "operationId": "0b6a8fef708614efe42755aab36623bb",
+                "parameters": [
+                    {
+                        "name": "kartex",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "panel_code": {
+                                        "type": "integer"
+                                    },
+                                    "kartex_number": {
+                                        "type": "integer"
+                                    },
+                                    "kartex_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "order_number": {
+                                        "type": "integer"
+                                    },
+                                    "order_item": {
+                                        "type": "integer"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "explanation": {
+                                        "type": "string"
+                                    },
+                                    "package_code": {
+                                        "type": "integer"
+                                    },
+                                    "package_title": {
+                                        "type": "string"
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "value": {
+                                        "type": "integer"
+                                    },
+                                    "owner": {
+                                        "type": "string"
+                                    },
+                                    "loading_location": {
+                                        "type": "string"
+                                    },
+                                    "traffic_status": {
+                                        "type": "boolean"
+                                    },
+                                    "fire_status": {
+                                        "type": "boolean"
+                                    },
+                                    "plan_status": {
+                                        "type": "boolean"
+                                    },
+                                    "remainder_order": {
+                                        "type": "integer"
+                                    },
+                                    "sender_code": {
+                                        "type": "integer"
+                                    },
+                                    "sender_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_last_name": {
+                                        "type": "string"
+                                    },
+                                    "sender_city": {
+                                        "type": "string"
+                                    },
+                                    "sender_national_code": {
+                                        "type": "string"
+                                    },
+                                    "sender_storage_code": {
+                                        "type": "integer"
+                                    },
+                                    "sender_postal_code": {
+                                        "type": "integer"
+                                    },
+                                    "receiver_code": {
+                                        "type": "integer"
+                                    },
+                                    "receiver_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_last_name": {
+                                        "type": "string"
+                                    },
+                                    "receiver_city": {
+                                        "type": "string"
+                                    },
+                                    "receiver_national_code": {
+                                        "type": "string"
+                                    },
+                                    "receiver_storage_code": {
+                                        "type": "integer"
+                                    },
+                                    "receiver_postal_code": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
         "/api/orders": {
             "get": {
                 "tags": [
