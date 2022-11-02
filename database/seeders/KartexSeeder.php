@@ -2,11 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Cortex;
+
+use App\Models\Kartex;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CortexSeeder extends Seeder
+class KartexSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +16,6 @@ class CortexSeeder extends Seeder
      */
     public function run()
     {
-        Cortex::factory(20)->create();
+        Kartex::factory(20)->create();
     }
 }
