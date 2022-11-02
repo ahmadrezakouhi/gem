@@ -3,7 +3,7 @@
 use App\Http\Controllers\Api\AddressController;
 use App\Http\Controllers\Api\BillOfLadingController;
 use App\Http\Controllers\Api\BillPayController;
-use App\Http\Controllers\Api\CargoController;
+use App\Http\Controllers\Api\BillItemController;
 use App\Http\Controllers\Api\DriverController;
 use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\CortexController;
@@ -69,7 +69,7 @@ Route::apiResource('tariffs',TariffController::class);//->except('index');
 
 Route::get('insurance-companies',[InsuranceCompanyController::class,'index']);
 
-Route::apiResource('cargoes',CargoController::class);
+Route::apiResource('bill-items',BillitemController::class);
 
 Route::apiResource('drafts-bill-of-ladings',DraftBillOfLadingController::class,
 ['parameters' => [
