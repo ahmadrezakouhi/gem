@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CortexResource;
-use App\Models\Cortex;
+use App\Http\Resources\KartexResource;
+use App\Models\Kartex;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CortexController extends Controller
+class KartexController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class CortexController extends Controller
      */
     public function index()
     {
-        return CortexResource::collection(Cortex::paginate());
+        return KartexResource::collection(Kartex::paginate());
     }
 
     /**
@@ -28,8 +28,8 @@ class CortexController extends Controller
      */
     public function store(Request $request)
     {
-        $cortex  = Cortex::create($request->all());
-        return response()->json(new CortexResource($cortex),Response::HTTP_CREATED);
+        $kartex = Kartex::create($request->all());
+        return response()->json(new KartexResource($kartex),Response::HTTP_CREATED);
     }
 
     /**
@@ -38,9 +38,9 @@ class CortexController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Cortex $cortex)
+    public function show(Kartex $kartex)
     {
-        return response()->json(new CortexResource($cortex),Response::HTTP_ACCEPTED);
+        return response()->json(new KartexResource($kartex),Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -50,10 +50,10 @@ class CortexController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cortex $cortex)
+    public function update(Request $request, Kartex $kartex)
     {
-        $cortex->update($request->all());
-        return response()->json(new CortexResource($cortex),Response::HTTP_ACCEPTED);
+        $kartex->update($request->all());
+        return response()->json(new KartexResource($kartex),Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -62,9 +62,9 @@ class CortexController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cortex $cortex)
+    public function destroy(Kartex $kartex)
     {
-        $cortex->delete();
+        $kartex->delete();
         return response()->json(null,Response::HTTP_NO_CONTENT);
     }
 }
