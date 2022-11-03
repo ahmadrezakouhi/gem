@@ -51,9 +51,12 @@ class BillOfLadingFactory extends Factory
             'Bill_ContractTitle' => $transport_contract->contract_title,
             'Bill_SendToServer' => fake()->numberBetween(1, 20),
             'Bill_IsRobari' => fake()->boolean(),
-            'Bill_InsuranceContractNumber' => fake()->numerify('#####'),
-            'Bill_InsuranceCompanyCode' => fake()->numerify('####'),
-            'Bill_InsuranceContractId' => fake()->numerify('####'),
+            'Bill_CvInsuranceContractNumber' => fake()->numerify('#####'),
+            'Bill_CvInsuranceCompanyCode' => fake()->numerify('####'),
+            'Bill_CvInsuranceContractId' => fake()->numerify('####'),
+            'Bill_CgInsuranceContractNumber' => fake()->numerify('#####'),
+            'Bill_CgInsuranceCompanyCode' => fake()->numerify('####'),
+            'Bill_CgInsuranceContractId' => fake()->numerify('####'),
             'Bill_MasterBillOfLadingTraceCode' => fake()->numerify('#####'),
             'Haab_AnbTypeCode' => fake()->numberBetween(1,9),
             'Haab_AnbTypeTitle' => Faker::word(),
@@ -140,7 +143,13 @@ class BillOfLadingFactory extends Factory
             'Fee_Stamp' => getRandomCost(10),
             'Fee_TraceCode' => getRandomCost(10),
             'Fee_Deductions' => getRandomCost(10),
-
+            'Fee_Antiseptic' => getRandomCost(5),
+            'Fee_Elambar' => getRandomCost(6),
+            'Fee_Unload' => getRandomCost(7),
+            'Fee_Complementary' => getRandomCost(6),
+            'Bill_D1OneTimePassword' => fake()->password(),
+            'Bill_NOneTimePassword' => fake()->password() ,
+            'Bill_ElambarPermission' => fake()->numerify('########'),
 
 
         ];
