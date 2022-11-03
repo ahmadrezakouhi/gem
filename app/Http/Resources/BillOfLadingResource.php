@@ -14,8 +14,7 @@ class BillOfLadingResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            
-        ];
+        return parent::toArray($request) +
+        ['bill_items'=> BillItemResource::collection($this->billItems)];
     }
 }
