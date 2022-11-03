@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BillOfLadingResource;
 use App\Models\BillOfLading;
-use App\Models\Cargo;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -31,7 +31,7 @@ class BillOfLadingController extends Controller
      **/
     public function index()
     {
-        return BillOfLading::with('cargoes')->orderBy('id', 'desc')->paginate();
+        return BillOfLadingResource::collection(BillOfLading::orderBy('id', 'desc')->paginate());
     }
 
     /**
@@ -504,7 +504,7 @@ class BillOfLadingController extends Controller
     {
 
         $bill_of_lading = BillOfLading::create($request->all()+['panel_code'=>'123456789']);
-        $this->createCargoesForBillOfLading($bill_of_lading,$request->cargoes);
+        $this->createBillItemForBillOfLading($bill_of_lading,$request->cargoes);
         return response()->json($bill_of_lading, Response::HTTP_CREATED);
     }
 
@@ -540,7 +540,7 @@ class BillOfLadingController extends Controller
      **/
     public function show(BillOfLading $bill_of_lading)
     {
-        return response()->json($bill_of_lading->load('cargoes'), Response::HTTP_ACCEPTED);
+        return response()->json(new BillOfLadingResource($bill_of_lading), Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -1000,7 +1000,7 @@ class BillOfLadingController extends Controller
      *     ),
      *   ),
      *
-     *
+     *cargoes
      *
      *
      *
@@ -1020,10 +1020,10 @@ class BillOfLadingController extends Controller
     public function update(Request $request, BillOfLading $bill_of_lading)
     {
 
-        $bill_of_lading->cargoes()->delete();
-        $this->createCargoesForBillOfLading($bill_of_lading,$request->cargoes);
+        $bill_of_lading->billItems()->delete();
+        $this->createBillItemForBillOfLading($bill_of_lading,$request->billItems);
         $bill_of_lading->update($request->all());
-        return response()->json($bill_of_lading, Response::HTTP_ACCEPTED);
+        return response()->json(new BillOfLadingResource($bill_of_lading), Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -1058,16 +1058,16 @@ class BillOfLadingController extends Controller
      **/
     public function destroy(BillOfLading $bill_of_lading)
     {
-        $bill_of_lading->cargoes()->delete();
+        $bill_of_lading->billItems()->delete();
         $bill_of_lading->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 
 
 
-    private function createCargoesForBillOfLading(BillOfLading $bill_of_lading, array $cargoes){
-        foreach ($cargoes as $cargoe) {
-            $bill_of_lading->cargoes()->create($cargoe);
+    private function createBillItemForBillOfLading(BillOfLading $bill_of_lading, array $billItems){
+        foreach ($billItems as $billItem) {
+            $bill_of_lading->billItems()->create($billItem);
         }
     }
 }
