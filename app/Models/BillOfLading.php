@@ -18,8 +18,8 @@ class BillOfLading extends Model
     ];
 
 
-    public function cargoes()
+    public function billItems()
     {
-        return $this->hasMany(Cargo::class);
+        return $this->hasMany(BillItem::class , 'Bill_Id');
     }
 }
