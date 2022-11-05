@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BillItemResource;
 use App\Models\BillItem;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +31,7 @@ class BillItemController extends Controller
      **/
     public function index()
     {
-        return BillItem::orderBy('id','desc')->get();
+        return BillItemResource::collection( BillItem::orderBy('id','desc')->get() );
     }
 
     /**
@@ -287,7 +288,7 @@ class BillItemController extends Controller
      **/
     public function show(BillItem $bill_item)
     {
-        return response()->json($bill_item,Response::HTTP_ACCEPTED);
+        return response()->json(new BillItemResource($bill_item),Response::HTTP_ACCEPTED);
     }
 
      /**
@@ -519,7 +520,7 @@ class BillItemController extends Controller
     public function update(Request $request, BillItem $bill_item)
     {
         $bill_item->update($request->all());
-        return response()->json($bill_item,Response::HTTP_ACCEPTED);
+        return response()->json(new BillItemResource($bill_item),Response::HTTP_ACCEPTED);
     }
 
     /**
