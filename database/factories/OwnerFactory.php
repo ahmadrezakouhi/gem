@@ -19,7 +19,7 @@ class OwnerFactory extends Factory
     public function definition()
     {
         return [
-            'panel_code'=>Company::inRandomOrder()->frist()->id,
+            'panel_code'=>Company::inRandomOrder()->first()->panel_code,
             'code'=>fake()->numerify('########'),
             'name'=>Faker::firstName(),
             'last_name'=>Faker::lastName(),

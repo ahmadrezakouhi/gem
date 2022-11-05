@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Cortex;
+use App\Models\BillPay;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CortexSeeder extends Seeder
+class BillPaySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class CortexSeeder extends Seeder
      */
     public function run()
     {
-        Cortex::factory(20)->create();
+        BillPay::factory(20)->create();
     }
 }

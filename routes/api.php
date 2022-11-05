@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\Api\AddressController;
 use App\Http\Controllers\Api\BillOfLadingController;
-use App\Http\Controllers\Api\CargoController;
+use App\Http\Controllers\Api\BillPayController;
+use App\Http\Controllers\Api\BillItemController;
 use App\Http\Controllers\Api\DriverController;
 use App\Http\Controllers\Api\CompanyController;
-use App\Http\Controllers\Api\CortexController;
+use App\Http\Controllers\Api\KartexController;
 use App\Http\Controllers\Api\DraftBillOfLadingController;
 use App\Http\Controllers\Api\SenderReceiverController;
 use App\Http\Controllers\Api\VehicleController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Api\InsuranceCompanyController;
 use App\Http\Controllers\Api\InsuranceController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\OwnerController;
+use App\Http\Controllers\Api\ShortcutController;
 use App\Http\Controllers\Api\TariffController;
 use App\Http\Controllers\Api\TransportCotractController;
 use App\Http\Controllers\Api\UserController;
@@ -67,7 +69,7 @@ Route::apiResource('tariffs',TariffController::class);//->except('index');
 
 Route::get('insurance-companies',[InsuranceCompanyController::class,'index']);
 
-Route::apiResource('cargoes',CargoController::class);
+Route::apiResource('bill-items',BillitemController::class);
 
 Route::apiResource('drafts-bill-of-ladings',DraftBillOfLadingController::class,
 ['parameters' => [
@@ -80,7 +82,10 @@ Route::apiResource('users',UserController::class);
 
 Route::apiResource('orders',OrderController::class);
 
-Route::apiResource('cortexes',CortexController::class);
+Route::apiResource('kartexes',KartexController::class);
 
 Route::apiResource('owners',OwnerController::class);
 
+Route::apiResource('shortcuts',ShortcutController::class);
+
+Route::apiResource('bill-pays',BillPayController::class);

@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cargo extends Model
+class BillItem extends Model
 {
     use HasFactory;
-    protected $table = 'cargoes';
+    // protected $table = 'bill_item';
     protected $guarded = ['id'];
     protected $casts = [
-            'traffic'=>'boolean',
-            'incendiary'=>'boolean',
-            'traffic_zone'=>'boolean'
+        'M_TraficStatus' => 'boolean',
+        'M_FireStatus' => 'boolean',
+        'M_PlanStatus' => 'boolean',
+        'BI_Delivered' => 'boolean',
+        'BI_DeliveredTime' => 'datetime'
     ];
 
 
@@ -21,13 +23,14 @@ class Cargo extends Model
 
 
 
-    public function billOfLading(){
+    public function billOfLading()
+    {
         return $this->belongsTo(BillOfLading::class);
     }
 
 
-    public function order(){
+    public function order()
+    {
         return $this->belongsTo(Order::class);
     }
-
 }

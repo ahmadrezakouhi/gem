@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class BillOfLadingResource extends JsonResource
+class AddressResources extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,7 +14,6 @@ class BillOfLadingResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request) +
-        ['bill_items'=> BillItemResource::collection($this->billItems)];
+        return parent::toArray($request);
     }
 }

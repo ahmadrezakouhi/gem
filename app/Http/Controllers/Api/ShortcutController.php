@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cargo;
+use App\Models\Shortcut;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CargoController extends Controller
+class ShortcutController extends Controller
 {
-     /**
+    /**
      * @OA\Get(
-     *   path="/api/cargoes",
-     *   tags={"cargoes"},
-     *   summary="get all cargoes",
-     *       description="get all cargoes",
+     *   path="/api/shortcuts",
+     *   tags={"shortcuts"},
+     *   summary="get all shortcuts",
+     *       description="get all shortcuts",
      *   @OA\Response(
      *      response=200,
      *       description="Success",
@@ -30,15 +30,15 @@ class CargoController extends Controller
      **/
     public function index()
     {
-        return Cargo::orderBy('id','desc')->get();
+        return Shortcut::orderBy('id','desc')->paginate();
     }
 
     /**
      * @OA\Post(
-     *   path="/api/cargoes",
-     *   tags={"cargoes"},
-     *   summary="create cargo",
-     *       description="create cargo",
+     *   path="/api/shortcuts",
+     *   tags={"shortcuts"},
+     *   summary="create shortcut",
+     *       description="create shortcut",
      *
      *
      *   @OA\RequestBody(
@@ -47,35 +47,46 @@ class CargoController extends Controller
      *       mediaType="application/json",
      *       @OA\Schema(
      *          @OA\Property(
-     *           property="bill_of_lading_id",
+     *           property="panel_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="short_cut",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="sender_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_code",
      *           type="integer",
      *         ),
      *          @OA\Property(
      *           property="cargo_code",
      *           type="integer",
      *         ),
-     *           @OA\Property(
-     *           property="cargo_title",
+     *          @OA\Property(
+     *           property="cargo_description",
      *           type="string",
      *         ),
      *          @OA\Property(
-     *           property="packing_code",
+     *           property="package_code",
      *           type="integer",
      *         ),
-     *           @OA\Property(
-     *           property="packing_title",
-     *           type="string",
+     *          @OA\Property(
+     *           property="owner_code",
+     *           type="integer",
      *         ),
-     *
-     *           @OA\Property(
-     *           property="description",
-     *           type="string",
+     *          @OA\Property(
+     *           property="location_loading_code",
+     *           type="integer",
      *         ),
      *          @OA\Property(
      *           property="weight",
      *           type="integer",
      *         ),
-     *           @OA\Property(
+     *          @OA\Property(
      *           property="quantity",
      *           type="integer",
      *         ),
@@ -83,27 +94,6 @@ class CargoController extends Controller
      *           property="value",
      *           type="integer",
      *         ),
-     *          @OA\Property(
-     *           property="owner",
-     *           type="string",
-     *         ),
-     *          @OA\Property(
-     *           property="location_loading",
-     *           type="string",
-     *         ),
-     *          @OA\Property(
-     *           property="traffic",
-     *           type="boolean",
-     *         ),
-     *          @OA\Property(
-     *           property="incendiary",
-     *           type="boolean",
-     *         ),
-     *          @OA\Property(
-     *           property="traffic_zone",
-     *           type="boolean",
-     *         ),
-     *
      *       ),
      *     ),
      *   ),
@@ -127,18 +117,18 @@ class CargoController extends Controller
      **/
     public function store(Request $request)
     {
-        $cargo = Cargo::create($request->all());
-        return response()->json($cargo,Response::HTTP_CREATED);
+        $shortcut = Shortcut::create($request->all());
+        return response()->json($shortcut,Response::HTTP_CREATED);
     }
 
-    /**
+   /**
      * @OA\Get(
-     *   path="/api/cargoes/{cargo}",
-     *   tags={"cargoes"},
-     *   summary="get cargo by id",
-     *       description="get cargo by id",
+     *   path="/api/shortcuts/{shortcut}",
+     *   tags={"shortcuts"},
+     *   summary="get shortcut by id",
+     *       description="get shortcut by id",
      *   @OA\Parameter(
-     *      name="cargo",
+     *      name="shortcut",
      *      in="path",
      *      required=true,
      *      @OA\Schema(
@@ -161,19 +151,19 @@ class CargoController extends Controller
      *   ),
      *)
      **/
-    public function show(Cargo $cargo)
+    public function show(Shortcut $shortcut)
     {
-        return response()->json($cargo,Response::HTTP_ACCEPTED);
+        return response()->json($shortcut,Response::HTTP_ACCEPTED);
     }
 
-     /**
+    /**
      * @OA\Patch(
-     *   path="/api/cargoes/{cargo}",
-     *   tags={"cargoes"},
-     *   summary="update cargo",
-     *       description="update cargo",
-     *   *     @OA\Parameter(
-     *          name="cargo",
+     *   path="/api/shortcuts/{shortcut}",
+     *   tags={"shortcuts"},
+     *   summary="update shortcut",
+     *       description="update shortcut",
+     *     @OA\Parameter(
+     *          name="shortcut",
      *          in="path",
      *          required=true,
      *          @OA\Schema(
@@ -183,41 +173,53 @@ class CargoController extends Controller
      *
      * ),
      *
-     *   @OA\RequestBody(
+     *
+    *   @OA\RequestBody(
      *     required=true,
      *     @OA\MediaType(
      *       mediaType="application/json",
      *       @OA\Schema(
      *          @OA\Property(
-     *           property="bill_of_lading_id",
+     *           property="panel_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="short_cut",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="sender_code",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="receiver_code",
      *           type="integer",
      *         ),
      *          @OA\Property(
      *           property="cargo_code",
      *           type="integer",
      *         ),
-     *           @OA\Property(
-     *           property="cargo_title",
+     *          @OA\Property(
+     *           property="cargo_description",
      *           type="string",
      *         ),
      *          @OA\Property(
      *           property="package_code",
      *           type="integer",
      *         ),
-     *           @OA\Property(
-     *           property="package_title",
-     *           type="string",
+     *          @OA\Property(
+     *           property="owner_code",
+     *           type="integer",
      *         ),
-     *
-     *           @OA\Property(
-     *           property="description",
-     *           type="string",
+     *          @OA\Property(
+     *           property="location_loading_code",
+     *           type="integer",
      *         ),
      *          @OA\Property(
      *           property="weight",
      *           type="integer",
      *         ),
-     *           @OA\Property(
+     *          @OA\Property(
      *           property="quantity",
      *           type="integer",
      *         ),
@@ -225,27 +227,6 @@ class CargoController extends Controller
      *           property="value",
      *           type="integer",
      *         ),
-     *          @OA\Property(
-     *           property="owner",
-     *           type="string",
-     *         ),
-     *          @OA\Property(
-     *           property="location_loading",
-     *           type="string",
-     *         ),
-     *          @OA\Property(
-     *           property="traffic",
-     *           type="boolean",
-     *         ),
-     *          @OA\Property(
-     *           property="incendiary",
-     *           type="boolean",
-     *         ),
-     *          @OA\Property(
-     *           property="traffic_zone",
-     *           type="boolean",
-     *         ),
-     *
      *       ),
      *     ),
      *   ),
@@ -267,20 +248,20 @@ class CargoController extends Controller
      *   ),
      *)
      **/
-    public function update(Request $request, Cargo $cargo)
+    public function update(Request $request,Shortcut $shortcut)
     {
-        $cargo->update($request->all());
-        return response()->json($cargo,Response::HTTP_ACCEPTED);
+        $shortcut->udpate($request->all());
+        return response()->json($shortcut,Response::HTTP_ACCEPTED);
     }
 
     /**
      * @OA\Delete(
-     *   path="/api/cargoes/{cargo}",
-     *   tags={"cargoes"},
-     *   summary="delete cargo by id",
-     *       description="delete cargo by id",
+     *   path="/api/shortcuts/{shortcut}",
+     *   tags={"shortcuts"},
+     *   summary="delete shortcut by id",
+     *       description="delete shortcut by id",
      *   @OA\Parameter(
-     *      name="cargo",
+     *      name="shortcut",
      *      in="path",
      *      required=true,
      *      @OA\Schema(
@@ -303,9 +284,9 @@ class CargoController extends Controller
      *   ),
      *)
      **/
-    public function destroy(Cargo $cargo)
+    public function destroy(Shortcut $shortcut)
     {
-        $cargo->delete();
-        return response()->json(null , Response::HTTP_NO_CONTENT);
+        $shortcut->delete();
+        return response()->json(null,Response::HTTP_NO_CONTENT);
     }
 }

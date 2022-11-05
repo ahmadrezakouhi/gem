@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cortex extends Model
+class Kartex extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
     protected $casts = [
-        'cortex_date'=>'datetime',
+        'kartex_date'=>'datetime',
+        'traffic_status' => 'boolean',
+        'fire_status' => 'boolean',
+        'plan_status' => 'boolean',
     ];
 }
