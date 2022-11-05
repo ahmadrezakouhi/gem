@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BillPayResource;
 use App\Models\BillPay;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ class BillPayController extends Controller
      */
     public function index()
     {
-        return BillPay::orderBy('id','desc')->get();
+        return BillPayResource::collection(BillPay::orderBy('id','desc')->get());
     }
 
     /**
@@ -28,7 +29,7 @@ class BillPayController extends Controller
     public function store(Request $request)
     {
         $bill_pay  = BillPay::create($request->all());
-        return response()->json($bill_pay,Response::HTTP_CREATED);
+        return response()->json( new BillPayResource($bill_pay),Response::HTTP_CREATED);
     }
 
     /**
