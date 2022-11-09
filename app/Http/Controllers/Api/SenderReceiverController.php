@@ -3,12 +3,20 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Library\Http\HttpClient;
+use App\Library\Http\HttpClientFactory;
 use App\Models\SenderReceiver;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class SenderReceiverController extends Controller
 {
+    private $http;
+
+    public function __construct(HttpClient $http)
+    {
+        $this->http = $http;
+    }
 
 
     /**
@@ -34,10 +42,10 @@ class SenderReceiverController extends Controller
 
     public function index()
     {
-        return SenderReceiver::with('addresses')->orderBy('id','desc')->paginate();
+        return SenderReceiver::with('addresses')->orderBy('id', 'desc')->paginate();
     }
 
-/**
+    /**
      * @OA\Post(
      *   path="/api/senders-receivers/{sender_receiver}",
      *   tags={"senders-receivers"},
@@ -138,9 +146,9 @@ class SenderReceiverController extends Controller
      **/
     public function store(Request $request)
     {
-        $sender_receiver = SenderReceiver::create($request->all()+['panel_code'=>'123456789']);
-        $this->createAddressesForSenderReceiver($sender_receiver,$request->addresses);
-        return response($sender_receiver , Response::HTTP_CREATED);
+        $sender_receiver = SenderReceiver::create($request->all() + ['panel_code' => '123456789']);
+        $this->createAddressesForSenderReceiver($sender_receiver, $request->addresses);
+        return response($sender_receiver, Response::HTTP_CREATED);
     }
 
     /**
@@ -151,10 +159,10 @@ class SenderReceiverController extends Controller
      */
     public function show(SenderReceiver $sender_receiver)
     {
-        return response($sender_receiver->load('addresses'),Response::HTTP_ACCEPTED);
+        return response($sender_receiver->load('addresses'), Response::HTTP_ACCEPTED);
     }
 
-   /**
+    /**
      * @OA\Patch(
      *   path="/api/senders-receivers/{sender_receiver}",
      *   tags={"senders-receivers"},
@@ -267,9 +275,9 @@ class SenderReceiverController extends Controller
     public function update(Request $request, SenderReceiver $sender_receiver)
     {
         $sender_receiver->addresses()->delete();
-        $this->createAddressesForSenderReceiver($sender_receiver,$request->addresses);
+        $this->createAddressesForSenderReceiver($sender_receiver, $request->addresses);
         $sender_receiver->update($request->all());
-        return response($sender_receiver,Response::HTTP_ACCEPTED);
+        return response($sender_receiver, Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -278,7 +286,7 @@ class SenderReceiverController extends Controller
      *   tags={"senders-receivers"},
      *   summary="delete senders or receivers",
      *       description="delete senders or receivers",
-      *   @OA\Parameter(
+     *   @OA\Parameter(
      *      name="sender-receiver",
      *      in="path",
      *      required=true,
@@ -304,7 +312,7 @@ class SenderReceiverController extends Controller
     public function destroy(SenderReceiver $sender_receiver)
     {
         $sender_receiver->delete();
-        return response(null,Response::HTTP_NO_CONTENT);
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 
 
@@ -312,9 +320,17 @@ class SenderReceiverController extends Controller
 
 
 
-    private function createAddressesForSenderReceiver(SenderReceiver $sender_receiver, array $addresses){
+    private function createAddressesForSenderReceiver(SenderReceiver $sender_receiver, array $addresses)
+    {
         foreach ($addresses as $address) {
             $sender_receiver->addresses()->create($address);
         }
+    }
+
+    public function loadNameByNationalCode(Request $request)
+    {
+
+        $response = $this->http->post('/api/Access/LoadNameByNationalCode?NationalCode='.$request->national_code.'&IsLegal='.$request->isLegal);
+        return $response;
     }
 }
