@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AddressResource;
+use App\Library\Http\HttpClientFactory;
 use App\Models\Address;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,7 +33,7 @@ class AddressController extends Controller
 
     public function index()
     {
-        return AddressResource::collection( Address::orderBy('id','desc')->paginate());
+        return AddressResource::collection(Address::orderBy('id', 'desc')->paginate());
     }
 
     /**
@@ -110,9 +111,9 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         $address = Address::create($request->all());
-        return response( new AddressResource($address),Response::HTTP_CREATED);
+        return response(new AddressResource($address), Response::HTTP_CREATED);
     }
-/**
+    /**
      * @OA\Get(
      *   path="/api/addresses/{address}",
      *   tags={"addresses"},
@@ -145,10 +146,10 @@ class AddressController extends Controller
 
     public function show(Address $address)
     {
-        return response(new AddressResource($address),Response::HTTP_ACCEPTED);
+        return response(new AddressResource($address), Response::HTTP_ACCEPTED);
     }
 
- /**
+    /**
      * @OA\Patch(
      *   path="/api/addresses/{address}",
      *   tags={"addresses"},
@@ -239,11 +240,10 @@ class AddressController extends Controller
     public function update(Request $request, Address $address)
     {
         $address->update($request->all());
-        return response(new AddressResource($address),Response::HTTP_ACCEPTED);
-
+        return response(new AddressResource($address), Response::HTTP_ACCEPTED);
     }
 
-   /**
+    /**
      * @OA\Delete(
      *   path="/api/addresses/{address}",
      *   tags={"addresses"},
@@ -276,6 +276,17 @@ class AddressController extends Controller
     public function destroy(Address $address)
     {
         $address->delete();
-        return response(null,Response::HTTP_NO_CONTENT);
+        return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+
+
+    public function loadAddressByPostalCode(Request $request)
+    {
+
+        $http = HttpClientFactory::make();
+        $response = $http->post('/api/access/LoadAddressByPostalCode?PostalCode='
+            . $request->postal_code);
+        return $response;
     }
 }
