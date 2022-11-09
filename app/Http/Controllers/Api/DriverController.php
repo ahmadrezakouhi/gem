@@ -6,10 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Driver;
 use Illuminate\Http\Request;
 use App\Http\Resources\DriverResource;
+use App\Library\Http\HttpClient;
+use App\Library\Http\HttpClientFactory;
 use Symfony\Component\HttpFoundation\Response;
-
 class DriverController extends Controller
 {
+    private $http;
+
+    public function __construct(HttpClient $http)
+    {
+        $this->http = $http;
+    }
 
     /**
      * @OA\Get(
@@ -483,4 +490,14 @@ class DriverController extends Controller
         $driver->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
+
+
+    public function loadDriverByNationalCode(Request $request ){
+
+
+        $response = $this->http->post('/api/Access/LoadDriverByNationalCode?NationalCode='.$request->national_code);
+        return $response;
+
+    }
+
 }
