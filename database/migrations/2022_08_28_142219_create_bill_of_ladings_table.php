@@ -134,6 +134,7 @@ return new class extends Migration
             $table->string('Bill_D1OneTimePassword')->nullable();
             $table->string('Bill_NOneTimePassword')->nullable();
             $table->unsignedBigInteger('Bill_ElambarPermission')->nullable();
+            $table->string('Bill_IranTitle',50)->nullable();
             $table->timestamps();
         });
     }

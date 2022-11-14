@@ -150,6 +150,7 @@ class BillOfLadingFactory extends Factory
             'Bill_D1OneTimePassword' => fake()->password(),
             'Bill_NOneTimePassword' => fake()->password() ,
             'Bill_ElambarPermission' => fake()->numerify('########'),
+            'Bill_IranTitle' => Faker::word(),
 
 
         ];
