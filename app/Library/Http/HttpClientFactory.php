@@ -9,6 +9,6 @@ class HttpClientFactory
         return new HttpClient([
             'UserName' => 'BLUser11001',
             'PassWord' => '91479147'
-        ], 'https://api.safermehr.ir');
+        ], 'https://api.safermehr.ir/api/Access/');
     }
 }

@@ -495,7 +495,7 @@ class DriverController extends Controller
     public function loadDriverByNationalCode(Request $request ){
 
 
-        $response = $this->http->post('/api/Access/LoadDriverByNationalCode?NationalCode='.$request->national_code);
+        $response = $this->http->post('LoadDriverByNationalCode?NationalCode='.$request->national_code);
         return $response;
 
     }

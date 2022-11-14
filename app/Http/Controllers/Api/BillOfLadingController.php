@@ -1088,7 +1088,7 @@ class BillOfLadingController extends Controller
     {
 
 
-        $response = $this->http->post('/api/Access/GetBillOfLadingByDriverNationalIDInToday?NationalCode='
+        $response = $this->http->post('GetBillOfLadingByDriverNationalIDInToday?NationalCode='
             . $request->national_code);
         return $response;
     }
@@ -1098,7 +1098,7 @@ class BillOfLadingController extends Controller
     {
 
 
-        $response = $this->http->post('/api/Access/GetBillOfLadingByDriverNationalID?NationalCode='
+        $response = $this->http->post('GetBillOfLadingByDriverNationalID?NationalCode='
             . $request->national_code);
         return $response;
     }
@@ -1108,7 +1108,7 @@ class BillOfLadingController extends Controller
     {
 
 
-        $response = $this->http->post('/api/Access/GetBillsByFreighterPlaque?Iran='
+        $response = $this->http->post('GetBillsByFreighterPlaque?Iran='
             . $request->number_plate_zone . '&Plaque=' . $request->number_plate);
         return $response;
     }
@@ -1118,7 +1118,7 @@ class BillOfLadingController extends Controller
     {
 
 
-        $response = $this->http->post('/api/Access/GetBillsByFreighterCardNumberInToday?CardNumber='
+        $response = $this->http->post('GetBillsByFreighterCardNumberInToday?CardNumber='
             . $request->card_number);
         return $response;
     }
@@ -1128,7 +1128,7 @@ class BillOfLadingController extends Controller
     {
 
 
-        $response = $this->http->post('/api/Access/RevocationBillOfLadingByNumberAndSerial?Serial='
+        $response = $this->http->post('RevocationBillOfLadingByNumberAndSerial?Serial='
             . $request->serial . '&BillNumber=' . $request->bill_number);
 
         return $response;

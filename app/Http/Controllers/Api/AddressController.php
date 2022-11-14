@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AddressResource;
+use App\Library\Http\HttpClient;
 use App\Library\Http\HttpClientFactory;
 use App\Models\Address;
 use Illuminate\Http\Request;
@@ -11,6 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AddressController extends Controller
 {
+    protected $http;
+    public function __construct(HttpClient $http)
+    {
+        $this->http = $http;
+    }
     /**
      * @OA\Get(
      *   path="/api/addresses",
@@ -284,8 +290,8 @@ class AddressController extends Controller
     public function loadAddressByPostalCode(Request $request)
     {
 
-        $http = HttpClientFactory::make();
-        $response = $http->post('/api/access/LoadAddressByPostalCode?PostalCode='
+        // $http = HttpClientFactory::make();
+        $response = $this->http->post('LoadAddressByPostalCode?PostalCode='
             . $request->postal_code);
         return $response;
     }

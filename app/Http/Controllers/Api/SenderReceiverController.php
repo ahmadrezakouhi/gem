@@ -330,7 +330,7 @@ class SenderReceiverController extends Controller
     public function loadNameByNationalCode(Request $request)
     {
 
-        $response = $this->http->post('/api/Access/LoadNameByNationalCode?NationalCode='.$request->national_code.'&IsLegal='.$request->isLegal);
+        $response = $this->http->post('LoadNameByNationalCode?NationalCode='.$request->national_code.'&IsLegal='.$request->isLegal);
         return $response;
     }
 }
