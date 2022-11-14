@@ -4,12 +4,23 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BillOfLadingResource;
+use App\Library\Http\HttpClient;
+use App\Library\Http\HttpClientFactory;
 use App\Models\BillOfLading;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class BillOfLadingController extends Controller
 {
+
+    private $http;
+
+    public function __construct(HttpClient $http)
+    {
+        $this->http = $http;
+    }
+
+
     /**
      * @OA\Get(
      *   path="/api/bill-of-ladings",
@@ -503,8 +514,8 @@ class BillOfLadingController extends Controller
     public function store(Request $request)
     {
 
-        $bill_of_lading = BillOfLading::create($request->all()+['panel_code'=>'123456789']);
-        $this->createBillItemForBillOfLading($bill_of_lading,$request->cargoes);
+        $bill_of_lading = BillOfLading::create($request->all() + ['panel_code' => '123456789']);
+        $this->createBillItemForBillOfLading($bill_of_lading, $request->cargoes);
         return response()->json($bill_of_lading, Response::HTTP_CREATED);
     }
 
@@ -1021,7 +1032,7 @@ class BillOfLadingController extends Controller
     {
 
         $bill_of_lading->billItems()->delete();
-        $this->createBillItemForBillOfLading($bill_of_lading,$request->billItems);
+        $this->createBillItemForBillOfLading($bill_of_lading, $request->billItems);
         $bill_of_lading->update($request->all());
         return response()->json(new BillOfLadingResource($bill_of_lading), Response::HTTP_ACCEPTED);
     }
@@ -1065,9 +1076,92 @@ class BillOfLadingController extends Controller
 
 
 
-    private function createBillItemForBillOfLading(BillOfLading $bill_of_lading, array $billItems){
+    private function createBillItemForBillOfLading(BillOfLading $bill_of_lading, array $billItems)
+    {
         foreach ($billItems as $billItem) {
             $bill_of_lading->billItems()->create($billItem);
         }
+    }
+
+
+    public function getBillOfLadingByDriverNationalIdInToday(Request $request)
+    {
+
+
+        $response = $this->http->post('GetBillOfLadingByDriverNationalIDInToday?NationalCode='
+            . $request->national_code);
+        return $response;
+    }
+
+
+    public function getBillOfLadingByDriverNationalId(Request $request)
+    {
+
+
+        $response = $this->http->post('GetBillOfLadingByDriverNationalID?NationalCode='
+            . $request->national_code);
+        return $response;
+    }
+
+
+    public function getBillsByFreighterPlaque(Request $request)
+    {
+
+
+        $response = $this->http->post('GetBillsByFreighterPlaque?Iran='
+            . $request->number_plate_zone . '&Plaque=' . $request->number_plate);
+        return $response;
+    }
+
+
+    public function getBillsByFreighterCardNumberInToday(Request $request)
+    {
+
+
+        $response = $this->http->post('GetBillsByFreighterCardNumberInToday?CardNumber='
+            . $request->card_number);
+        return $response;
+    }
+
+
+    public function revocationBillOfLadingByNumberAndSerial(Request $request)
+    {
+
+
+        $response = $this->http->post('RevocationBillOfLadingByNumberAndSerial?Serial='
+            . $request->serial . '&BillNumber=' . $request->bill_number);
+
+        return $response;
+    }
+
+
+    public function registerHub(Request $request)
+    {
+
+
+        $response = $this->http->post('/api/Access/RegisterHub?Id='
+            . $request->id);
+        return $response;
+    }
+
+
+    public function loadBillOfLadingByNumberAndSerial(Request $request)
+    {
+
+
+        $response = $this->http->post('/api/Access/LoadBillOfLadingByNumberAndSerial?Serial='
+            . $request->serial . '&BillNumber=' . $request->bill_number);
+
+        return $response;
+    }
+
+
+
+    public function revokeHub(Request $request)
+    {
+
+        $response = $this->http->post('/api/Access/RevokeHub?HubCode='
+            . $request->hub_code);
+        return $response;
     }
 }

@@ -3,12 +3,21 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Library\Http\HttpClient;
+use App\Library\Http\HttpClientFactory;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class VehicleController extends Controller
 {
+
+    private $http;
+
+    public function __construct(HttpClient $http)
+    {
+        $this->http = $http;
+    }
     /**
      * @OA\Get(
      *   path="/api/vehicles",
@@ -30,10 +39,10 @@ class VehicleController extends Controller
      **/
     public function index()
     {
-        return Vehicle::orderBy('id','desc')->paginate();
+        return Vehicle::orderBy('id', 'desc')->paginate();
     }
 
-   /**
+    /**
      * @OA\Post(
      *   path="/api/vehicles",
      *   tags={"vehicles"},
@@ -230,10 +239,10 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         $vehicle = Vehicle::create($request->all());
-        return response($vehicle,Response::HTTP_ACCEPTED);
+        return response($vehicle, Response::HTTP_ACCEPTED);
     }
 
-      /**
+    /**
      * @OA\Get(
      *   path="/api/vehicles/{vehicle}",
      *   tags={"vehicles"},
@@ -265,10 +274,10 @@ class VehicleController extends Controller
      **/
     public function show(Vehicle $vehicle)
     {
-        return response($vehicle,Response::HTTP_ACCEPTED);
+        return response($vehicle, Response::HTTP_ACCEPTED);
     }
 
-     /**
+    /**
      * @OA\Patch(
      *   path="/api/vehicles/{vehicle}",
      *   tags={"vehicles"},
@@ -477,7 +486,7 @@ class VehicleController extends Controller
     public function update(Request $request, Vehicle $vehicle)
     {
         $vehicle->update($request->all());
-        return response($vehicle,Response::HTTP_ACCEPTED);
+        return response($vehicle, Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -513,6 +522,24 @@ class VehicleController extends Controller
     public function destroy(Vehicle $vehicle)
     {
         $vehicle->delete();
-        return response(null,Response::HTTP_NO_CONTENT);
+        return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+
+    public function loadNaviBySmartCardNo(Request $request)
+    {
+
+        $response = $this->http->post('/api/Access/LoadNaviBySmartCardNo?CardNumber='
+            . $request->card_number);
+
+        return $response;
+    }
+
+    public function loadNaviBySmartCardNoFull(Request $request)
+    {
+
+        $response = $this->http->post('/api/Access/LoadNaviBySmartCardNoFull?CardNumber='
+            . $request->card_number);
+        return $response;
     }
 }

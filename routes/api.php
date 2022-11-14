@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\ShortcutController;
 use App\Http\Controllers\Api\TariffController;
 use App\Http\Controllers\Api\TransportCotractController;
 use App\Http\Controllers\Api\UserController;
+use App\Models\BillOfLading;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,55 +38,141 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::apiResource('companies',CompanyController::class);
+Route::apiResource('companies', CompanyController::class);
 
-Route::apiResource('drivers',DriverController::class);
+Route::apiResource('drivers', DriverController::class);
 
-Route::apiResource('senders-receivers',SenderReceiverController::class,
-['parameters' => [
-    'senders-receivers' => 'sender_receiver'
-]]);
+Route::prefix('drivers')->group(function () {
 
-Route::apiResource('addresses',AddressController::class);
+    Route::post(
+        'load-driver-by-national-code',
+        [DriverController::class, 'loadDriverByNationalCode']
+    );
+});
 
-Route::apiResource('vehicles',VehicleController::class);
+Route::apiResource(
+    'senders-receivers',
+    SenderReceiverController::class,
+    ['parameters' => [
+        'senders-receivers' => 'sender_receiver'
+    ]]
+);
 
-Route::apiResource('drafts',DraftController::class);
+Route::prefix('senders-receivers')->group(function () {
 
-Route::apiResource('fields',FieldController::class);
+    Route::post(
+        'load-name-by-national-code',
+        [SenderReceiverController::class, 'loadNameByNationalCode']
+    );
+});
 
-Route::apiResource('bill-of-ladings',BillOfLadingController::class);
+Route::apiResource('addresses', AddressController::class);
+
+Route::prefix('addresses')->group(function () {
+
+    Route::post(
+        'load-address-by-postal-code',
+        [AddressController::class, 'loadAddressByPostalCode']
+    );
+});
+
+Route::apiResource('vehicles', VehicleController::class);
 
 
-Route::get('insurances/active',[InsuranceController::class ,'getInsurancesActive'])->name('insurnases.active');
+Route::prefix('vehicles')->group(function () {
+
+    Route::post('load-navi-by-smart-card-no', [
+        VehicleController::class, 'loadNaviBySmartCardNo'
+    ]);
+
+    Route::post('load-navi-by-smart-card-no-full', [
+        VehicleController::class, 'loadNaviBySmartCardNoFull'
+    ]);
+});
+
+Route::apiResource('drafts', DraftController::class);
+
+Route::apiResource('fields', FieldController::class);
+
+Route::apiResource('bill-of-ladings', BillOfLadingController::class);
+
+Route::prefix('bill-of-ladings')->group(function () {
+
+    Route::post(
+        'get-bill-of-lading-by-driver-national-id-in-today',
+        [BillOfLadingController::class, 'getBillOfLadingByDriverNationalIdInToday']
+    );
+
+    Route::post(
+        'get-bill-of-lading-by-driver-national-id',
+        [BillOfLadingController::class, 'getBillOfLadingByDriverNationalId']
+    );
+
+    Route::post(
+        'get-bills-by-freighter-plaque',
+        [BillOfLadingController::class, 'getBillsByFreighterPlaque']
+    );
+
+    Route::post(
+        'get-bills-by-freighter-card-number-in-today',
+        [BillOfLadingController::class, 'getBillsByFreighterCardNumberInToday']
+    );
+
+
+
+    Route::post(
+        'revocation-bill-of-lading-by-number-and-serial',
+        [BillOfLadingController::class, 'revocationBillOfLadingByNumberAndSerial']
+    );
+
+    Route::post(
+        'register-hub',
+        [BillOfLadingController::class, 'registerHub']
+    );
+
+    Route::post(
+        'load-bill-of-lading-by-number-and-serial',
+        [BillOfLadingController::class, 'loadBillOfLadingByNumberAndSerial']
+    );
+    Route::post(
+        'revoke-hub',
+        [BillOfLadingController::class, 'revokeHub']
+    );
+});
+
+
+Route::get('insurances/active', [InsuranceController::class, 'getInsurancesActive'])->name('insurnases.active');
 
 // Route::prefix('insurances')->group(function(){
-    Route::apiResource('insurances',InsuranceController::class);
+Route::apiResource('insurances', InsuranceController::class);
 // });
 
-Route::apiResource('tariffs',TariffController::class);//->except('index');
+Route::apiResource('tariffs', TariffController::class); //->except('index');
 
 // Route::get('insurances/{insurance}/tariffs',[TariffController::class,'index']);
 
-Route::get('insurance-companies',[InsuranceCompanyController::class,'index']);
+Route::get('insurance-companies', [InsuranceCompanyController::class, 'index']);
 
-Route::apiResource('bill-items',BillitemController::class);
+Route::apiResource('bill-items', BillitemController::class);
 
-Route::apiResource('drafts-bill-of-ladings',DraftBillOfLadingController::class,
-['parameters' => [
-    'drafts-bill-of-ladings' => 'draft_bill_of_lading'
-]]);
+Route::apiResource(
+    'drafts-bill-of-ladings',
+    DraftBillOfLadingController::class,
+    ['parameters' => [
+        'drafts-bill-of-ladings' => 'draft_bill_of_lading'
+    ]]
+);
 
-Route::apiResource('transport-contracts',TransportCotractController::class);
+Route::apiResource('transport-contracts', TransportCotractController::class);
 
-Route::apiResource('users',UserController::class);
+Route::apiResource('users', UserController::class);
 
-Route::apiResource('orders',OrderController::class);
+Route::apiResource('orders', OrderController::class);
 
-Route::apiResource('kartexes',KartexController::class);
+Route::apiResource('kartexes', KartexController::class);
 
-Route::apiResource('owners',OwnerController::class);
+Route::apiResource('owners', OwnerController::class);
 
-Route::apiResource('shortcuts',ShortcutController::class);
+Route::apiResource('shortcuts', ShortcutController::class);
 
-Route::apiResource('bill-pays',BillPayController::class);
+Route::apiResource('bill-pays', BillPayController::class);
