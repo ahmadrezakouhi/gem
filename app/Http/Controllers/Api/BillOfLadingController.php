@@ -515,7 +515,7 @@ class BillOfLadingController extends Controller
     {
 
         $bill_of_lading = BillOfLading::create($request->all() + ['panel_code' => '123456789']);
-        $this->createBillItemForBillOfLading($bill_of_lading, $request->cargoes);
+        $this->createBillItemForBillOfLading($bill_of_lading, $request->bill_items);
         return response()->json($bill_of_lading, Response::HTTP_CREATED);
     }
 
@@ -1011,7 +1011,7 @@ class BillOfLadingController extends Controller
      *     ),
      *   ),
      *
-     *cargoes
+     *
      *
      *
      *
@@ -1082,7 +1082,7 @@ class BillOfLadingController extends Controller
             $bill_of_lading->billItems()->create($billItem);
         }
     }
-
+ 
 
     public function getBillOfLadingByDriverNationalIdInToday(Request $request)
     {
