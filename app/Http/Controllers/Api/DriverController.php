@@ -491,7 +491,42 @@ class DriverController extends Controller
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 
-
+ /**
+     * @OA\Post(
+     *   path="/api/drivers/load-driver-by-national-code",
+     *   tags={"drivers"},
+     *   summary="loading driver by national code",
+     *       description="loading driver by national code",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="national_code",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
     public function loadDriverByNationalCode(Request $request ){
 
 

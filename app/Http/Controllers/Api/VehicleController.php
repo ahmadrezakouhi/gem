@@ -526,19 +526,94 @@ class VehicleController extends Controller
     }
 
 
+    /**
+     * @OA\Post(
+     *   path="/api/vehicles/load-navi-by-smart-card-no",
+     *   tags={"vehicles"},
+     *   summary="loading vehicle by smart card number ",
+     *       description="loading vehicle by smart card number ",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="card_number",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
+
     public function loadNaviBySmartCardNo(Request $request)
     {
 
-        $response = $this->http->post('/api/Access/LoadNaviBySmartCardNo?CardNumber='
+        $response = $this->http->post('LoadNaviBySmartCardNo?CardNumber='
             . $request->card_number);
 
         return $response;
     }
 
+    /**
+     * @OA\Post(
+     *   path="/api/vehicles/load-navi-by-smart-card-no-full",
+     *   tags={"vehicles"},
+     *   summary="loading vehicle by smart card number full",
+     *       description="loading vehicle by smart card number full",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="card_number",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
+
+
     public function loadNaviBySmartCardNoFull(Request $request)
     {
 
-        $response = $this->http->post('/api/Access/LoadNaviBySmartCardNoFull?CardNumber='
+        $response = $this->http->post('LoadNaviBySmartCardNoFull?CardNumber='
             . $request->card_number);
         return $response;
     }

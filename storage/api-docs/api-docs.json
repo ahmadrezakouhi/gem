@@ -209,6 +209,42 @@
                 }
             }
         },
+        "/api/addresses/load-address-by-postal-code": {
+            "post": {
+                "tags": [
+                    "addresses"
+                ],
+                "summary": "loading address by postal code",
+                "description": "loading address by postal code",
+                "operationId": "4f601287d15776a4674b7ae1acee05b5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "postal_code": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
         "/api/bill-items": {
             "get": {
                 "tags": [
@@ -1373,6 +1409,303 @@
                                         "type": "string"
                                     },
                                     "sc_field_12": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-of-ladings/get-bill-of-lading-by-driver-national-id-in-today": {
+            "post": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "get bill of lading by driver national id today",
+                "description": "get bill of lading by driver national id today",
+                "operationId": "a567b00f85ca82b90636dbdf8e26abba",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "national_code": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-of-ladings/get-bill-of-lading-by-driver-national-id": {
+            "post": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "get bill of lading by driver national id ",
+                "description": "get bill of lading by driver national id ",
+                "operationId": "1987bd7ef2c7ced3119009e7f15bc97f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "national_code": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-of-ladings/get-bills-by-freighter-plaque": {
+            "post": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "get bills by number plate",
+                "description": "get bills by number plate",
+                "operationId": "751f97ac402c56c191bae4d14ccb05a4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "number_plate_zone": {
+                                        "type": "string"
+                                    },
+                                    "number_plate": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-of-ladings/get-bills-by-freighter-card-number-in-today": {
+            "post": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "get bills by freighter card number today",
+                "description": "get bills by freighter card number today",
+                "operationId": "ee55ddd109384fca786934cb73dc4ebf",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "card_number": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-of-ladings/revocation-bill-of-lading-by-number-and-serial": {
+            "post": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "revocation bill of lading by number and serial",
+                "description": "revocation bill of lading by number and serial",
+                "operationId": "b2b67c31783119f313a5b4382e867ad0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "serial": {
+                                        "type": "string"
+                                    },
+                                    "bill_number": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-of-ladings/register-hub": {
+            "post": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "register hub",
+                "description": "register hub",
+                "operationId": "130e85e6ab569bdec330e7396c93fa1e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-of-ladings/load-bill-of-lading-by-number-and-serial": {
+            "post": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "loading bill of lading by number and serial",
+                "description": "loading bill of lading by number and serial",
+                "operationId": "8ab1cfd140c08420d5210c52a927744a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "serial": {
+                                        "type": "string"
+                                    },
+                                    "bill_number": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-of-ladings/revoke-hub": {
+            "post": {
+                "tags": [
+                    "bill-of-ladings"
+                ],
+                "summary": "revoke hub",
+                "description": "revoke hub",
+                "operationId": "529d420406fff2d3c2c564da67e7ee4f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "hub_code": {
                                         "type": "string"
                                     }
                                 },
@@ -2852,6 +3185,42 @@
                 "responses": {
                     "202": {
                         "description": "Success accept",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/drivers/load-driver-by-national-code": {
+            "post": {
+                "tags": [
+                    "drivers"
+                ],
+                "summary": "loading driver by national code",
+                "description": "loading driver by national code",
+                "operationId": "ec44439ebc12819538e2273bb9354d8c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "national_code": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
                         "content": {
                             "application/json": {}
                         }
@@ -4514,6 +4883,46 @@
                 }
             }
         },
+        "/api/senders-receivers/load-name-by-national-code": {
+            "post": {
+                "tags": [
+                    "senders-receivers"
+                ],
+                "summary": "loading name by national code",
+                "description": "loading name by national code",
+                "operationId": "4e4fdf5215f444169dc6b683578f4003",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "national_code": {
+                                        "type": "string"
+                                    },
+                                    "isLegal": {
+                                        "type": "string",
+                                        "default": "false"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
         "/api/shortcuts": {
             "get": {
                 "tags": [
@@ -5625,6 +6034,78 @@
                                     },
                                     "owner_status": {
                                         "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/vehicles/load-navi-by-smart-card-no": {
+            "post": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "loading vehicle by smart card number ",
+                "description": "loading vehicle by smart card number ",
+                "operationId": "8070ec1d62b5acdd1ba9f0a69ce5d9e0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "card_number": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/vehicles/load-navi-by-smart-card-no-full": {
+            "post": {
+                "tags": [
+                    "vehicles"
+                ],
+                "summary": "loading vehicle by smart card number full",
+                "description": "loading vehicle by smart card number full",
+                "operationId": "e2a9105b98ffee20fe79cb1e0e00c110",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "card_number": {
+                                        "type": "string"
                                     }
                                 },
                                 "type": "object"

@@ -327,6 +327,52 @@ class SenderReceiverController extends Controller
         }
     }
 
+
+/**
+     * @OA\Post(
+     *   path="/api/senders-receivers/load-name-by-national-code",
+     *   tags={"senders-receivers"},
+     *   summary="loading name by national code",
+     *       description="loading name by national code",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="national_code",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="isLegal",
+     *           type="string",
+     *           default="false",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
+
+
+
+
     public function loadNameByNationalCode(Request $request)
     {
 

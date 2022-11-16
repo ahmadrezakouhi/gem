@@ -285,6 +285,42 @@ class AddressController extends Controller
         return response(null, Response::HTTP_NO_CONTENT);
     }
 
+    /**
+     * @OA\Post(
+     *   path="/api/addresses/load-address-by-postal-code",
+     *   tags={"addresses"},
+     *   summary="loading address by postal code",
+     *       description="loading address by postal code",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="postal_code",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
 
 
     public function loadAddressByPostalCode(Request $request)
@@ -293,6 +329,6 @@ class AddressController extends Controller
         // $http = HttpClientFactory::make();
         $response = $this->http->post('LoadAddressByPostalCode?PostalCode='
             . $request->postal_code);
-        return $response;
+        return response(['address'=>$response->FullAddress],Response::HTTP_ACCEPTED);
     }
 }

@@ -1082,8 +1082,43 @@ class BillOfLadingController extends Controller
             $bill_of_lading->billItems()->create($billItem);
         }
     }
- 
 
+  /**
+     * @OA\Post(
+     *   path="/api/bill-of-ladings/get-bill-of-lading-by-driver-national-id-in-today",
+     *   tags={"bill-of-ladings"},
+     *   summary="get bill of lading by driver national id today",
+     *       description="get bill of lading by driver national id today",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="national_code",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
     public function getBillOfLadingByDriverNationalIdInToday(Request $request)
     {
 
@@ -1093,7 +1128,42 @@ class BillOfLadingController extends Controller
         return $response;
     }
 
-
+/**
+     * @OA\Post(
+     *   path="/api/bill-of-ladings/get-bill-of-lading-by-driver-national-id",
+     *   tags={"bill-of-ladings"},
+     *   summary="get bill of lading by driver national id ",
+     *       description="get bill of lading by driver national id ",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="national_code",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
     public function getBillOfLadingByDriverNationalId(Request $request)
     {
 
@@ -1103,6 +1173,48 @@ class BillOfLadingController extends Controller
         return $response;
     }
 
+
+
+    /**
+     * @OA\Post(
+     *   path="/api/bill-of-ladings/get-bills-by-freighter-plaque",
+     *   tags={"bill-of-ladings"},
+     *   summary="get bills by number plate",
+     *       description="get bills by number plate",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="number_plate_zone",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="number_plate",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
 
     public function getBillsByFreighterPlaque(Request $request)
     {
@@ -1114,6 +1226,43 @@ class BillOfLadingController extends Controller
     }
 
 
+    /**
+     * @OA\Post(
+     *   path="/api/bill-of-ladings/get-bills-by-freighter-card-number-in-today",
+     *   tags={"bill-of-ladings"},
+     *   summary="get bills by freighter card number today",
+     *       description="get bills by freighter card number today",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="card_number",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
+
     public function getBillsByFreighterCardNumberInToday(Request $request)
     {
 
@@ -1122,6 +1271,48 @@ class BillOfLadingController extends Controller
             . $request->card_number);
         return $response;
     }
+
+
+    /**
+     * @OA\Post(
+     *   path="/api/bill-of-ladings/revocation-bill-of-lading-by-number-and-serial",
+     *   tags={"bill-of-ladings"},
+     *   summary="revocation bill of lading by number and serial",
+     *       description="revocation bill of lading by number and serial",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="serial",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="bill_number",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
 
 
     public function revocationBillOfLadingByNumberAndSerial(Request $request)
@@ -1135,6 +1326,44 @@ class BillOfLadingController extends Controller
     }
 
 
+    /**
+     * @OA\Post(
+     *   path="/api/bill-of-ladings/register-hub",
+     *   tags={"bill-of-ladings"},
+     *   summary="register hub",
+     *       description="register hub",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="id",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
+
+
     public function registerHub(Request $request)
     {
 
@@ -1143,6 +1372,49 @@ class BillOfLadingController extends Controller
             . $request->id);
         return $response;
     }
+
+
+
+    /**
+     * @OA\Post(
+     *   path="/api/bill-of-ladings/load-bill-of-lading-by-number-and-serial",
+     *   tags={"bill-of-ladings"},
+     *   summary="loading bill of lading by number and serial",
+     *       description="loading bill of lading by number and serial",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="serial",
+     *           type="string",
+     *         ),
+     *          @OA\Property(
+     *           property="bill_number",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
 
 
     public function loadBillOfLadingByNumberAndSerial(Request $request)
@@ -1154,6 +1426,44 @@ class BillOfLadingController extends Controller
 
         return $response;
     }
+
+
+    /**
+     * @OA\Post(
+     *   path="/api/bill-of-ladings/revoke-hub",
+     *   tags={"bill-of-ladings"},
+     *   summary="revoke hub",
+     *       description="revoke hub",
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="hub_code",
+     *           type="string",
+     *         ),
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
 
 
 
