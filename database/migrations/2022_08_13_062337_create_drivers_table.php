@@ -34,6 +34,7 @@ return new class extends Migration
             $table->integer('vehicle_smart_number')->nullable();
             $table->timestamp('birth_date')->nullable();
             $table->string('city_of_birth')->nullable();
+            $table->string('city_of_birth_code')->nullable();
             $table->string('city_of_driver_licence')->nullable();
             $table->tinyInteger('allowed_vehicle_type')->nullable();
             $table->boolean('status')->default(0);
