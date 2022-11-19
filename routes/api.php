@@ -185,6 +185,12 @@ Route::apiResource('transport-contracts', TransportCotractController::class);
 
 Route::apiResource('users', UserController::class);
 
+Route::prefix('users')->group(function(){
+
+    Route::post('update-password',[UserController::class , 'updatePassword']);
+
+});
+
 Route::apiResource('orders', OrderController::class);
 
 Route::apiResource('kartexes', KartexController::class);
