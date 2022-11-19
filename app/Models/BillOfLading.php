@@ -14,7 +14,10 @@ class BillOfLading extends Model
     protected $casts = [
         'Bill_ApplyTime' => 'datetime',
         'Haab_TarikheSanad' => 'datetime',
-        'Bill_ArrivalDate' => 'datetime'
+        'Bill_ArrivalDate' => 'datetime',
+        'Bill_IsAfterDelivered' => 'boolean',
+        'Bill_IsRobari' => 'boolean' ,
+        'Bill_IsReturned' => 'boolean'
     ];
 
 
