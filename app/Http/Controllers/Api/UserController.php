@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -325,6 +326,19 @@ class UserController extends Controller
     {
         $user->delete();
         return response()->json(null,Response::HTTP_NO_CONTENT);
+    }
+
+
+
+    public function updatePassword(Request $request){
+
+        // $user = Auth::user();
+
+        $user = User::find(1)->update([
+            'password' => Hash::make($request->password)
+        ]);
+        return response()->json(null,Response::HTTP_ACCEPTED);
+
     }
 }
 
