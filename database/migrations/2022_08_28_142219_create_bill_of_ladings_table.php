@@ -26,8 +26,8 @@ return new class extends Migration
             $table->boolean('Bill_IsAfterDelivered')->deflate(false);
             $table->unsignedBigInteger('Bill_UserId')->nullable();
             $table->string('Bill_UserName', 100)->nullable();
-            $table->unsignedBigInteger('Bill_OriginCode')->nullable();
-            $table->unsignedBigInteger('Bill_DestinationCode')->nullable();
+            $table->unsignedBigInteger('S_OriginCode')->nullable();
+            $table->unsignedBigInteger('R_DestinationCode')->nullable();
             $table->unsignedBigInteger('Bill_CheckListSerial')->nullable();
             $table->unsignedSmallInteger('Bill_BranchCode')->nullable();
             $table->unsignedBigInteger('Bill_ContractNumber')->nullable();
@@ -60,7 +60,7 @@ return new class extends Migration
             $table->string('S_LastName')->nullable();
             $table->string('S_NationalCode', 11)->nullable();
             $table->string('S_PostCode', 10)->nullable();
-            $table->string('S_OriginCity')->nullable();
+            $table->string('S_OriginTitle')->nullable();
             $table->string('S_Address', 500)->nullable();
             $table->string('S_EconomicNumber', 20)->nullable();
             $table->string('S_Tel')->nullable();
@@ -70,7 +70,7 @@ return new class extends Migration
             $table->string('R_LastName')->nullable();
             $table->string('R_NationalCode', 11)->nullable();
             $table->string('R_PostCode', 10)->nullable();
-            $table->string('R_DestinationCity')->nullable();
+            $table->string('R_DestinationTitle')->nullable();
             $table->string('R_Address', 500)->nullable();
             $table->string('R_EconomicNumber', 20)->nullable();
             $table->string('R_Tel')->nullable();
@@ -134,6 +134,7 @@ return new class extends Migration
             $table->string('Bill_D1OneTimePassword')->nullable();
             $table->string('Bill_NOneTimePassword')->nullable();
             $table->unsignedBigInteger('Bill_ElambarPermission')->nullable();
+            $table->string('Bill_IranTitle',50)->nullable();
             $table->timestamps();
         });
     }
