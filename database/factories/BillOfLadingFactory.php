@@ -43,8 +43,8 @@ class BillOfLadingFactory extends Factory
             'Bill_IsAfterDelivered' => fake()->boolean(),
             'Bill_UserId' => $user->id,
             'Bill_UserName' => $user->username,
-            'Bill_OriginCode' => fake()->numerify('####'),
-            'Bill_DestinationCode' => fake()->numerify('####'),
+            'S_OriginCode' => fake()->numerify('####'),
+            'R_DestinationCode' => fake()->numerify('####'),
             'Bill_CheckListSerial' => fake()->numerify('######'),
             'Bill_BranchCode' => fake()->numberBetween(1,9),
             'Bill_ContractNumber' => $transport_contract->contract_number,
@@ -77,7 +77,7 @@ class BillOfLadingFactory extends Factory
             'S_LastName' => $sender->last_name,
             'S_NationalCode' => $sender->national_code,
             'S_PostCode' => $sender->postal_code,
-            'S_OriginCity' => $sender->city,
+            'S_OriginTitle' => $sender->city,
             'S_Address' => $sender->address,
             'S_EconomicNumber' => $sender->economic_code,
             'S_Tel' => $sender->tel,
@@ -87,7 +87,7 @@ class BillOfLadingFactory extends Factory
             'R_LastName' => $receiver->last_name,
             'R_NationalCode' => $receiver->national_code,
             'R_PostCode' => $receiver->postal_code,
-            'R_DestinationCity' => $receiver->city,
+            'R_DestinationTitle' => $receiver->city,
             'R_Address' => $receiver->address,
             'R_EconomicNumber' => $receiver->economic_code,
             'R_Tel' => $receiver->tel,
@@ -150,6 +150,7 @@ class BillOfLadingFactory extends Factory
             'Bill_D1OneTimePassword' => fake()->password(),
             'Bill_NOneTimePassword' => fake()->password() ,
             'Bill_ElambarPermission' => fake()->numerify('########'),
+            'Bill_IranTitle' => Faker::word(),
 
 
         ];
