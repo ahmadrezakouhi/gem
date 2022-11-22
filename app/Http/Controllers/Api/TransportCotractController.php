@@ -34,12 +34,7 @@ class TransportCotractController extends Controller
         return TransportContract::orderBy('id','desc')->get();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $transport_contract = TransportContract::create($request->all()+['panel_code'=>'123456789']);
@@ -81,13 +76,9 @@ class TransportCotractController extends Controller
         return response()->json($transport_contract,Response::HTTP_ACCEPTED);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
+    
     public function update(Request $request, TransportContract $transport_contract)
     {
         $transport_contract->update($request->all());
