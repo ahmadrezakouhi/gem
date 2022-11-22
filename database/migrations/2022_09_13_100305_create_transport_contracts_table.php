@@ -23,7 +23,6 @@ return new class extends Migration
             $table->timestamp('ContractDate')->nullable();
             $table->double('CommissionPercent',5,2)->nullable();
             $table->string('Customer')->nullable();
-            // $table->string('customer_last_name')->nullable();
             $table->double('ComplementaryPercent',5,2)->nullable();
             $table->text('Description')->nullable();
             $table->boolean('IsActive')->default(false);
