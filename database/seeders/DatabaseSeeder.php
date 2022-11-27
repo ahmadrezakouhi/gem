@@ -24,11 +24,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        Company::factory(20)->create();
-        $this->call([
-            CompanySeeder::class
-        ]);
-        Driver::factory(20)->create();
+
+        // Driver::factory(20)->create();
+        $this->call(CompanySeeder::class);
         SenderReceiver::factory(20)->create();
         Address::factory(60)->create();
         Vehicle::factory(20)->create();
@@ -56,5 +54,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        // $companies = Company::all();
+        // Driver::all()->each(function($driver)use ($companies){
+        //     $driver->companies()->attach(
+        //         $companies->random(rand(1,3))->pluck('panel_code')
+        //     );
+        // });
     }
 }
