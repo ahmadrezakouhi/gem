@@ -25,6 +25,7 @@ class Driver extends Model
 
     public function companies()
     {
-        return $this->belongsToMany(Company::class, 'company_driver','driver_id','panel_code');
+        return $this->belongsToMany(Company::class, 'company_driver','driver_id','panel_code')
+        ->using(CompanyDriver::class);
     }
 }
