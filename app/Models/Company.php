@@ -9,10 +9,13 @@ class Company extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $primaryKey = 'panel_code';
+    public $incrementing = false;
 
     public function drivers()
     {
-        return $this->belongsToMany(Driver::class, 'company_driver', 'panel_code', 'driver_id');
+        return $this->belongsToMany(Driver::class, 'company_driver', 'panel_code', 'driver_id')
+        ->using(CompanyDriver::class);
     }
 
     public function vehicles()
