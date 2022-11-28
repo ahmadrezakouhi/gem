@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Driver;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Http\Resources\DriverResource;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,7 +34,8 @@ class DriverController extends Controller
 
     public function index()
     {
-        return  Driver::orderBy('id','desc')->paginate();
+        // return  Driver::orderBy('id','desc')->paginate();
+        return DriverResource::collection( Company::find(123456789)->drivers);
     }
 
    /**
