@@ -13,6 +13,7 @@ use App\Models\SenderReceiver;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
+use Ybazli\Faker\Facades\Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,9 +25,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-
-        // Driver::factory(20)->create();
-        $this->call(CompanySeeder::class);
+        // Company::factory(20)->create();
+        $this->call([CompanySeeder::class]);
+        Driver::factory(20)->create();
         SenderReceiver::factory(20)->create();
         Address::factory(60)->create();
         Vehicle::factory(20)->create();
@@ -55,11 +56,33 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // $companies = Company::all();
-        // Driver::all()->each(function($driver)use ($companies){
-        //     $driver->companies()->attach(
-        //         $companies->random(rand(1,3))->pluck('panel_code')
-        //     );
-        // });
+        $companies = Company::all();
+        Driver::all()->each(function($driver)use ($companies){
+            $driver->companies()->attach(
+                $companies->random(rand(1,3))->pluck('panel_code'),[
+                'personal_code' => fake()->numerify('######'),
+                'health_card_number' => fake()->numerify('######') ,
+                'health_card_expire' => fake()->iso8601() ,
+                'insurance_number' => fake()->numerify('######'),
+                'vehicle_smart_number' => fake()->numerify('#####') ,
+                'birth_date' => fake()->iso8601() ,
+                'city_of_driver_licence' => fake()->numerify('####'),
+                'allowed_vehicle_type' => fake()->numberBetween(1,2) ,
+                'birth_city_title' => Faker::city() ,
+                'status' => fake()->boolean() ,
+                'country_code' => fake()->numerify() ,
+                'country' => Faker::word() ,
+                'phones' => Faker::mobile() ,
+                'postal_code' => fake()->numerify('########') ,
+                'start_activity' => fake()->iso8601() ,
+                'address' => Faker::address(),
+                'province' => Faker::state() ,
+                'city' => Faker::city(),
+                'education' => Faker::word() ,
+                'IBAN' => fake()->numerify('########') ,
+                'description' => Faker::sentence(),
+                ]
+            );
+        });
     }
 }
