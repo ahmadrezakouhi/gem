@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 
 class Company extends Model
 {
@@ -14,8 +15,9 @@ class Company extends Model
 
     public function drivers()
     {
+        $columns = Schema::getColumnListing('company_driver');
         return $this->belongsToMany(Driver::class, 'company_driver', 'panel_code', 'driver_id')
-        ->using(CompanyDriver::class);
+        ->using(CompanyDriver::class)->withPivot($columns)->as('company_driver_info');
     }
 
     public function vehicles()
