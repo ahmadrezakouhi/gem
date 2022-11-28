@@ -21,6 +21,8 @@ class Driver extends Model
         'last_inquiry_date' => 'datetime',
     ];
 
+    protected $hidden = ['company_driver_info'];
+
 
 
     public function companies()
