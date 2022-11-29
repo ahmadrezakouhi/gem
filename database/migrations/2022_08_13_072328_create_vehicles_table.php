@@ -23,13 +23,12 @@ return new class extends Migration
             $table->string('VIN',50)->nullable();
             $table->tinyInteger('allowed_driver_licence')->nullable();
             $table->string('vehicle_type',50)->nullable();
-            $table->date('driver_licence')->nullable();
+            $table->date('driver_licence_expire')->nullable();
             $table->string('owner_phone')->nullable();
             $table->unsignedBigInteger('numbering_location_code')->nullable();
             $table->string('numbering_location')->nullable();
             $table->string('smart_number',10)->nullable();
             $table->timestamp('smart_number_expire')->nullable();
-            $table->string('owner_mobile',20)->nullable();
             $table->integer('production')->nullable();
             $table->integer('loading_type_code')->nullable();
             $table->string('loading_type_title',255)->nullable();
