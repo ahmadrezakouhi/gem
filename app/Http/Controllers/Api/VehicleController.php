@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\VehicleResource;
+use App\Models\Company;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +32,8 @@ class VehicleController extends Controller
      **/
     public function index()
     {
-        return Vehicle::orderBy('id','desc')->paginate();
+        // return Vehicle::orderBy('id','desc')->paginate();
+        return VehicleResource::collection(Company::find(123456789)->vehicles()->orderBy('id','desc')->paginate());
     }
 
    /**
