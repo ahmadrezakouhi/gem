@@ -16,6 +16,8 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
+
+        Company::factory(20)->create();
         Company::create([
             'panel_code'=>fake()->numerify('123456789'),
             'name'=>'پیش فرض',
