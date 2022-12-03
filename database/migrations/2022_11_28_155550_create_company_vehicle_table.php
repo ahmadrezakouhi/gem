@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('brand_title',50)->nullable();
             $table->bigInteger('type_code')->nullable();
             $table->string('type_title',255)->nullable();
+            $table->string('vehicle_type')->nullable();
             $table->integer('number_of_allowed_draft')->default(0)->unsigned();
             $table->integer('day_of_allowed_draft')->default(0)->unsigned();
             $table->integer('number_of_allowed_bill_of_lading')->default(0)->unsigned();
@@ -43,7 +44,7 @@ return new class extends Migration
             $table->tinyInteger('violation')->default(0)->unsigned();
             $table->text('description')->nullable();
             $table->string('engine_number',50)->nullable();
-            $table->timestamp('document_date')->nullable();
+            $table->dateTime('document_date')->nullable();
             $table->tinyInteger('owner_status')->default(0)->unsigned();
             $table->timestamps();
         });
