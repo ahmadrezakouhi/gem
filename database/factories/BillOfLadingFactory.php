@@ -71,6 +71,8 @@ class BillOfLadingFactory extends Factory
             'Bill_SignatureUser' => null,
             'Bill_ArrivalDate' => fake()->iso8601(),
             'Bill_Type' => fake()->numberBetween(1,9),
+            'Bill_ContractNumber' => fake()->numerify('#######'),
+            'Bill_ContractTitle' => Faker::word(),
             'S_Id' => $sender->id,
             'S_TitleName' => $sender->title,
             'S_Name' => $sender->name,
