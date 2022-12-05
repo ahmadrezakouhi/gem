@@ -1032,7 +1032,9 @@ class BillOfLadingController extends Controller
     {
 
         $bill_of_lading->billItems()->delete();
+
         $this->createBillItemForBillOfLading($bill_of_lading, $request->billItems);
+
         $bill_of_lading->update($request->all());
         return response()->json(new BillOfLadingResource($bill_of_lading), Response::HTTP_ACCEPTED);
     }
