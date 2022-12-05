@@ -26,6 +26,7 @@ class UserFactory extends Factory
             // 'email_verified_at' => now(),
             'last_name'=>Faker::lastName(),
             'username'=>fake()->userName(),
+            'printable_username'=> Faker::firstName(),
             'national_code'=>Faker::melliCode(),
             'personal_code'=>fake()->numerify('#########'),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
