@@ -14,8 +14,6 @@ class DriverResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'name'=>$this->name
-        ];
+        return parent::toArray($request) + $this->company_driver_info->toArray();
     }
 }
