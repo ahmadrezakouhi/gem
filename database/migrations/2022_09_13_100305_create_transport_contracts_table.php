@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('panel_code')->index();
             $table->foreign('panel_code')->references('panel_code')->on('companies');
-            $table->string('ContractNumber',20)->nullable();
+            $table->string('ContractNumber',30)->nullable();
             $table->string('ContractTitle')->nullable();
             $table->timestamp('ContractDate')->nullable();
             $table->double('CommissionPercent',5,2)->nullable();
