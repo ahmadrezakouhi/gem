@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\DriverResource;
 use App\Library\Http\HttpClient;
 use App\Library\Http\HttpClientFactory;
+use Morilog\Jalali\Jalalian;
 use Symfony\Component\HttpFoundation\Response;
 class DriverController extends Controller
 {
@@ -533,36 +534,35 @@ class DriverController extends Controller
 
 
         $response = $this->http->post('LoadDriverByNationalCode?NationalCode='.$request->national_code);
-        return response([
+        return Driver::create([
             'name' => $response->Name,
             'last_name' => $response->Family,
             'father_name' => $response->FatherName,
 
-            'city_of_birth_code' => $response->BirthCityCode,
-            'city_of_birth'=> $response->BirthCityName,
+            'birth_city_code' => $response->BirthCityCode,
+            'birth_city_title'=> $response->BirthCityName,
             'smart_number' => $response->CardNumber ,
-            'smart_number_expire' => $response->CardValidationDate->Year
-            .'-'.
-            $response->CardValidationDate->Month
-            .'-'.
-            $response->CardValidationDate->Day
+            'smart_number_expire' => (new Jalalian( $response->CardValidationDate->Year
             ,
+            $response->CardValidationDate->Month
+            ,
+            $response->CardValidationDate->Day
+        ))->toCarbon()->toTimeString(),
 
 
-            'driver_licence_number' => $response->CertifcateIssueCityCode,
-            'driver_licence_city' => $response->CertifcateIssueCityName,
+            'driver_licence_city_code' => $response->CertifcateIssueCityCode,
+            'driver_licence_city_title' => $response->CertifcateIssueCityName,
             'driver_licence_number' => $response->CertifcateNumber,
-            'driver_licence_type' => $response->Driver_Type,
+            'driver_type' => $response->Driver_Type,
 
             'birth_certificate_code' => $response->IdentifierNumber,
             'insurance_branch' => $response->InsuranceBranch,
-            'insurance_number' => $response->InsuranceId,
+            'insurance_Id' => $response->InsuranceId,
             'is_active' => $response->IsActive,
-            'phones' => $response->Mobile,
-            'driver_licence_type_title' => $response->NOVE_GAVAHINAMEH,
-
+            'organization_phones' => $response->Mobile,
+            'driver_licence_type' => $response->NOVE_GAVAHINAMEH,
             'national_code'=>$response->NationalId,
-            'health_card_expire' => $response->TARIKH_ETEBAR_KART_SALAMAT
+            // 'health_card_expire' => $response->TARIKH_ETEBAR_KART_SALAMAT
 
          ]);
 
