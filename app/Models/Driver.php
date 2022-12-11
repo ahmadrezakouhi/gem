@@ -19,6 +19,7 @@ class Driver extends Model
         'is_active' => 'boolean',
         'start_activity' => 'datetime',
         'last_inquiry_date' => 'datetime',
+        'health_card_expire' => 'datetime',
     ];
 
     protected $hidden = ['company_driver_info'];
