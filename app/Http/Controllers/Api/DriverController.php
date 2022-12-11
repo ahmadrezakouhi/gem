@@ -11,6 +11,7 @@ use App\Library\Http\HttpClient;
 use App\Library\Http\HttpClientFactory;
 use Morilog\Jalali\Jalalian;
 use Symfony\Component\HttpFoundation\Response;
+
 class DriverController extends Controller
 {
     private $http;
@@ -43,10 +44,10 @@ class DriverController extends Controller
     public function index()
     {
         // return  Driver::orderBy('id','desc')->paginate();
-        return DriverResource::collection( Company::find(123456789)->drivers);
+        return DriverResource::collection(Company::find(123456789)->drivers);
     }
 
-   /**
+    /**
      * @OA\Post(
      *   path="/api/drivers",
      *   tags={"drivers"},
@@ -224,8 +225,8 @@ class DriverController extends Controller
      **/
     public function store(Request $request)
     {
-       $driver = Driver::create($request->all()+['panel_code'=>'123456789']);
-       return response()->json($driver,Response::HTTP_CREATED);
+        $driver = Driver::create($request->all() + ['panel_code' => '123456789']);
+        return response()->json($driver, Response::HTTP_CREATED);
     }
 
     /**
@@ -263,7 +264,7 @@ class DriverController extends Controller
         return response()->json($driver, Response::HTTP_ACCEPTED);
     }
 
-     /**
+    /**
      * @OA\Patch(
      *   path="/api/drivers/{driver}",
      *   tags={"drivers"},
@@ -453,9 +454,9 @@ class DriverController extends Controller
     {
         $driver_panel_code = $driver->panel_code;
         $inputs = $request->all();
-        $inputs['panel_code']=$driver_panel_code;
+        $inputs['panel_code'] = $driver_panel_code;
         $driver->update($inputs);
-        return response()->json($driver,Response::HTTP_ACCEPTED);
+        return response()->json($driver, Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -494,7 +495,7 @@ class DriverController extends Controller
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 
- /**
+    /**
      * @OA\Post(
      *   path="/api/drivers/load-driver-by-national-code",
      *   tags={"drivers"},
@@ -530,44 +531,45 @@ class DriverController extends Controller
      *   ),
      *)
      **/
-    public function loadDriverByNationalCode(Request $request ){
+    public function loadDriverByNationalCode(Request $request)
+    {
 
 
-        $response = $this->http->post('LoadDriverByNationalCode?NationalCode='.$request->national_code);
-        return Driver::create([
+        $response = $this->http->post('LoadDriverByNationalCode?NationalCode=' . $request->national_code);
+         return new DriverResource (Company::find(123456789)->drivers()->updateOrCreate(
+            ['national_code' => $response->NationalId],
+            [
             'name' => $response->Name,
             'last_name' => $response->Family,
             'father_name' => $response->FatherName,
-
             'birth_city_code' => $response->BirthCityCode,
-            'birth_city_title'=> $response->BirthCityName,
-            'smart_number' => $response->CardNumber ,
-            'smart_number_expire' => (new Jalalian( $response->CardValidationDate->Year
-            ,
-            $response->CardValidationDate->Month
-            ,
-            $response->CardValidationDate->Day
-        ))->toCarbon()->toTimeString(),
-
-
+            'birth_city_title' => $response->BirthCityName,
+            'smart_number' => $response->CardNumber,
+            'smart_number_expire' => (new Jalalian(
+                $response->CardValidationDate->Year,
+                $response->CardValidationDate->Month,
+                $response->CardValidationDate->Day
+            ))->toCarbon()->toDateTimeString(),
             'driver_licence_city_code' => $response->CertifcateIssueCityCode,
             'driver_licence_city_title' => $response->CertifcateIssueCityName,
             'driver_licence_number' => $response->CertifcateNumber,
             'driver_type' => $response->Driver_Type,
-
             'birth_certificate_code' => $response->IdentifierNumber,
             'insurance_branch' => $response->InsuranceBranch,
-            'insurance_Id' => $response->InsuranceId,
+            'insurance_id' => $response->InsuranceId,
             'is_active' => $response->IsActive,
-            'organization_phones' => $response->Mobile,
+            'organization_phone' => $response->Mobile,
             'driver_licence_type' => $response->NOVE_GAVAHINAMEH,
-            'national_code'=>$response->NationalId,
-            // 'health_card_expire' => $response->TARIKH_ETEBAR_KART_SALAMAT
+            'national_code' => $response->NationalId,
+            'health_card_expire' =>(new Jalalian(
+                intval(substr($response->TARIKH_ETEBAR_KART_SALAMAT,0,4)),
+                intval(substr($response->TARIKH_ETEBAR_KART_SALAMAT,4,2)),
+                intval(substr($response->TARIKH_ETEBAR_KART_SALAMAT,6,2))
+            ))->toCarbon()->toDateTimeString(),
 
-         ]);
 
-        // return $response;
+        ]));
+
 
     }
-
 }
