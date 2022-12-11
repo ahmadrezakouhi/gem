@@ -38,6 +38,7 @@ class DriverFactory extends Factory
             'driver_licence_city_title' => Faker::city() ,
             'is_active' => fake()->boolean(),
             'organization_phone' => Faker::mobile(),
+            'health_card_expire' => fake()->iso8601(),
             // 'last_inquiry_date' => fake()->iso8601(),
 
 

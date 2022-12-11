@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('driver_licence_city_title')->nullable(); // CertificateIssueCityName
             $table->boolean('is_active')->default(0);                // IsActive
             $table->string('organization_phone',50)->nullable();     // Mobile
+            $table->dateTime('health_card_expire')->nullable();      // TARIKH_ETEBAR_KART_SALAMAT
             // $table->timestamp('last_inquiry_date')->nullable();
             // $table->string('personal_code',50)->nullable();
             // $table->string('health_card_number',20)->nullable();
