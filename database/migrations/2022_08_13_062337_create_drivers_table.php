@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('driver_licence_number',20)->nullable();  // CertificateNumber
             $table->timestamp('smart_number_expire')->nullable();    // TARIKH_ETEBAR_KART_SALAMAT
             $table->string('driver_type')->nullable();               // Driver_Type
-            $table->tinyInteger('driver_licence_type')->nullable();  // NOVE_GAVEHINAMEH
+            $table->string('driver_licence_type')->nullable();  // NOVE_GAVEHINAMEH
             $table->char('driver_licence_city_code',10)->nullable(); // CertificateIssueCityCode
             $table->string('driver_licence_city_title')->nullable(); // CertificateIssueCityName
             $table->boolean('is_active')->default(0);                // IsActive
