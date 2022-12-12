@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('panel_code')->unique()->unsigned();
+            $table->unsignedBigInteger('panel_code')->unique()->index();
             $table->string('name',100)->nullable();
             $table->string('company_code',20)->nullable();
             $table->string('phone',50)->nullable();

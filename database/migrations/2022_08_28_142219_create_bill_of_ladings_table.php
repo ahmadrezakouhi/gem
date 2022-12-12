@@ -30,7 +30,7 @@ return new class extends Migration
             $table->unsignedBigInteger('R_DestinationCode')->nullable();
             $table->unsignedBigInteger('Bill_CheckListSerial')->nullable();
             $table->unsignedSmallInteger('Bill_BranchCode')->nullable();
-            $table->unsignedBigInteger('Bill_ContractNumber')->nullable();
+            $table->string('Bill_ContractNumber',30)->nullable();
             $table->string('Bill_ContractTitle')->nullable();
             $table->unsignedInteger('Bill_SendToServer')->nullable();
             $table->boolean('Bill_IsRobari')->default(false);
