@@ -27,6 +27,7 @@ class TransportContractFactory extends Factory
             'CommissionPercent' => fake()->randomFloat(2,4,99),
             'Customer' => Faker::firstName(),
             'ComplementaryPercent' => fake()->randomFloat(2,4,99),
+            'TerminalCommission' => fake()->randomFloat(2,4,99),
             'Description' => Faker::paragraph(),
             'IsActive' => fake()->boolean(),
             'IsContractDefault' => fake()->boolean(),
