@@ -154,6 +154,7 @@ Route::apiResource('tariffs', TariffController::class); //->except('index');
 Route::get('insurance-companies', [InsuranceCompanyController::class, 'index']);
 
 Route::apiResource('bill-items', BillitemController::class);
+Route::post('bill-items/insurance-cost',[BillItemController::class,'getInsuranceCost']);
 
 Route::apiResource(
     'drafts-bill-of-ladings',

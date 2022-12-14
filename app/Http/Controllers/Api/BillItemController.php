@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BillItemController extends Controller
 {
-     /**
+    /**
      * @OA\Get(
      *   path="/api/bill-items",
-     *   tags={"bill items"},
+     *   tags={"bill-items"},
      *   summary="get all bill items",
      *       description="get all bill items",
      *   @OA\Response(
@@ -31,13 +31,13 @@ class BillItemController extends Controller
      **/
     public function index()
     {
-        return BillItemResource::collection( BillItem::orderBy('id','desc')->get() );
+        return BillItemResource::collection(BillItem::orderBy('id', 'desc')->get());
     }
 
     /**
      * @OA\Post(
      *   path="/api/bill_items",
-     *   tags={"bill items"},
+     *   tags={"bill-items"},
      *   summary="create bill item",
      *       description="create bill item",
      *
@@ -253,13 +253,13 @@ class BillItemController extends Controller
     public function store(Request $request)
     {
         $bill_item = BillItem::create($request->all());
-        return response()->json($bill_item,Response::HTTP_CREATED);
+        return response()->json($bill_item, Response::HTTP_CREATED);
     }
 
     /**
      * @OA\Get(
      *   path="/api/bill-items/{bill_item}",
-     *   tags={"bill items"},
+     *   tags={"bill-items"},
      *   summary="get bill item by id",
      *       description="get bill item by id",
      *   @OA\Parameter(
@@ -288,13 +288,13 @@ class BillItemController extends Controller
      **/
     public function show(BillItem $bill_item)
     {
-        return response()->json(new BillItemResource($bill_item),Response::HTTP_ACCEPTED);
+        return response()->json(new BillItemResource($bill_item), Response::HTTP_ACCEPTED);
     }
 
-     /**
+    /**
      * @OA\Patch(
      *   path="/api/bill-items/{bill_item}",
-     *   tags={"bill items"},
+     *   tags={"bill-items"},
      *   summary="update bill item",
      *       description="update bill item",
      *   *     @OA\Parameter(
@@ -520,13 +520,13 @@ class BillItemController extends Controller
     public function update(Request $request, BillItem $bill_item)
     {
         $bill_item->update($request->all());
-        return response()->json(new BillItemResource($bill_item),Response::HTTP_ACCEPTED);
+        return response()->json(new BillItemResource($bill_item), Response::HTTP_ACCEPTED);
     }
 
     /**
      * @OA\Delete(
      *   path="/api/bill-items/{bill_item}",
-     *   tags={"bill items"},
+     *   tags={"bill-items"},
      *   summary="delete bill item by id",
      *       description="delete bill item by id",
      *   @OA\Parameter(
@@ -556,6 +556,60 @@ class BillItemController extends Controller
     public function destroy(BillItem $bill_item)
     {
         $bill_item->delete();
-        return response()->json(null , Response::HTTP_NO_CONTENT);
+        return response()->json(null, Response::HTTP_NO_CONTENT);
+    }
+
+
+    /**
+     * @OA\Post(
+     *   path="/api/bill-items/insurance-cost",
+     *   tags={"bill-items"},
+     *   summary="get insurance cost with tax",
+     *       description="get insurance cost with tax",
+     *
+     *
+     *   @OA\RequestBody(
+     *     required=true,
+     *     @OA\MediaType(
+     *       mediaType="application/json",
+     *       @OA\Schema(
+     *          @OA\Property(
+     *           property="bill_item_value",
+     *           type="integer",
+     *         ),
+     *          @OA\Property(
+     *           property="bill_item_type",
+     *           type="integer",
+     *         ),
+     *
+     *       ),
+     *     ),
+     *   ),
+     *
+     *
+     *
+     *
+     *
+     *   @OA\Response(
+     *      response=201,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *)
+     **/
+
+
+    public function getInsuranceCost(Request $request)
+    {
+        return response()->json([
+            'insurance_cost' => getRandomCost(5),
+            'tax' => getRandomCost(3)
+        ]);
     }
 }
