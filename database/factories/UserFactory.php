@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Ybazli\Faker\Facades\Faker;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -18,10 +20,24 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->safeEmail(),
-            'email_verified_at' => now(),
+            'panel_code'=>Company::inRandomOrder()->first()->panel_code,
+            'name' => Faker::firstName(),
+            // 'email' => fake()->safeEmail(),
+            // 'email_verified_at' => now(),
+            'last_name'=>Faker::lastName(),
+            'username'=>fake()->userName(),
+            'national_code'=>Faker::melliCode(),
+            'personal_code'=>fake()->numerify('#########'),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'username_maha' =>fake()->userName(),
+            'password_maha' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'address'=>Faker::address(),
+            'description'=>Faker::paragraph(),
+            'phone'=> fake()->phoneNumber(),
+            'mobile' => Faker::mobile(),
+            'role_code'=> $number = fake()->numberBetween(1,2),
+            'role_title'=> ['admin','user'][--$number],
+            'is_active'=>fake()->boolean(),
             'remember_token' => Str::random(10),
         ];
     }
