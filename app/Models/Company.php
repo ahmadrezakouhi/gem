@@ -15,7 +15,9 @@ class Company extends Model
 
     public function drivers()
     {
-        return $this->hasMany(Driver::class, 'panel_code', 'panel_code');
+        $columns = Schema::getColumnListing('company_driver');
+        return $this->belongsToMany(Driver::class, 'company_driver', 'panel_code', 'driver_id')
+        ->using(CompanyDriver::class)->withPivot($columns)->as('company_driver_info');
     }
 
     public function vehicles()
