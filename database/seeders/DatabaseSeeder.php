@@ -81,7 +81,8 @@ class DatabaseSeeder extends Seeder
                 'IBAN' => fake()->numerify('########') ,
                 'description' => Faker::sentence(),
                 ]
-            );
+                );
+        });
 
 
 
