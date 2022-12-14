@@ -18,7 +18,7 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
-            'sender_receiver_id'=>fake()->unique(10000)->randomElement(SenderReceiver::all()),
+            'sender_receiver_id'=>fake()->unique(1000000)->randomElement(SenderReceiver::all()),
             'province_code'=>fake()->numerify('######'),
             'province_title'=>Faker::state(),
             'city_code'=>fake()->numerify('######'),
