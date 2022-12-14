@@ -24,6 +24,7 @@ return new class extends Migration
             $table->double('CommissionPercent',5,2)->nullable();
             $table->string('Customer')->nullable();
             $table->double('ComplementaryPercent',5,2)->nullable();
+            $table->double('TerminalCommission',5,2)->nullable();
             $table->text('Description')->nullable();
             $table->boolean('IsActive')->default(false);
             $table->boolean('IsContractDefault')->default(false);
@@ -150,6 +151,7 @@ return new class extends Migration
             $table->boolean('R_Elambar')->default(false);
             $table->boolean('R_Unload')->default(false);
             $table->boolean('R_Complementary')->default(false);
+
             // $table->unsignedBigInteger('fixed_cost')->nullable();
             // $table->set('fixed_cost_for_driver',$set_values)->nullable();
             // $table->boolean('is_fixed_cost_for_receiver')->default(false);
