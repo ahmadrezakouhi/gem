@@ -15,14 +15,15 @@ class Company extends Model
 
     public function drivers()
     {
-        $columns = Schema::getColumnListing('company_driver');
-        return $this->belongsToMany(Driver::class, 'company_driver', 'panel_code', 'driver_id')
-        ->using(CompanyDriver::class)->withPivot($columns)->as('company_driver_info');
+        return $this->hasMany(Driver::class, 'panel_code', 'panel_code');
     }
 
     public function vehicles()
     {
-        return $this->hasMany(Vehicle::class, 'panel_code', 'panel_code');
+        $columns = Schema::getColumnListing('company_vehicle');
+
+        return $this->belongsToMany(Vehicle::class, 'company_vehicle', 'panel_code', 'vehicle_id')
+            ->using(CompanyVehicle::class)->withPivot($columns)->as('company_vehicle_info');
     }
 
     public function senders_receivers()

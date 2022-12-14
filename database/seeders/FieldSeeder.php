@@ -2,14 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Company;
-use App\Models\Driver;
+use App\Models\Field;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Ybazli\Faker\Facades\Faker;
 
-
-class DriverSeeder extends Seeder
+class FieldSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,8 +15,6 @@ class DriverSeeder extends Seeder
      */
     public function run()
     {
-
-        Driver::factory(20)->create();
-
+        Field::factory(20)->create();
     }
 }
