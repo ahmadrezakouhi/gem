@@ -248,7 +248,7 @@
         "/api/bill-items": {
             "get": {
                 "tags": [
-                    "bill items"
+                    "bill-items"
                 ],
                 "summary": "get all bill items",
                 "description": "get all bill items",
@@ -269,7 +269,7 @@
         "/api/bill_items": {
             "post": {
                 "tags": [
-                    "bill items"
+                    "bill-items"
                 ],
                 "summary": "create bill item",
                 "description": "create bill item",
@@ -420,7 +420,7 @@
         "/api/bill-items/{bill_item}": {
             "get": {
                 "tags": [
-                    "bill items"
+                    "bill-items"
                 ],
                 "summary": "get bill item by id",
                 "description": "get bill item by id",
@@ -449,7 +449,7 @@
             },
             "delete": {
                 "tags": [
-                    "bill items"
+                    "bill-items"
                 ],
                 "summary": "delete bill item by id",
                 "description": "delete bill item by id",
@@ -478,7 +478,7 @@
             },
             "patch": {
                 "tags": [
-                    "bill items"
+                    "bill-items"
                 ],
                 "summary": "update bill item",
                 "description": "update bill item",
@@ -616,6 +616,45 @@
                                     },
                                     "BI_DeliverUserName": {
                                         "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/bill-items/insurance-cost": {
+            "post": {
+                "tags": [
+                    "bill-items"
+                ],
+                "summary": "get insurance cost with tax",
+                "description": "get insurance cost with tax",
+                "operationId": "84a2a2e9bad0b62576f2fcfd5dada3fd",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "bill_item_value": {
+                                        "type": "integer"
+                                    },
+                                    "bill_item_type": {
+                                        "type": "integer"
                                     }
                                 },
                                 "type": "object"
